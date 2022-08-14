@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+
+        float mouseX = Input.GetAxisRaw("Mouse X");
+
+        transform.Rotate(Vector3.up * mouseX);
     }
     private void PlayerMovement()
     {
