@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private float speed = 18.0f;
     public float mouseSensitivity = 700f;
     private float cameraVerticalRotation;
+    [SerializeField] private GameObject _bulletPrefab;
+    public Transform firePosition;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         PlayerFirstPersonView();
+        FireWeapon();
     }
     private void PlayerMovement()
     {
@@ -52,5 +55,14 @@ public class Player : MonoBehaviour
         // Quaternion is used for rotation
         // Euler returns vector 3 converted into rotations
         mainCameraHead.localRotation = Quaternion.Euler(cameraVerticalRotation, 0f, 0f);
+    }
+    private void FireWeapon()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            GameObject bullet = ObjectPoolManager.Instance.RequestBullet();
+            bullet.transform.position = firePosition.position;
+            bullet.transform.rotation = firePosition.rotation;
+        }
     }
 }
