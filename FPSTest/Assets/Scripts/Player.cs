@@ -42,7 +42,15 @@ public class Player : MonoBehaviour
         float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        transform.Rotate(Vector3.up * mouseX);
+        // Disables look inversion. If you move your mouse up you will look up
         cameraVerticalRotation -= mouseY;
+        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+
+        transform.Rotate(Vector3.up * mouseX);
+
+        // Apply local rotation to only rotate the camera
+        // Quaternion is used for rotation
+        // Euler returns vector 3 converted into rotations
+        mainCameraHead.localRotation = Quaternion.Euler(cameraVerticalRotation, 0f, 0f);
     }
 }
