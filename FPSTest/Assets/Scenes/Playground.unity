@@ -1149,6 +1149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1776793549}
+  mouseSensitivity: 500
+  mainCameraHead: {fileID: 963194228}
 --- !u!143 &1776793549
 CharacterController:
   m_ObjectHideFlags: 0

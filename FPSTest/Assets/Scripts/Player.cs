@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float speed = 18.0f;
     public CharacterController playerController;
+    public Transform mainCameraHead;
+    private float speed = 18.0f;
+    public float mouseSensitivity = 700f;
+    private float cameraVerticalRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +20,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-
-        float mouseX = Input.GetAxisRaw("Mouse X");
-
-        transform.Rotate(Vector3.up * mouseX);
+        PlayerFirstPersonView();
     }
     private void PlayerMovement()
     {
@@ -35,5 +36,13 @@ public class Player : MonoBehaviour
         move = move * speed * Time.deltaTime;
 
         playerController.Move(move);
+    }
+    private void PlayerFirstPersonView()
+    {
+        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        transform.Rotate(Vector3.up * mouseX);
+        cameraVerticalRotation -= mouseY;
     }
 }
