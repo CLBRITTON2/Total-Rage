@@ -9,7 +9,7 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // LateUpdate is called every frame after all of the other updates have been called
