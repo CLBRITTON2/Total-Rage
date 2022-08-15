@@ -4,55 +4,45 @@ using UnityEngine;
 
 public class ObjectPoolManager : MonoBehaviour
 {
-    private static ObjectPoolManager _instance;
-    [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private GameObject _bulletContainer;
-    [SerializeField] private List<GameObject> _bulletPool;
-    [SerializeField] private int _bullets;
-    public static ObjectPoolManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                Debug.LogError("ObjectPoolManager is Null");
-            }
-            return _instance;
-        }
-    }
+    public static ObjectPoolManager instance;
+    public GameObject pooledObject;
+    public int pooledAmount;
+    public bool expandPool;
+
+    private List<GameObject> pooledObjectList;
+
     private void Awake()
     {
-        _instance = this;
+        instance = this;
     }
+
     private void Start()
     {
-        _bulletPool = GenerateBullets(_bullets);
-    }
-    private List<GameObject> GenerateBullets(int numberOfBullets)
-    {
-        for (int i = 0; i < numberOfBullets; i++)
+        pooledObjectList = new List<GameObject>();
+        for (int i = 0; i < pooledAmount; i++)
         {
-            GameObject bullet = Instantiate(_bulletPrefab);
-            bullet.transform.parent = _bulletContainer.transform;
-            bullet.SetActive(false);
-            _bulletPool.Add(bullet);
+            GameObject gameObject = Instantiate(pooledObject);
+            gameObject.SetActive(false);
+            pooledObjectList.Add(gameObject);
         }
-        return _bulletPool;
     }
-    public GameObject RequestBullet()
+    public GameObject GetPooledObject()
     {
-        foreach(var bullet in _bulletPool)
+        for(int i = 0; i < pooledObjectList.Count; i++)
         {
-            if(bullet.activeInHierarchy == false)
+            if (!pooledObjectList[i].activeInHierarchy)
             {
-                bullet.SetActive(true);
-                return bullet;
+                return pooledObjectList[i];
             }
         }
-        GameObject newBullet = Instantiate(_bulletPrefab);
-        newBullet.transform.parent = _bulletContainer.transform;
-        _bulletPool.Add(newBullet);
 
-        return newBullet;
+        if(expandPool)
+        {
+            GameObject gameObject = Instantiate(pooledObject);
+            gameObject.SetActive(false);
+            pooledObjectList.Add(pooledObject);
+            return gameObject;
+        }
+        return null;
     }
 }

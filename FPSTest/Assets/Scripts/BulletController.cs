@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("Hide", 1f);
+        Invoke("Disable", 2f);
     }
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,12 @@ public class BulletController : MonoBehaviour
     {
         bulletRigidBody.velocity = transform.forward * speed;
     }
-    void Hide()
+    void Disable()
     {
         this.gameObject.SetActive(false);
+    }
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }

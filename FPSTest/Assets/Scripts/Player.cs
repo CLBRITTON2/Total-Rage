@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private float speed = 18.0f;
     public float mouseSensitivity = 700f;
     private float cameraVerticalRotation;
-    [SerializeField] private GameObject _bulletPrefab;
     public Transform firePosition;
 
     // Start is called before the first frame update
@@ -60,9 +59,14 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            GameObject bullet = ObjectPoolManager.Instance.RequestBullet();
-            bullet.transform.position = firePosition.position;
-            bullet.transform.rotation = firePosition.rotation;
+            GameObject gameObject = ObjectPoolManager.instance.GetPooledObject();
+            if(gameObject != null)
+            {
+                gameObject.transform.position = firePosition.position;
+                gameObject.transform.rotation = firePosition.rotation;
+                gameObject.SetActive(true);
+            }
+            return;
         }
     }
 }
