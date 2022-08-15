@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts;
 
 public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager instance;
-    public GameObject pooledObject;
-    public int pooledAmount;
-    public bool expandPool;
-
     private List<GameObject> pooledObjectList;
+    public List<ObjectPoolItem> itemsToPool;
 
     private void Awake()
     {
@@ -17,31 +15,39 @@ public class ObjectPoolManager : MonoBehaviour
     }
 
     private void Start()
-    {
+    {    
         pooledObjectList = new List<GameObject>();
-        for (int i = 0; i < pooledAmount; i++)
+        foreach (ObjectPoolItem item in itemsToPool)
         {
-            GameObject gameObject = Instantiate(pooledObject);
-            gameObject.SetActive(false);
-            pooledObjectList.Add(gameObject);
+            for (int i = 0; i < item.setPoolAmount; i++)
+            {
+                GameObject gameObject = Instantiate(item.pooledObject);
+                gameObject.SetActive(false);
+                pooledObjectList.Add(gameObject);
+            }
         }
     }
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject(string tag)
     {
         for(int i = 0; i < pooledObjectList.Count; i++)
         {
-            if (!pooledObjectList[i].activeInHierarchy)
+            if (!pooledObjectList[i].activeInHierarchy && pooledObjectList[i].tag == tag)
             {
                 return pooledObjectList[i];
             }
         }
-
-        if(expandPool)
+        foreach (ObjectPoolItem item in itemsToPool)
         {
-            GameObject gameObject = Instantiate(pooledObject);
-            gameObject.SetActive(false);
-            pooledObjectList.Add(pooledObject);
-            return gameObject;
+            if (item.pooledObject.tag == tag)
+            {
+                if (item.expandPool)
+                {
+                    GameObject gameObject = Instantiate(item.pooledObject);
+                    gameObject.SetActive(false);
+                    pooledObjectList.Add(gameObject);
+                    return gameObject;
+                }
+            }
         }
         return null;
     }

@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
                 if (distance > 2f)
                 {
                     firePosition.LookAt(hit.point);
+                    Instantiate(bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
                 }
             }
             else
@@ -83,12 +84,12 @@ public class Player : MonoBehaviour
 
             Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
 
-            GameObject gameObject = ObjectPoolManager.instance.GetPooledObject();
-            if(gameObject != null)
+            GameObject bullet = ObjectPoolManager.instance.GetPooledObject("Bullet");
+            if(bullet != null)
             {
-                gameObject.transform.position = firePosition.position;
-                gameObject.transform.rotation = firePosition.rotation;
-                gameObject.SetActive(true);
+                bullet.transform.position = firePosition.position;
+                bullet.transform.rotation = firePosition.rotation;
+                bullet.SetActive(true);
             }
             return;
         }
