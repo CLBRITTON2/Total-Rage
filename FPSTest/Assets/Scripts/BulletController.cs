@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
 
     private void OnEnable()
     {
+        // Bullet auto disable after 2 seconds
         Invoke("Disable", 2f);
     }
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bulletRigidBody.velocity = transform.forward * speed;
+        BulletFlightPath();
     }
     void Disable()
     {
@@ -29,5 +30,14 @@ public class BulletController : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Bullet gets disabled if it hits an object
+        Disable();
+    }
+    private void BulletFlightPath()
+    {
+        bulletRigidBody.velocity = transform.forward * speed;
     }
 }
