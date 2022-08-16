@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 199000011528143168}
   - component: {fileID: 114672108705133496}
   m_Layer: 0
-  m_Name: BulletImpact
+  m_Name: BulletImpactMetal
   m_TagString: Bullet Hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4682,7 +4682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3cedb949dfc6b44aa88e1e82ba6471d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 5
 --- !u!1 &1000011947693678
 GameObject:
   m_ObjectHideFlags: 0
@@ -9391,7 +9390,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1402721190994cd46b64bf7cba78f5d8, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

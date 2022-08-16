@@ -6,7 +6,7 @@ public class DecalDestroyer : MonoBehaviour
 {
 	private void OnEnable()
 	{
-		// Bullet auto disable after 2 seconds
+		// Bullet hole auto disable after 2 seconds
 		Invoke("Disable", 2f);
 	}
 	void Disable()

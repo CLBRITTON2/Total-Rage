@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private float cameraVerticalRotation;
     public Transform firePosition;
 
-    public GameObject muzzleFlash, bulletHole;
+    public GameObject muzzleFlash;
 
     // Start is called before the first frame update
     void Start()
@@ -69,16 +69,29 @@ public class Player : MonoBehaviour
             {
                 // Managing bullet accuracy based off distance and point of aim
                 float distance = Vector3.Distance(mainCameraHead.position, hit.point);
-
                 if (distance > 2f)
                 {
                     firePosition.LookAt(hit.point);
-                    if (bulletHole != null)
+
+                    if (hit.collider.tag == "Shootable Object")
                     {
                         GameObject bulletHole = ObjectPoolManager.instance.GetPooledObject("Bullet Hole");
-                        bulletHole.transform.position = hit.point + (hit.normal * 0.025f);
-                        bulletHole.transform.rotation = Quaternion.LookRotation(hit.normal);
-                        bulletHole.SetActive(true);
+                        if (bulletHole != null)
+                        {
+                            bulletHole.transform.position = hit.point + (hit.normal * 0.025f);
+                            bulletHole.transform.rotation = Quaternion.LookRotation(hit.normal);
+                            bulletHole.SetActive(true);
+                        }
+                    }
+                    else if(hit.collider.tag == "Bullet Impact Ground")
+                    {
+                        GameObject bulletImpactGround = ObjectPoolManager.instance.GetPooledObject("Bullet Impact Ground");
+                        if(bulletImpactGround != null)
+                        {
+                            bulletImpactGround.transform.position = hit.point + (hit.normal * 0.025f);
+                            bulletImpactGround.transform.rotation = Quaternion.LookRotation(hit.normal);
+                            bulletImpactGround.SetActive(true);
+                        }
                     }
                 }
             }
