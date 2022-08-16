@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecalDestroyer : MonoBehaviour {
-
-	public float lifeTime = 5.0f;
-
-	private IEnumerator Start()
+public class DecalDestroyer : MonoBehaviour 
+{
+	private void OnEnable()
 	{
-		yield return new WaitForSeconds(lifeTime);
-		Destroy(gameObject);
+		// Bullet auto disable after 2 seconds
+		Invoke("Disable", 2f);
+	}
+	void Disable()
+	{
+		this.gameObject.SetActive(false);
+	}
+	private void OnDisable()
+	{
+		CancelInvoke();
 	}
 }

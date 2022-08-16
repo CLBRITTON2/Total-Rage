@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
             // are based of where the player is looking
             RaycastHit hit;
 
-            if(Physics.Raycast(mainCameraHead.position, mainCameraHead.forward, out hit, 100f))
+            if (Physics.Raycast(mainCameraHead.position, mainCameraHead.forward, out hit, 100f))
             {
                 // Managing bullet accuracy based off distance and point of aim
                 float distance = Vector3.Distance(mainCameraHead.position, hit.point);
@@ -73,7 +73,13 @@ public class Player : MonoBehaviour
                 if (distance > 2f)
                 {
                     firePosition.LookAt(hit.point);
-                    Instantiate(bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
+                    if (bulletHole != null)
+                    {
+                        GameObject bulletHole = ObjectPoolManager.instance.GetPooledObject("Bullet Hole");
+                        bulletHole.transform.position = hit.point + (hit.normal * 0.025f);
+                        bulletHole.transform.rotation = Quaternion.LookRotation(hit.normal);
+                        bulletHole.SetActive(true);
+                    }
                 }
             }
             else
@@ -85,7 +91,7 @@ public class Player : MonoBehaviour
             Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
 
             GameObject bullet = ObjectPoolManager.instance.GetPooledObject("Bullet");
-            if(bullet != null)
+            if (bullet != null)
             {
                 bullet.transform.position = firePosition.position;
                 bullet.transform.rotation = firePosition.rotation;
