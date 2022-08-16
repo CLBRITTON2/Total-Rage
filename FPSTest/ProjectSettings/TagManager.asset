@@ -7,6 +7,9 @@ TagManager:
   - Bullet
   - Bullet Hole
   - Shootable
+  - Bullet Impact Ground
+  - Shootable Object
+  - Enemy
   layers:
   - Default
   - TransparentFX

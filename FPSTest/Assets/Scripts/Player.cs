@@ -10,13 +10,14 @@ public class Player : MonoBehaviour
     public float mouseSensitivity = 700f;
     private float cameraVerticalRotation;
     public Transform firePosition;
+    ObjectPoolManager objectPooler;
 
     public GameObject muzzleFlash;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        objectPooler = ObjectPoolManager.instance;
     }
 
     // Update is called once per frame
@@ -75,23 +76,11 @@ public class Player : MonoBehaviour
 
                     if (hit.collider.tag == "Shootable Object")
                     {
-                        GameObject bulletHole = ObjectPoolManager.instance.GetPooledObject("Bullet Hole");
-                        if (bulletHole != null)
-                        {
-                            bulletHole.transform.position = hit.point + (hit.normal * 0.025f);
-                            bulletHole.transform.rotation = Quaternion.LookRotation(hit.normal);
-                            bulletHole.SetActive(true);
-                        }
+                        objectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }
                     else if(hit.collider.tag == "Bullet Impact Ground")
                     {
-                        GameObject bulletImpactGround = ObjectPoolManager.instance.GetPooledObject("Bullet Impact Ground");
-                        if(bulletImpactGround != null)
-                        {
-                            bulletImpactGround.transform.position = hit.point + (hit.normal * 0.025f);
-                            bulletImpactGround.transform.rotation = Quaternion.LookRotation(hit.normal);
-                            bulletImpactGround.SetActive(true);
-                        }
+                        objectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }
                 }
             }
@@ -103,13 +92,7 @@ public class Player : MonoBehaviour
 
             Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
 
-            GameObject bullet = ObjectPoolManager.instance.GetPooledObject("Bullet");
-            if (bullet != null)
-            {
-                bullet.transform.position = firePosition.position;
-                bullet.transform.rotation = firePosition.rotation;
-                bullet.SetActive(true);
-            }
+            objectPooler.SpawnFromObjectPool("Bullet", firePosition.position, firePosition.rotation);
             return;
         }
     }

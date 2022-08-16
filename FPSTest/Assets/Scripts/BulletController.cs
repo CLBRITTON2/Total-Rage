@@ -31,13 +31,13 @@ public class BulletController : MonoBehaviour
     {
         CancelInvoke();
     }
+    private void BulletFlightPath()
+    {
+        bulletRigidBody.velocity = transform.forward * speed;
+    }
     private void OnTriggerEnter(Collider other)
     {
         // Bullet gets disabled if it hits an object
         Disable();
-    }
-    private void BulletFlightPath()
-    {
-        bulletRigidBody.velocity = transform.forward * speed;
     }
 }
