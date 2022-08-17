@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Transform ground;
     public LayerMask groundLayer;
 
-    private float speed = 18.0f;
+    private float playerMovementSpeed = 15.0f;
     public float mouseSensitivity = 700f;
     private float cameraVerticalRotation;
 
@@ -24,11 +24,17 @@ public class Player : MonoBehaviour
     private bool initializeJump;
     public float groundDistance = 0.5f;
 
+    private Vector3 crouchScale = new Vector3(1f, 0.5f, 1f);
+    private Vector3 playerScale;
+    private bool playerIsCrouching;
+    private float playerCrouchMovementSpeed = 8f;
+
 
     // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPoolManager.instance;
+        playerScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -38,12 +44,13 @@ public class Player : MonoBehaviour
         PlayerFirstPersonView();
         InitializeJumpCheck();
         FireWeapon();
+        PlayerCrouching();
     }
     private void FixedUpdate()
     {
         AddVelocityToPlayer();
 
-        if(initializeJump)
+        if (initializeJump)
         {
             Jump();
         }
@@ -59,9 +66,37 @@ public class Player : MonoBehaviour
 
         // Multiply the transforming x and y axis by the speed to control player movement speed
         // Detach the player velocity from the frame rate by multiplying move by Time.deltaTime
-        move = move * speed * Time.deltaTime;
+        if (playerIsCrouching)
+        {
+            move = move * playerCrouchMovementSpeed * Time.deltaTime;
+        }
+        else if (!playerIsCrouching)
+        {
+            move = move * playerMovementSpeed * Time.deltaTime;
+        }
 
         playerController.Move(move);
+    }
+    private void PlayerCrouching()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            StartCrouching();
+        }
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            StopCrouching();
+        }
+    }
+    private void StartCrouching()
+    {
+        transform.localScale = crouchScale;
+        playerIsCrouching = true;
+    }
+    private void StopCrouching()
+    {
+        transform.localScale = playerScale;
+        playerIsCrouching = false;
     }
     private void AddVelocityToPlayer()
     {
