@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    ObjectPoolManager objectPooler;
     public CharacterController playerController;
     public Transform mainCameraHead;
+    public Transform firePosition;
+    public GameObject muzzleFlash;
+    public Transform ground;
+    public LayerMask groundLayer;
+
     private float speed = 18.0f;
     public float mouseSensitivity = 700f;
     private float cameraVerticalRotation;
-    public Transform firePosition;
-    ObjectPoolManager objectPooler;
 
-    public GameObject muzzleFlash;
+    public Vector3 velocity;
+    public float gravityModifier;
+
+    public float jumpHeight = 10f;
+    private bool playerCanJump;
+    private bool initializeJump;
+    public float groundDistance = 0.5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +36,17 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         PlayerFirstPersonView();
+        InitializeJumpCheck();
         FireWeapon();
+    }
+    private void FixedUpdate()
+    {
+        AddVelocityToPlayer();
+
+        if(initializeJump)
+        {
+            Jump();
+        }
     }
     private void PlayerMovement()
     {
@@ -41,6 +62,31 @@ public class Player : MonoBehaviour
         move = move * speed * Time.deltaTime;
 
         playerController.Move(move);
+    }
+    private void AddVelocityToPlayer()
+    {
+        velocity.y += Physics.gravity.y * Mathf.Pow(Time.deltaTime, 2) * gravityModifier;
+        if (playerController.isGrounded)
+        {
+            velocity.y = Physics.gravity.y * Time.deltaTime;
+        }
+        playerController.Move(velocity);
+    }
+    private void InitializeJumpCheck()
+    {
+        playerCanJump = Physics.OverlapSphere(ground.position, groundDistance, groundLayer).Length > 0;
+
+        if (Input.GetButtonDown("Jump") && playerCanJump)
+        {
+            initializeJump = true;
+        }
+    }
+    private void Jump()
+    {
+        // Height affected by gravity formula
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y) * Time.deltaTime;
+        playerController.Move(velocity);
+        initializeJump = false;
     }
     private void PlayerFirstPersonView()
     {
@@ -78,7 +124,7 @@ public class Player : MonoBehaviour
                     {
                         objectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }
-                    else if(hit.collider.tag == "Floor")
+                    else if (hit.collider.tag == "Floor")
                     {
                         objectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }

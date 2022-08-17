@@ -367,7 +367,7 @@ MonoBehaviour:
   - tag: Bullet
     prefab: {fileID: 4610438281525439610, guid: 57e4a5f5b5b67ae429dd9a99f693d387,
       type: 3}
-    poolSize: 10
+    poolSize: 15
   - tag: Bullet Hole
     prefab: {fileID: 1000010355441670, guid: ef7174a371872f04e9509ae929c91729, type: 3}
     poolSize: 10
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 500706629}
   - component: {fileID: 500706628}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Floor
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1087,7 +1087,6 @@ GameObject:
   - component: {fileID: 1309793839}
   - component: {fileID: 1309793842}
   - component: {fileID: 1309793841}
-  - component: {fileID: 1309793840}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -1111,20 +1110,6 @@ Transform:
   m_Father: {fileID: 1776793550}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1309793840
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309793838}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1309793841
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1511,7 +1496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728171617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.423, y: -0.469, z: 1.679}
+  m_LocalPosition: {x: 0.423, y: -0.469, z: 1.671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1649,6 +1634,7 @@ MonoBehaviour:
   mainCameraHead: {fileID: 1528549407}
   mouseSensitivity: 700
   firePosition: {fileID: 1728171618}
+  velocity: {x: 0, y: 0, z: 0}
   muzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
 --- !u!143 &1776793549
@@ -1662,7 +1648,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 3.19
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -1677,7 +1663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776793547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.56, z: 2.41}
+  m_LocalPosition: {x: 0, y: 1.618, z: 2.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
