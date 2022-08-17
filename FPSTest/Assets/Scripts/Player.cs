@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public GameObject muzzleFlash;
     public Transform ground;
     public LayerMask groundLayer;
+    public Animator playerAnimator;
 
     private float playerMovementSpeed = 15.0f;
     public float mouseSensitivity = 700f;
@@ -30,7 +31,6 @@ public class Player : MonoBehaviour
     private float initialControllerHeight;
     private bool playerIsCrouching;
     private float playerCrouchMovementSpeed = 8f;
-
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +77,9 @@ public class Player : MonoBehaviour
         {
             move = move * playerMovementSpeed * Time.deltaTime;
         }
+
+        playerAnimator.SetFloat("PlayerSpeed", move.magnitude);
+        Debug.Log(move.magnitude);
 
         playerController.Move(move);
     }
@@ -150,6 +153,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            objectPooler.SpawnFromObjectPool("Bullet", firePosition.position, firePosition.rotation);
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
             RaycastHit hit;
@@ -179,8 +183,6 @@ public class Player : MonoBehaviour
             }
 
             Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
-
-            objectPooler.SpawnFromObjectPool("Bullet", firePosition.position, firePosition.rotation);
             return;
         }
     }
