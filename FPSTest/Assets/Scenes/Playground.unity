@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.16788375, g: 0.21073635, b: 0.28994125, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 324e194fa9b669e40b96bfc72031a009, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 324e194fa9b669e40b96bfc72031a009,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -326,8 +327,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 476493498}
+  - component: {fileID: 476493500}
+  - component: {fileID: 476493499}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Game Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,8 +349,50 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &476493499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476493497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092ef238cb47b76459fc7e1e16f73199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Bullet
+    prefab: {fileID: 4610438281525439610, guid: 57e4a5f5b5b67ae429dd9a99f693d387,
+      type: 3}
+    poolSize: 10
+  - tag: Bullet Hole
+    prefab: {fileID: 1000010355441670, guid: ef7174a371872f04e9509ae929c91729, type: 3}
+    poolSize: 10
+  - tag: Bullet Impact Ground
+    prefab: {fileID: 1000010844420130, guid: 808466741f0cbce4ab90dc16487f9887, type: 3}
+    poolSize: 10
+  - tag: Enemy
+    prefab: {fileID: 3138462212379595919, guid: cbe9e5beb43b391479f0772c0b9f6f71,
+      type: 3}
+    poolSize: 5
+--- !u!114 &476493500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476493497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19368b1411e7ec4c9996038aaf2959b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xPos: 0
+  yPos: 0
+  zPos: 0
 --- !u!1 &500706627
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +407,7 @@ GameObject:
   - component: {fileID: 500706628}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Bullet Impact Ground
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1130,63 +1175,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309793838}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1518183040
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1518183042}
-  - component: {fileID: 1518183041}
-  m_Layer: 0
-  m_Name: Object_Pool_Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1518183041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518183040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 092ef238cb47b76459fc7e1e16f73199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool:
-  - pooledObject: {fileID: 4610438281525439610, guid: 57e4a5f5b5b67ae429dd9a99f693d387, type: 3}
-    setPoolAmount: 8
-    expandPool: 1
-  - pooledObject: {fileID: 1000010355441670, guid: ef7174a371872f04e9509ae929c91729, type: 3}
-    setPoolAmount: 5
-    expandPool: 1
-  - pooledObject: {fileID: 1000010844420130, guid: 808466741f0cbce4ab90dc16487f9887, type: 3}
-    setPoolAmount: 5
-    expandPool: 1
-  - pooledObject: {fileID: 3138462212379595919, guid: cbe9e5beb43b391479f0772c0b9f6f71, type: 3}
-    setPoolAmount: 5
-    expandPool: 0
---- !u!4 &1518183042
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518183040}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.523328, y: -5.7901816, z: -16.075891}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528549406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1511,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728171617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.423, y: -0.469, z: 1.644}
+  m_LocalPosition: {x: 0.423, y: -0.469, z: 1.679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1661,7 +1649,8 @@ MonoBehaviour:
   mainCameraHead: {fileID: 1528549407}
   mouseSensitivity: 700
   firePosition: {fileID: 1728171618}
-  muzzleFlash: {fileID: 1000010254994808, guid: 2910fc4e6e8da4f418179a8bf9a62c0e, type: 3}
+  muzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+    type: 3}
 --- !u!143 &1776793549
 CharacterController:
   m_ObjectHideFlags: 0

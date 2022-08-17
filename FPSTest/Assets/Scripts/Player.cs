@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
                     {
                         objectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }
-                    else if(hit.collider.tag == "Ground")
+                    else if(hit.collider.tag == "Floor")
                     {
                         objectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }

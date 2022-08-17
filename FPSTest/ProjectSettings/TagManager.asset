@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Shootable Object
+  - Bullet Impact Ground
+  - Bullet
+  - Bullet Hole
+  - Enemy
+  - Floor
   layers:
   - Default
   - TransparentFX
