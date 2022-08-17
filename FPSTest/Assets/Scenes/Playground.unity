@@ -1672,9 +1672,10 @@ MonoBehaviour:
     m_Bits: 64
   mouseSensitivity: 700
   velocity: {x: 0, y: 0, z: 0}
-  gravityModifier: 20
+  gravityModifier: 15
   jumpHeight: 50
   groundDistance: 0.5
+  playerBody: {fileID: 1309793839}
 --- !u!143 &1776793549
 CharacterController:
   m_ObjectHideFlags: 0

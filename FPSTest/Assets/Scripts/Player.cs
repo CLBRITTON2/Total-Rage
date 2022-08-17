@@ -24,8 +24,10 @@ public class Player : MonoBehaviour
     private bool initializeJump;
     public float groundDistance = 0.5f;
 
-    private Vector3 crouchScale = new Vector3(1f, 0.5f, 1f);
-    private Vector3 playerScale;
+    private Vector3 playerCrouchingScale = new Vector3(1f, 0.5f, 1f);
+    private Vector3 playerBodyScale;
+    public Transform playerBody;
+    private float initialControllerHeight;
     private bool playerIsCrouching;
     private float playerCrouchMovementSpeed = 8f;
 
@@ -34,7 +36,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         objectPooler = ObjectPoolManager.instance;
-        playerScale = transform.localScale;
+        playerBodyScale = playerBody.localScale;
+        initialControllerHeight = playerController.height;
     }
 
     // Update is called once per frame
@@ -90,12 +93,16 @@ public class Player : MonoBehaviour
     }
     private void StartCrouching()
     {
-        transform.localScale = crouchScale;
+        playerBody.localScale = playerCrouchingScale;
+        mainCameraHead.position -= new Vector3(0, 1f, 0);
+        playerController.height /= 2;
         playerIsCrouching = true;
     }
     private void StopCrouching()
     {
-        transform.localScale = playerScale;
+        playerBody.localScale = playerBodyScale;
+        mainCameraHead.position += new Vector3(0, 1f, 0);
+        playerController.height = initialControllerHeight;
         playerIsCrouching = false;
     }
     private void AddVelocityToPlayer()
