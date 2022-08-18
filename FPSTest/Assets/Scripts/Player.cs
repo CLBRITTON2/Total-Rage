@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region Backing fields
     ObjectPoolManager objectPooler;
     public CharacterController playerController;
     public Transform mainCameraHead;
@@ -13,7 +14,7 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     public Animator playerAnimator;
 
-    private float playerWalkingSpeed = 15.0f, playerSprintSpeed = 25f;
+    private float playerWalkingSpeed = 10.0f, playerSprintSpeed = 17f;
     public float mouseSensitivity = 700f;
     private float cameraVerticalRotation;
 
@@ -30,34 +31,48 @@ public class Player : MonoBehaviour
     public Transform playerBody;
     private float initialControllerHeight;
     private bool playerIsCrouching;
-    private float playerCrouchMovementSpeed = 8f;
+    private float playerCrouchMovementSpeed = 6f;
+
+    public bool playerIsSprinting = false, startSlidingTimer;
+    public float currentSlideTimer, maxSlideTimer = 1f;
+    public float playerSlideSpeed = 20f;
+    #endregion
 
     // Start is called before the first frame update
+    #region Start
     void Start()
     {
         objectPooler = ObjectPoolManager.instance;
         playerBodyScale = playerBody.localScale;
         initialControllerHeight = playerController.height;
     }
+    #endregion
 
     // Update is called once per frame
+    #region Regular Update
     void Update()
     {
         PlayerFirstPersonView();
         InitializeJumpCheck();
         FireWeapon();
-        PlayerCrouching();
     }
+    #endregion
+
+    #region FixedUpdate
     private void FixedUpdate()
     {
         PlayerMovement();
         AddVelocityToPlayer();
-
+        PlayerCrouching();
+        SlideCounter();
         if (initializeJump)
         {
             Jump();
         }
     }
+    #endregion
+
+    #region Method: Player Movement
     private void PlayerMovement()
     {
         // get the horizontal and vertical axis
@@ -67,9 +82,10 @@ public class Player : MonoBehaviour
         // Combine the x and z axis, transform the Player object (inside the unity inspector "Transform")
         Vector3 move = x * transform.right + z * transform.forward;
 
-        if(Input.GetKey(KeyCode.LeftShift) && !playerIsCrouching)
+        if (Input.GetKey(KeyCode.LeftShift) && !playerIsCrouching)
         {
-            move = move * playerSprintSpeed * Time.deltaTime; 
+            move = move * playerSprintSpeed * Time.deltaTime;
+            playerIsSprinting = true;
         }
         else if (playerIsCrouching)
         {
@@ -78,38 +94,57 @@ public class Player : MonoBehaviour
         else
         {
             move = move * playerWalkingSpeed * Time.deltaTime;
+            playerIsSprinting = false;
         }
 
         playerAnimator.SetFloat("PlayerSpeed", move.magnitude);
 
         playerController.Move(move);
-        Debug.Log(move.magnitude);
     }
+    #endregion
+    #region Method: Player Crouching Main
     private void PlayerCrouching()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
             StartCrouching();
         }
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.C) || currentSlideTimer > maxSlideTimer)
         {
             StopCrouching();
         }
     }
+    #endregion
+    #region Method: Start Crouching
     private void StartCrouching()
     {
         playerBody.localScale = playerCrouchingScale;
         mainCameraHead.position -= new Vector3(0, 1f, 0);
         playerController.height /= 2;
         playerIsCrouching = true;
+
+        if (playerIsSprinting)
+        {
+            velocity = new Vector3(0f, 0f, 0f);
+            velocity = Vector3.ProjectOnPlane(mainCameraHead.transform.forward, Vector3.up).normalized * playerSlideSpeed * Time.deltaTime;
+            startSlidingTimer = true;
+        }
     }
+    #endregion
+    #region Method: Stop Crouching
     private void StopCrouching()
     {
+        currentSlideTimer = 0f;
+        velocity = new Vector3(0f, 0f, 0f);
+        startSlidingTimer = false;
+
         playerBody.localScale = playerBodyScale;
         mainCameraHead.position += new Vector3(0, 1f, 0);
         playerController.height = initialControllerHeight;
         playerIsCrouching = false;
     }
+    #endregion
+    #region Method: Player Velocity
     private void AddVelocityToPlayer()
     {
         velocity.y += Physics.gravity.y * Mathf.Pow(Time.deltaTime, 2) * gravityModifier;
@@ -119,6 +154,8 @@ public class Player : MonoBehaviour
         }
         playerController.Move(velocity);
     }
+    #endregion
+    #region Method: Jump Check
     private void InitializeJumpCheck()
     {
         playerCanJump = Physics.OverlapSphere(ground.position, groundDistance, groundLayer).Length > 0;
@@ -128,6 +165,8 @@ public class Player : MonoBehaviour
             initializeJump = true;
         }
     }
+    #endregion
+    #region Method: Jump
     private void Jump()
     {
         // Height affected by gravity formula
@@ -135,6 +174,8 @@ public class Player : MonoBehaviour
         playerController.Move(velocity);
         initializeJump = false;
     }
+    #endregion
+    #region Method: Player View
     private void PlayerFirstPersonView()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -151,6 +192,8 @@ public class Player : MonoBehaviour
         // Euler returns vector 3 converted into rotations
         mainCameraHead.localRotation = Quaternion.Euler(cameraVerticalRotation, 0f, 0f);
     }
+    #endregion
+    #region Method: Fire Weapon
     private void FireWeapon()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -186,6 +229,14 @@ public class Player : MonoBehaviour
 
             Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
             return;
+        }
+    } 
+    #endregion
+    private void SlideCounter()
+    {
+        if(startSlidingTimer)
+        {
+            currentSlideTimer += Time.deltaTime;
         }
     }
 }
