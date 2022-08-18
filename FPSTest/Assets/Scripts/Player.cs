@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     public Animator playerAnimator;
 
-    private float playerMovementSpeed = 15.0f;
+    private float playerWalkingSpeed = 15.0f, playerSprintSpeed = 25f;
     public float mouseSensitivity = 700f;
     private float cameraVerticalRotation;
 
@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
         PlayerFirstPersonView();
         InitializeJumpCheck();
         FireWeapon();
@@ -51,6 +50,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        PlayerMovement();
         AddVelocityToPlayer();
 
         if (initializeJump)
@@ -67,21 +67,23 @@ public class Player : MonoBehaviour
         // Combine the x and z axis, transform the Player object (inside the unity inspector "Transform")
         Vector3 move = x * transform.right + z * transform.forward;
 
-        // Multiply the transforming x and y axis by the speed to control player movement speed
-        // Detach the player velocity from the frame rate by multiplying move by Time.deltaTime
-        if (playerIsCrouching)
+        if(Input.GetKey(KeyCode.LeftShift) && !playerIsCrouching)
+        {
+            move = move * playerSprintSpeed * Time.deltaTime; 
+        }
+        else if (playerIsCrouching)
         {
             move = move * playerCrouchMovementSpeed * Time.deltaTime;
         }
-        else if (!playerIsCrouching)
+        else
         {
-            move = move * playerMovementSpeed * Time.deltaTime;
+            move = move * playerWalkingSpeed * Time.deltaTime;
         }
 
         playerAnimator.SetFloat("PlayerSpeed", move.magnitude);
-        Debug.Log(move.magnitude);
 
         playerController.Move(move);
+        Debug.Log(move.magnitude);
     }
     private void PlayerCrouching()
     {
