@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
     {
         PlayerFirstPersonView();
         InitializeJumpCheck();
-        PlayerCrouching();
     }
     #endregion
 
@@ -59,6 +58,7 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         AddVelocityToPlayer();
+        PlayerCrouching();
         SlideCounter();
         if (initializeJump)
         {
@@ -120,7 +120,6 @@ public class Player : MonoBehaviour
 
         if (playerIsSprinting && Input.GetKeyDown(KeyCode.C))
         {
-            velocity = new Vector3(0f, 0f, 0f);
             velocity = Vector3.ProjectOnPlane(mainCameraHead.transform.forward, Vector3.up).normalized * playerSlideSpeed * Time.deltaTime;
             startSlidingTimer = true;
         }
@@ -190,9 +189,9 @@ public class Player : MonoBehaviour
     #endregion
     private void SlideCounter()
     {
-        if(startSlidingTimer)
+        if (startSlidingTimer)
         {
             currentSlideTimer += Time.deltaTime;
         }
-    }   
+    }
 }

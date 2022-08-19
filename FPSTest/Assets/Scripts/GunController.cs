@@ -13,16 +13,30 @@ public class GunController : MonoBehaviour
     private bool playerIsfiring, playerCanFire = true;
     public float pauseBetweenShots = 0.2f;
 
+    public int roundsInMagazine, totalRounds, magazineCapacity;
+    public float reloadTime;
+    public bool playerIsReloading;
+
     // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPoolManager.instance;
+        totalRounds -= magazineCapacity;
+        roundsInMagazine = magazineCapacity;
     }
 
     // Update is called once per frame
     void Update()
     {
         FireWeapon();
+        WeaponManager();
+    }
+    private void WeaponManager()
+    {
+        if(Input.GetKeyDown(KeyCode.R) && roundsInMagazine < magazineCapacity && !playerIsReloading)
+        {
+            ReloadWeapon();
+        }
     }
     private void FixedUpdate()
     {
@@ -40,7 +54,7 @@ public class GunController : MonoBehaviour
             playerIsfiring = Input.GetMouseButtonDown(0);
         }
 
-        if (playerIsfiring && playerCanFire)
+        if (playerIsfiring && playerCanFire && roundsInMagazine > 0 && !playerIsReloading)
         {
             playerCanFire = false;
 
@@ -72,15 +86,40 @@ public class GunController : MonoBehaviour
                 // If the bullet hits nothing it still has a direction to fire
                 firePosition.LookAt(mainCameraHead.position + (mainCameraHead.forward * 50f));
             }
+            roundsInMagazine--;
 
             Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
+
             StartCoroutine(ResetShot());
         }
     }
     #endregion
+    private void ReloadWeapon()
+    {
+        int roundsToAddToMagazine = magazineCapacity - roundsInMagazine;
+
+        if(totalRounds > roundsToAddToMagazine)
+        {
+            totalRounds -= roundsToAddToMagazine;
+            roundsInMagazine = magazineCapacity;
+        }
+        else
+        {
+            roundsInMagazine += totalRounds;
+            totalRounds = 0;
+        }
+
+        playerIsReloading = true;
+        StartCoroutine(ReloadCoroutine());
+    }
     IEnumerator ResetShot()
     {
         yield return new WaitForSeconds(pauseBetweenShots);
         playerCanFire = true;
+    }
+    IEnumerator ReloadCoroutine()
+    {
+        yield return new WaitForSeconds(reloadTime);
+        playerIsReloading = false;
     }
 }
