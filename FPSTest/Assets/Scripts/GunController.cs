@@ -8,6 +8,7 @@ public class GunController : MonoBehaviour
     public Transform firePosition;
     public Transform mainCameraHead;
     public GameObject muzzleFlash;
+    private UICanvasController theUICanvas;
 
     public bool activateFullAuto;
     private bool playerIsfiring, playerCanFire = true;
@@ -23,6 +24,8 @@ public class GunController : MonoBehaviour
         objectPooler = ObjectPoolManager.instance;
         totalRounds -= magazineCapacity;
         roundsInMagazine = magazineCapacity;
+
+        theUICanvas = FindObjectOfType<UICanvasController>();
     }
 
     // Update is called once per frame
@@ -30,6 +33,7 @@ public class GunController : MonoBehaviour
     {
         FireWeapon();
         WeaponManager();
+        UpdateAmmoInfoText();
     }
     private void WeaponManager()
     {
@@ -121,5 +125,10 @@ public class GunController : MonoBehaviour
     {
         yield return new WaitForSeconds(reloadTime);
         playerIsReloading = false;
+    }
+    private void UpdateAmmoInfoText()
+    {
+        theUICanvas.ammoInfoText.SetText(roundsInMagazine + " / " + magazineCapacity);
+        theUICanvas.playersTotalAmmoText.SetText(totalRounds.ToString());
     }
 }
