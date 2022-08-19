@@ -401,10 +401,10 @@ MonoBehaviour:
     poolSize: 15
   - tag: Bullet Hole
     prefab: {fileID: 1000010355441670, guid: ef7174a371872f04e9509ae929c91729, type: 3}
-    poolSize: 10
+    poolSize: 15
   - tag: Bullet Impact Ground
     prefab: {fileID: 1000010844420130, guid: 808466741f0cbce4ab90dc16487f9887, type: 3}
-    poolSize: 10
+    poolSize: 15
   - tag: Enemy
     prefab: {fileID: 3138462212379595919, guid: cbe9e5beb43b391479f0772c0b9f6f71,
       type: 3}

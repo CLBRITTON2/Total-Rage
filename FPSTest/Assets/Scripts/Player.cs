@@ -30,9 +30,9 @@ public class Player : MonoBehaviour
     private bool playerIsCrouching;
     private float playerCrouchMovementSpeed = 6f;
 
-    public bool playerIsSprinting = false, startSlidingTimer;
-    public float currentSlideTimer, maxSlideTimer = 1f;
-    public float playerSlideSpeed = 20f;
+    private bool playerIsSprinting = false, startSlidingTimer;
+    private float currentSlideTimer, maxSlideTimer = 1f;
+    private float playerSlideSpeed = 20f;
     #endregion
 
     // Start is called before the first frame update
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     {
         PlayerFirstPersonView();
         InitializeJumpCheck();
+        PlayerCrouching();
     }
     #endregion
 
@@ -58,7 +59,6 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         AddVelocityToPlayer();
-        PlayerCrouching();
         SlideCounter();
         if (initializeJump)
         {
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
         playerController.height /= 2;
         playerIsCrouching = true;
 
-        if (playerIsSprinting)
+        if (playerIsSprinting && Input.GetKeyDown(KeyCode.C))
         {
             velocity = new Vector3(0f, 0f, 0f);
             velocity = Vector3.ProjectOnPlane(mainCameraHead.transform.forward, Vector3.up).normalized * playerSlideSpeed * Time.deltaTime;
@@ -194,5 +194,5 @@ public class Player : MonoBehaviour
         {
             currentSlideTimer += Time.deltaTime;
         }
-    }
+    }   
 }

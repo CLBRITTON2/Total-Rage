@@ -8,6 +8,11 @@ public class GunController : MonoBehaviour
     public Transform firePosition;
     public Transform mainCameraHead;
     public GameObject muzzleFlash;
+
+    public bool activateFullAuto;
+    private bool playerIsfiring, playerCanFire = true;
+    public float pauseBetweenShots = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +31,19 @@ public class GunController : MonoBehaviour
     #region Method: Fire Weapon
     private void FireWeapon()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if(activateFullAuto)
         {
+            playerIsfiring = Input.GetMouseButton(0);
+        }
+        else
+        {
+            playerIsfiring = Input.GetMouseButtonDown(0);
+        }
+
+        if (playerIsfiring && playerCanFire)
+        {
+            playerCanFire = false;
+
             objectPooler.SpawnFromObjectPool("Bullet", firePosition.position, firePosition.rotation).transform.parent = firePosition;
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
@@ -58,8 +74,13 @@ public class GunController : MonoBehaviour
             }
 
             Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
-            return;
+            StartCoroutine(ResetShot());
         }
     }
     #endregion
+    IEnumerator ResetShot()
+    {
+        yield return new WaitForSeconds(pauseBetweenShots);
+        playerCanFire = true;
+    }
 }
