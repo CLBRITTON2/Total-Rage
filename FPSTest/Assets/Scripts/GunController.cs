@@ -18,12 +18,18 @@ public class GunController : MonoBehaviour
     public float reloadTime;
     public bool playerIsReloading;
 
+    public Transform aimPoint;
+    private float aimDownSightSpeed = 3f;
+    private Vector3 weaponStartPosition;
+
     // Start is called before the first frame update
     void Start()
     {
         objectPooler = ObjectPoolManager.instance;
         totalRounds -= magazineCapacity;
         roundsInMagazine = magazineCapacity;
+
+        weaponStartPosition = transform.localPosition;
 
         theUICanvas = FindObjectOfType<UICanvasController>();
     }
@@ -40,6 +46,15 @@ public class GunController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R) && roundsInMagazine < magazineCapacity && !playerIsReloading)
         {
             ReloadWeapon();
+        }
+
+        if(Input.GetMouseButton(1))
+        {
+            transform.position = Vector3.MoveTowards(transform.position, aimPoint.position, aimDownSightSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, weaponStartPosition, aimDownSightSpeed * Time.deltaTime);
         }
     }
     private void FixedUpdate()
