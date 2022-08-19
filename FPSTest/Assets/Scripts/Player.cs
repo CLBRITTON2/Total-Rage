@@ -198,7 +198,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            objectPooler.SpawnFromObjectPool("Bullet", firePosition.position, firePosition.rotation);
+            objectPooler.SpawnFromObjectPool("Bullet", firePosition.position, firePosition.rotation).transform.parent = firePosition;
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
             RaycastHit hit;
