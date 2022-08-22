@@ -21,6 +21,7 @@ public class GunController : MonoBehaviour
     public Transform aimPoint;
     private float aimDownSightSpeed = 3f;
     private Vector3 weaponStartPosition;
+    public float zoomMagnification;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,15 @@ public class GunController : MonoBehaviour
         else
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, weaponStartPosition, aimDownSightSpeed * Time.deltaTime);
+        }
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            FindObjectOfType<CameraMove>().ZoomIn(zoomMagnification);
+        }
+        if(Input.GetMouseButtonUp(1))
+        {
+            FindObjectOfType<CameraMove>().ZoomOut();
         }
     }
     private void FixedUpdate()
