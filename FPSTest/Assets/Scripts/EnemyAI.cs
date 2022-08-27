@@ -6,22 +6,36 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     NavMeshAgent enemyNavMeshAgent;
-    public LayerMask whatIsGround;
+    public LayerMask whatIsGround, whatIsPlayer;
+    public Transform player;
 
     public Vector3 enemyDestinationPoint;
     bool destinationSet;
     public float enemyDestinationRange;
 
+    public float enemyInteractionRange;
+    private bool playerWithinInteractionRange;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>().transform;
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Guarding();
+        playerWithinInteractionRange = Physics.CheckSphere(transform.position, enemyInteractionRange, whatIsPlayer);
+
+        if (!playerWithinInteractionRange)
+        {
+            Guarding();
+        }
+        else if (playerWithinInteractionRange)
+        {
+            ChasingPlayer();
+        }
     }
     private void Guarding()
     {
@@ -40,6 +54,10 @@ public class EnemyAI : MonoBehaviour
             destinationSet = false;
         }
     }
+    private void ChasingPlayer()
+    {
+        enemyNavMeshAgent.SetDestination(player.position);
+    }
     private void SearchForDestination()
     {
         // Create random point for enemy to walk to
@@ -55,5 +73,10 @@ public class EnemyAI : MonoBehaviour
         {
             destinationSet = true;
         }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, enemyInteractionRange);
     }
 }
