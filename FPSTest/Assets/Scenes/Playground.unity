@@ -622,6 +622,10 @@ MonoBehaviour:
     prefab: {fileID: 3138462212379595919, guid: cbe9e5beb43b391479f0772c0b9f6f71,
       type: 3}
     poolSize: 5
+  - tag: Enemy Projectile
+    prefab: {fileID: 4589933007541145970, guid: e98dd4a512f97de42a3713fd894650c2,
+      type: 3}
+    poolSize: 15
 --- !u!114 &476493500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1442,7 +1446,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1527
+    m_Bits: 2039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1717,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1353231967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,7 +2201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1686118773
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2644,6 +2648,8 @@ MonoBehaviour:
   enemyDestinationPoint: {x: 0, y: 0, z: 0}
   enemyDestinationRange: 50
   enemyInteractionRange: 7.6
+  enemyAttackRange: 5.31
+  enemyAttackTime: 1
 --- !u!195 &2000195991
 NavMeshAgent:
   m_ObjectHideFlags: 0

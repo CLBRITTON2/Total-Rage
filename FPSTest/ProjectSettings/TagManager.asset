@@ -11,6 +11,7 @@ TagManager:
   - Bullet Hole
   - Enemy
   - Floor
+  - Enemy Projectile
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Ground
   - Player
   - Lighting
-  - 
+  - Enemy Projectile
   - Postprocessing
   - 
   - 

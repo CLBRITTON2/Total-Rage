@@ -16,6 +16,9 @@ public class EnemyAI : MonoBehaviour
     public float enemyInteractionRange;
     private bool playerWithinInteractionRange;
 
+    public float enemyAttackRange, enemyAttackTime;
+    private bool playerWithinAttackRange, enemyCanAttack = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,15 +30,21 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         playerWithinInteractionRange = Physics.CheckSphere(transform.position, enemyInteractionRange, whatIsPlayer);
+        playerWithinAttackRange = Physics.CheckSphere(transform.position, enemyAttackRange, whatIsPlayer);
 
-        if (!playerWithinInteractionRange)
+        if (!playerWithinInteractionRange && !playerWithinAttackRange)
         {
             Guarding();
         }
-        else if (playerWithinInteractionRange)
+        if (playerWithinInteractionRange && !playerWithinAttackRange)
         {
             ChasingPlayer();
         }
+        if (playerWithinInteractionRange && playerWithinAttackRange)
+        {
+            AttackingPlayer();
+        }
+
     }
     private void Guarding()
     {
@@ -58,6 +67,18 @@ public class EnemyAI : MonoBehaviour
     {
         enemyNavMeshAgent.SetDestination(player.position);
     }
+    private void AttackingPlayer()
+    {
+        enemyNavMeshAgent.SetDestination(transform.position);
+        transform.LookAt(player);
+
+        if (enemyCanAttack)
+        {
+            ObjectPoolManager.instance.SpawnFromObjectPool("Enemy Projectile", transform.position, transform.localRotation);
+            enemyCanAttack = false;
+            StartCoroutine(ResetEnemyAttack());
+        }
+    }
     private void SearchForDestination()
     {
         // Create random point for enemy to walk to
@@ -74,9 +95,18 @@ public class EnemyAI : MonoBehaviour
             destinationSet = true;
         }
     }
+    IEnumerator ResetEnemyAttack()
+    {
+        yield return new WaitForSeconds(enemyAttackTime);
+
+        enemyCanAttack = true;
+    }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, enemyInteractionRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, enemyAttackRange);
     }
 }
