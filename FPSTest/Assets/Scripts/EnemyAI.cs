@@ -18,16 +18,27 @@ public class EnemyAI : MonoBehaviour
 
     public float enemyAttackRange, enemyAttackTime;
     private bool playerWithinAttackRange, enemyCanAttack = true;
+    public Transform enemyFirePosition;
+
+    public bool meleeEnemy;
+    Animator enemyMeleeAnimator;
+    Animator enemyRangeAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemyRangeAnimator = GetComponent<Animator>();
+        enemyMeleeAnimator = GetComponent<Animator>();
         player = FindObjectOfType<Player>().transform;
         enemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+    private void FixedUpdate()
     {
         playerWithinInteractionRange = Physics.CheckSphere(transform.position, enemyInteractionRange, whatIsPlayer);
         playerWithinAttackRange = Physics.CheckSphere(transform.position, enemyAttackRange, whatIsPlayer);
@@ -44,7 +55,6 @@ public class EnemyAI : MonoBehaviour
         {
             AttackingPlayer();
         }
-
     }
     private void Guarding()
     {
@@ -72,11 +82,24 @@ public class EnemyAI : MonoBehaviour
         enemyNavMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
 
-        if (enemyCanAttack)
+        if (enemyCanAttack && !meleeEnemy)
         {
-            ObjectPoolManager.instance.SpawnFromObjectPool("Enemy Projectile", transform.position, transform.localRotation);
             enemyCanAttack = false;
+            enemyFirePosition.LookAt(player);
+            enemyRangeAnimator.SetTrigger("Attack");
+            ObjectPoolManager.instance.SpawnFromObjectPool("Enemy Projectile", enemyFirePosition.position, enemyFirePosition.rotation);
             StartCoroutine(ResetEnemyAttack());
+        }
+        else if (enemyCanAttack && meleeEnemy)
+        {
+            enemyMeleeAnimator.SetTrigger("Attack");
+        }
+    }
+    public void MeleeDamage()
+    {
+        if(playerWithinAttackRange)
+        {
+            // TODO add damage to player
         }
     }
     private void SearchForDestination()

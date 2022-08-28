@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyProjectileController : MonoBehaviour
 {
-    Rigidbody enemyProjectileRigidbody;
+    public float speed = 10f;
+    public Rigidbody enemyProjectileRigidbody;
     public float upForce, forwardForce;
 
     private void OnEnable()
@@ -15,8 +16,6 @@ public class EnemyProjectileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyProjectileRigidbody = GetComponent<Rigidbody>();
-
         ThrowGrenade();
     }
     private void ThrowGrenade()
@@ -27,7 +26,7 @@ public class EnemyProjectileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     void Disable()
     {
