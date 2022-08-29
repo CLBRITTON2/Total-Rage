@@ -625,7 +625,7 @@ MonoBehaviour:
   - tag: Enemy Projectile
     prefab: {fileID: 4589933007541145970, guid: e98dd4a512f97de42a3713fd894650c2,
       type: 3}
-    poolSize: 15
+    poolSize: 5
 --- !u!114 &476493500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,8 +2079,8 @@ MonoBehaviour:
   player: {fileID: 1776793550}
   enemyDestinationPoint: {x: 0, y: 0, z: 0}
   enemyDestinationRange: 50
-  enemyInteractionRange: 11.69
-  enemyAttackRange: 8.43
+  enemyInteractionRange: 16.84
+  enemyAttackRange: 14.6
   enemyAttackTime: 1
   enemyFirePosition: {fileID: 1224101872}
   meleeEnemy: 0

@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class EnemyProjectileController : MonoBehaviour
 {
-    public float speed = 10f;
     public Rigidbody enemyProjectileRigidbody;
     public float upForce, forwardForce;
 
     private void OnEnable()
     {
+        ThrowGrenade();
         // Projectile auto disable after 2 seconds
         Invoke("Disable", 2f);
     }
     // Start is called before the first frame update
     void Start()
     {
-        ThrowGrenade();
+        
     }
     private void ThrowGrenade()
     {
@@ -30,6 +30,8 @@ public class EnemyProjectileController : MonoBehaviour
     }
     void Disable()
     {
+        enemyProjectileRigidbody.velocity = Vector3.zero;
+        enemyProjectileRigidbody.angularVelocity = Vector3.zero;
         this.gameObject.SetActive(false);
     }
     private void OnDisable()
