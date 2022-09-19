@@ -44,7 +44,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4589933007541145970}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -197,6 +197,7 @@ MonoBehaviour:
   EnemyProjectileRigidbody: {fileID: 1026742855778563430}
   UpForce: 5
   ForwardForce: 6
+  DamageAmount: 2
 --- !u!1 &4781219692551172626
 GameObject:
   m_ObjectHideFlags: 0

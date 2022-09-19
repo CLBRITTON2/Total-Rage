@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     public bool MeleeEnemy;
     Animator EnemyMeleeAnimator;
     Animator EnemyRangeAnimator;
+    public int MeleeDamageValue = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -99,7 +100,7 @@ public class EnemyAI : MonoBehaviour
     {
         if(_playerWithinAttackRange)
         {
-            // TODO add damage to player
+            Player.GetComponent<PlayerHealthSystem>().PlayerTakeDamage(MeleeDamageValue);
         }
     }
     private void SearchForDestination()

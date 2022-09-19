@@ -6,6 +6,7 @@ public class EnemyProjectileController : MonoBehaviour
 {
     public Rigidbody EnemyProjectileRigidbody;
     public float UpForce, ForwardForce;
+    public int DamageAmount = 2;
 
     private void OnEnable()
     {
@@ -37,5 +38,12 @@ public class EnemyProjectileController : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerHealthSystem>().PlayerTakeDamage(DamageAmount);
+        }
     }
 }

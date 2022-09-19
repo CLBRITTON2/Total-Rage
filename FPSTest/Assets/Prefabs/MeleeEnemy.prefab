@@ -74,9 +74,10 @@ MonoBehaviour:
   EnemyDestinationRange: 50
   EnemyInteractionRange: 7.67
   EnemyAttackRange: 5.35
-  EnemyAttackTime: 1
+  EnemyAttackTime: 2
   EnemyFirePosition: {fileID: 0}
   MeleeEnemy: 1
+  MeleeDamageValue: 2
 --- !u!195 &734956313386687815
 NavMeshAgent:
   m_ObjectHideFlags: 0

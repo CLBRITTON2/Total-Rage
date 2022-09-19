@@ -2596,7 +2596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a51b5b257d855646ab0e3fd09c279ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMaxHealth: 0
+  PlayerMaxHealth: 5
 --- !u!1 &1899381783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2675,7 @@ MonoBehaviour:
   EnemyAttackTime: 0
   EnemyFirePosition: {fileID: 0}
   MeleeEnemy: 0
+  MeleeDamageValue: 2
 --- !u!195 &2000195991
 NavMeshAgent:
   m_ObjectHideFlags: 0
