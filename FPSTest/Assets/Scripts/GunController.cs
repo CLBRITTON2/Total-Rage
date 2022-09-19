@@ -23,6 +23,8 @@ public class GunController : MonoBehaviour
     private Vector3 weaponStartPosition;
     public float zoomMagnification;
 
+    public int weaponDamageOutput;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,6 +109,10 @@ public class GunController : MonoBehaviour
                     else if (hit.collider.tag == "Floor")
                     {
                         objectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+                    }
+                    else if (hit.collider.tag == "Enemy")
+                    {
+                        objectPooler.SpawnFromObjectPool("Bullet Impact Flesh", hit.point, Quaternion.LookRotation(hit.normal));
                     }
                 }
             }

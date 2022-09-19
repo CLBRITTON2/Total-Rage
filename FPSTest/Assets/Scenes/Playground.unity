@@ -629,6 +629,9 @@ MonoBehaviour:
   - tag: Melee Enemy
     prefab: {fileID: 734956313386687809, guid: bfd104c1040806d4b94d09e37541b31b, type: 3}
     poolSize: 1
+  - tag: Bullet Impact Flesh
+    prefab: {fileID: 1000010191825552, guid: ff8cdfaf1ab21e948ae65f3f48b3c805, type: 3}
+    poolSize: 5
 --- !u!114 &476493500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,6 +1208,7 @@ MonoBehaviour:
   playerIsReloading: 0
   aimPoint: {fileID: 1899381784}
   zoomMagnification: 45
+  weaponDamageOutput: 2
 --- !u!1 &745407152
 GameObject:
   m_ObjectHideFlags: 0

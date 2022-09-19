@@ -5,9 +5,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public int currentEnemyHealth = 5;
+    private int _damageAmount;
+
     void Start()
     {
-
+        _damageAmount = FindObjectOfType<GunController>().weaponDamageOutput;
     }
 
     // Update is called once per frame
@@ -20,7 +22,7 @@ public class EnemyController : MonoBehaviour
         // Enemy disabled if it is hit by bullet
         if (other.gameObject.tag == "Bullet")
         {
-            EnemyTakeDamage();
+            EnemyTakeDamage(_damageAmount);
 
             if(currentEnemyHealth <= 0)
             {
@@ -29,9 +31,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void EnemyTakeDamage()
+    void EnemyTakeDamage(int damageAmount)
     {
-        currentEnemyHealth--;
+        currentEnemyHealth -= damageAmount;
     }
     void Disable()
     {
