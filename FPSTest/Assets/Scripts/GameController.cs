@@ -24,7 +24,8 @@ public class GameController : MonoBehaviour
         zPos = Random.Range(22f, -22f);
         Vector3 spawnPosition = new Vector3(xPos, yPos, zPos);
         Quaternion spawnRotation = Quaternion.identity;
-        ObjectPoolManager.instance.SpawnFromObjectPool("Enemy", spawnPosition, spawnRotation);
+        ObjectPoolManager.instance.SpawnFromObjectPool("Melee Enemy", spawnPosition, spawnRotation);
+        ObjectPoolManager.instance.SpawnFromObjectPool("Robot Enemy", spawnPosition, spawnRotation);
         yield return new WaitForSeconds(0.1f);
     }
 }
