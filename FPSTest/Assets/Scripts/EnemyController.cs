@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
+    public int currentEnemyHealth = 5;
     void Start()
     {
 
@@ -20,8 +20,18 @@ public class EnemyController : MonoBehaviour
         // Enemy disabled if it is hit by bullet
         if (other.gameObject.tag == "Bullet")
         {
-            Disable();
+            EnemyTakeDamage();
+
+            if(currentEnemyHealth <= 0)
+            {
+                Disable();
+            }
         }
+    }
+
+    void EnemyTakeDamage()
+    {
+        currentEnemyHealth--;
     }
     void Disable()
     {
