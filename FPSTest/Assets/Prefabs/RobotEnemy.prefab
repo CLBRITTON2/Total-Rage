@@ -13541,20 +13541,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab128da102005846996c1045836c50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsGround:
+  WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  whatIsPlayer:
+  WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  player: {fileID: 0}
-  enemyDestinationPoint: {x: 0, y: 0, z: 0}
-  enemyDestinationRange: 50
-  enemyInteractionRange: 16.84
-  enemyAttackRange: 14.6
-  enemyAttackTime: 1
-  enemyFirePosition: {fileID: 5229507221810116567}
-  meleeEnemy: 0
+  Player: {fileID: 0}
+  EnemyDestinationPoint: {x: 0, y: 0, z: 0}
+  EnemyDestinationRange: 50
+  EnemyInteractionRange: 13.14
+  EnemyAttackRange: 8.71
+  EnemyAttackTime: 1
+  EnemyFirePosition: {fileID: 5229507221810116567}
+  MeleeEnemy: 0
 --- !u!95 &5229507221757886502
 Animator:
   serializedVersion: 4
@@ -13600,9 +13600,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19368b1411e7ec4c9996038aaf2959b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPos: 0
-  yPos: 0
-  zPos: 0
+  XPos: 0
+  YPos: 0
+  ZPos: 0
 --- !u!114 &8185474763408962086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13615,7 +13615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648e1f0857f0714db836c7d41cd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnemyHealth: 5
+  CurrentEnemyHealth: 5
 --- !u!1 &5229507221810116552
 GameObject:
   m_ObjectHideFlags: 0

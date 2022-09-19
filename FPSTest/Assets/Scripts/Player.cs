@@ -5,42 +5,42 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region Backing fields
-    public CharacterController playerController;
-    public Transform mainCameraHead;
-    public Transform ground;
-    public LayerMask groundLayer;
-    public Animator playerAnimator;
+    public CharacterController PlayerController;
+    public Transform MainCameraHead;
+    public Transform Ground;
+    public LayerMask GroundLayer;
+    public Animator PlayerAnimator;
 
-    private float playerWalkingSpeed = 10.0f, playerSprintSpeed = 17f;
-    public float mouseSensitivity = 700f;
-    private float cameraVerticalRotation;
+    private float _playerWalkingSpeed = 10.0f, _playerSprintSpeed = 17f;
+    public float MouseSensitivity = 700f;
+    private float _cameraVerticalRotation;
 
-    public Vector3 velocity;
-    public float gravityModifier;
+    public Vector3 Velocity;
+    public float GravityModifier;
 
-    public float jumpHeight = 10f;
-    private bool playerCanJump;
-    private bool initializeJump;
-    public float groundDistance = 0.5f;
+    public float JumpHeight = 10f;
+    private bool _playerCanJump;
+    private bool _initializeJump;
+    public float GroundDistance = 0.5f;
 
-    private Vector3 playerCrouchingScale = new Vector3(1f, 0.5f, 1f);
-    private Vector3 playerBodyScale;
-    public Transform playerBody;
-    private float initialControllerHeight;
-    private bool playerIsCrouching;
-    private float playerCrouchMovementSpeed = 6f;
+    private Vector3 _playerCrouchingScale = new Vector3(1f, 0.5f, 1f);
+    private Vector3 _playerBodyScale;
+    public Transform PlayerBody;
+    private float _initialControllerHeight;
+    private bool _playerIsCrouching;
+    private float _playerCrouchMovementSpeed = 6f;
 
-    private bool playerIsSprinting = false, startSlidingTimer;
-    private float currentSlideTimer, maxSlideTimer = 1f;
-    private float playerSlideSpeed = 20f;
+    private bool _playerIsSprinting = false, _startSlidingTimer;
+    private float _currentSlideTimer, _maxSlideTimer = 1f;
+    private float _playerSlideSpeed = 20f;
     #endregion
 
     // Start is called before the first frame update
     #region Start
     void Start()
     {
-        playerBodyScale = playerBody.localScale;
-        initialControllerHeight = playerController.height;
+        _playerBodyScale = PlayerBody.localScale;
+        _initialControllerHeight = PlayerController.height;
     }
     #endregion
 
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         AddVelocityToPlayer();
         PlayerCrouching();
         SlideCounter();
-        if (initializeJump)
+        if (_initializeJump)
         {
             Jump();
         }
@@ -77,24 +77,24 @@ public class Player : MonoBehaviour
         // Combine the x and z axis, transform the Player object (inside the unity inspector "Transform")
         Vector3 move = x * transform.right + z * transform.forward;
 
-        if (Input.GetKey(KeyCode.LeftShift) && !playerIsCrouching)
+        if (Input.GetKey(KeyCode.LeftShift) && !_playerIsCrouching)
         {
-            move = move * playerSprintSpeed * Time.deltaTime;
-            playerIsSprinting = true;
+            move = move * _playerSprintSpeed * Time.deltaTime;
+            _playerIsSprinting = true;
         }
-        else if (playerIsCrouching)
+        else if (_playerIsCrouching)
         {
-            move = move * playerCrouchMovementSpeed * Time.deltaTime;
+            move = move * _playerCrouchMovementSpeed * Time.deltaTime;
         }
         else
         {
-            move = move * playerWalkingSpeed * Time.deltaTime;
-            playerIsSprinting = false;
+            move = move * _playerWalkingSpeed * Time.deltaTime;
+            _playerIsSprinting = false;
         }
 
-        playerAnimator.SetFloat("PlayerSpeed", move.magnitude);
+        PlayerAnimator.SetFloat("PlayerSpeed", move.magnitude);
 
-        playerController.Move(move);
+        PlayerController.Move(move);
     }
     #endregion
     #region Method: Player Crouching Main
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
         {
             StartCrouching();
         }
-        if (Input.GetKeyUp(KeyCode.C) || currentSlideTimer > maxSlideTimer)
+        if (Input.GetKeyUp(KeyCode.C) || _currentSlideTimer > _maxSlideTimer)
         {
             StopCrouching();
         }
@@ -113,50 +113,50 @@ public class Player : MonoBehaviour
     #region Method: Start Crouching
     private void StartCrouching()
     {
-        playerBody.localScale = playerCrouchingScale;
-        mainCameraHead.position -= new Vector3(0, 1f, 0);
-        playerController.height /= 2;
-        playerIsCrouching = true;
+        PlayerBody.localScale = _playerCrouchingScale;
+        MainCameraHead.position -= new Vector3(0, 1f, 0);
+        PlayerController.height /= 2;
+        _playerIsCrouching = true;
 
-        if (playerIsSprinting && Input.GetKeyDown(KeyCode.C))
+        if (_playerIsSprinting && Input.GetKeyDown(KeyCode.C))
         {
-            velocity = Vector3.ProjectOnPlane(mainCameraHead.transform.forward, Vector3.up).normalized * playerSlideSpeed * Time.deltaTime;
-            startSlidingTimer = true;
+            Velocity = Vector3.ProjectOnPlane(MainCameraHead.transform.forward, Vector3.up).normalized * _playerSlideSpeed * Time.deltaTime;
+            _startSlidingTimer = true;
         }
     }
     #endregion
     #region Method: Stop Crouching
     private void StopCrouching()
     {
-        currentSlideTimer = 0f;
-        velocity = new Vector3(0f, 0f, 0f);
-        startSlidingTimer = false;
+        _currentSlideTimer = 0f;
+        Velocity = new Vector3(0f, 0f, 0f);
+        _startSlidingTimer = false;
 
-        playerBody.localScale = playerBodyScale;
-        mainCameraHead.position += new Vector3(0, 1f, 0);
-        playerController.height = initialControllerHeight;
-        playerIsCrouching = false;
+        PlayerBody.localScale = _playerBodyScale;
+        MainCameraHead.position += new Vector3(0, 1f, 0);
+        PlayerController.height = _initialControllerHeight;
+        _playerIsCrouching = false;
     }
     #endregion
     #region Method: Player Velocity
     private void AddVelocityToPlayer()
     {
-        velocity.y += Physics.gravity.y * Mathf.Pow(Time.deltaTime, 2) * gravityModifier;
-        if (playerController.isGrounded)
+        Velocity.y += Physics.gravity.y * Mathf.Pow(Time.deltaTime, 2) * GravityModifier;
+        if (PlayerController.isGrounded)
         {
-            velocity.y = Physics.gravity.y * Time.deltaTime;
+            Velocity.y = Physics.gravity.y * Time.deltaTime;
         }
-        playerController.Move(velocity);
+        PlayerController.Move(Velocity);
     }
     #endregion
     #region Method: Jump Check
     private void InitializeJumpCheck()
     {
-        playerCanJump = Physics.OverlapSphere(ground.position, groundDistance, groundLayer).Length > 0;
+        _playerCanJump = Physics.OverlapSphere(Ground.position, GroundDistance, GroundLayer).Length > 0;
 
-        if (Input.GetButtonDown("Jump") && playerCanJump)
+        if (Input.GetButtonDown("Jump") && _playerCanJump)
         {
-            initializeJump = true;
+            _initializeJump = true;
         }
     }
     #endregion
@@ -164,34 +164,34 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         // Height affected by gravity formula
-        velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y) * Time.deltaTime;
-        playerController.Move(velocity);
-        initializeJump = false;
+        Velocity.y = Mathf.Sqrt(JumpHeight * -2f * Physics.gravity.y) * Time.deltaTime;
+        PlayerController.Move(Velocity);
+        _initializeJump = false;
     }
     #endregion
     #region Method: Player View
     private void PlayerFirstPersonView()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxisRaw("Mouse X") * MouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * MouseSensitivity * Time.deltaTime;
 
         // Disables look inversion. If you move your mouse up you will look up
-        cameraVerticalRotation -= mouseY;
-        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+        _cameraVerticalRotation -= mouseY;
+        _cameraVerticalRotation = Mathf.Clamp(_cameraVerticalRotation, -90f, 90f);
 
         transform.Rotate(Vector3.up * mouseX);
 
         // Apply local rotation to only rotate the camera
         // Quaternion is used for rotation
         // Euler returns vector 3 converted into rotations
-        mainCameraHead.localRotation = Quaternion.Euler(cameraVerticalRotation, 0f, 0f);
+        MainCameraHead.localRotation = Quaternion.Euler(_cameraVerticalRotation, 0f, 0f);
     }
     #endregion
     private void SlideCounter()
     {
-        if (startSlidingTimer)
+        if (_startSlidingTimer)
         {
-            currentSlideTimer += Time.deltaTime;
+            _currentSlideTimer += Time.deltaTime;
         }
     }
 }

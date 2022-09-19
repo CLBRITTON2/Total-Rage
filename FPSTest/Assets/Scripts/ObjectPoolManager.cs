@@ -6,50 +6,50 @@ using System;
 [System.Serializable]
 public class Pool
 {
-    public string tag;
-    public GameObject prefab;
-    public int poolSize;
+    public string Tag;
+    public GameObject Prefab;
+    public int PoolSize;
 }
 public class ObjectPoolManager : MonoBehaviour
 {
-    public Dictionary<string, Queue<GameObject>> poolDictionary;
-    public List<Pool> pools;
-    public static ObjectPoolManager instance;
+    public Dictionary<string, Queue<GameObject>> PoolDictionary;
+    public List<Pool> Pools;
+    public static ObjectPoolManager Instance;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public void Start()
     {
-        poolDictionary = new Dictionary<string, Queue<GameObject>>();
-        foreach (Pool pool in pools)
+        PoolDictionary = new Dictionary<string, Queue<GameObject>>();
+        foreach (Pool pool in Pools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
 
-            for (int i = 0; i < pool.poolSize; i++)
+            for (int i = 0; i < pool.PoolSize; i++)
             {
-                GameObject pooledObject = Instantiate(pool.prefab);
+                GameObject pooledObject = Instantiate(pool.Prefab);
                 pooledObject.SetActive(false);
                 objectPool.Enqueue(pooledObject);
             }
-            poolDictionary.Add(pool.tag, objectPool);
+            PoolDictionary.Add(pool.Tag, objectPool);
         }
     }
     public GameObject SpawnFromObjectPool(string tag, Vector3 position, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(tag))
+        if (!PoolDictionary.ContainsKey(tag))
         {
             throw new ArgumentException($"Pool with tag {tag} doesn't exist");
         }
 
-        GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        GameObject objectToSpawn = PoolDictionary[tag].Dequeue();
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
         objectToSpawn.SetActive(true);
 
-        poolDictionary[tag].Enqueue(objectToSpawn);
+        PoolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
     }

@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class EnemyBasicMovement : MonoBehaviour
 {
-    Animator enemyAnimator;
-    Transform player;
+    Animator EnemyAnimator;
+    Transform Player;
 
     public bool move, rotate;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyAnimator = GetComponent<Animator>();
-        player = FindObjectOfType<Player>().transform;
-        enemyAnimator.SetBool("Move", move);
-        enemyAnimator.SetBool("Rotating", rotate);
+        EnemyAnimator = GetComponent<Animator>();
+        Player = FindObjectOfType<Player>().transform;
+        EnemyAnimator.SetBool("Move", move);
+        EnemyAnimator.SetBool("Rotating", rotate);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player);
+        transform.LookAt(Player);
     }
 }

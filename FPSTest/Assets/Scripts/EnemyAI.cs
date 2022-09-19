@@ -5,32 +5,32 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    NavMeshAgent enemyNavMeshAgent;
-    public LayerMask whatIsGround, whatIsPlayer;
-    public Transform player;
+    NavMeshAgent EnemyNavMeshAgent;
+    public LayerMask WhatIsGround, WhatIsPlayer;
+    public Transform Player;
 
-    public Vector3 enemyDestinationPoint;
-    bool destinationSet;
-    public float enemyDestinationRange;
+    public Vector3 EnemyDestinationPoint;
+    bool DestinationSet;
+    public float EnemyDestinationRange;
 
-    public float enemyInteractionRange;
-    private bool playerWithinInteractionRange;
+    public float EnemyInteractionRange;
+    private bool _playerWithinInteractionRange;
 
-    public float enemyAttackRange, enemyAttackTime;
-    private bool playerWithinAttackRange, enemyCanAttack = true;
-    public Transform enemyFirePosition;
+    public float EnemyAttackRange, EnemyAttackTime;
+    private bool _playerWithinAttackRange, _enemyCanAttack = true;
+    public Transform EnemyFirePosition;
 
-    public bool meleeEnemy;
-    Animator enemyMeleeAnimator;
-    Animator enemyRangeAnimator;
+    public bool MeleeEnemy;
+    Animator EnemyMeleeAnimator;
+    Animator EnemyRangeAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyRangeAnimator = GetComponent<Animator>();
-        enemyMeleeAnimator = GetComponent<Animator>();
-        player = FindObjectOfType<Player>().transform;
-        enemyNavMeshAgent = GetComponent<NavMeshAgent>();
+        EnemyRangeAnimator = GetComponent<Animator>();
+        EnemyMeleeAnimator = GetComponent<Animator>();
+        Player = FindObjectOfType<Player>().transform;
+        EnemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -40,64 +40,64 @@ public class EnemyAI : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        playerWithinInteractionRange = Physics.CheckSphere(transform.position, enemyInteractionRange, whatIsPlayer);
-        playerWithinAttackRange = Physics.CheckSphere(transform.position, enemyAttackRange, whatIsPlayer);
+        _playerWithinInteractionRange = Physics.CheckSphere(transform.position, EnemyInteractionRange, WhatIsPlayer);
+        _playerWithinAttackRange = Physics.CheckSphere(transform.position, EnemyAttackRange, WhatIsPlayer);
 
-        if (!playerWithinInteractionRange && !playerWithinAttackRange)
+        if (!_playerWithinInteractionRange && !_playerWithinAttackRange)
         {
             Guarding();
         }
-        if (playerWithinInteractionRange && !playerWithinAttackRange)
+        if (_playerWithinInteractionRange && !_playerWithinAttackRange)
         {
             ChasingPlayer();
         }
-        if (playerWithinInteractionRange && playerWithinAttackRange)
+        if (_playerWithinInteractionRange && _playerWithinAttackRange)
         {
             AttackingPlayer();
         }
     }
     private void Guarding()
     {
-        if(!destinationSet)
+        if(!DestinationSet)
         {
             SearchForDestination();
         }
         else
         {
-            enemyNavMeshAgent.SetDestination(enemyDestinationPoint);
+            EnemyNavMeshAgent.SetDestination(EnemyDestinationPoint);
         }
 
-        Vector3 distanceToDestination = transform.position - enemyDestinationPoint;
+        Vector3 distanceToDestination = transform.position - EnemyDestinationPoint;
         if(distanceToDestination.magnitude < 1f)
         {
-            destinationSet = false;
+            DestinationSet = false;
         }
     }
     private void ChasingPlayer()
     {
-        enemyNavMeshAgent.SetDestination(player.position);
+        EnemyNavMeshAgent.SetDestination(Player.position);
     }
     private void AttackingPlayer()
     {
-        enemyNavMeshAgent.SetDestination(transform.position);
-        transform.LookAt(player);
+        EnemyNavMeshAgent.SetDestination(transform.position);
+        transform.LookAt(Player);
 
-        if (enemyCanAttack && !meleeEnemy)
+        if (_enemyCanAttack && !MeleeEnemy)
         {
-            enemyCanAttack = false;
-            enemyFirePosition.LookAt(player);
-            enemyRangeAnimator.SetTrigger("Attack");
-            ObjectPoolManager.instance.SpawnFromObjectPool("Enemy Projectile", enemyFirePosition.position, enemyFirePosition.rotation);
+            _enemyCanAttack = false;
+            EnemyFirePosition.LookAt(Player);
+            EnemyRangeAnimator.SetTrigger("Attack");
+            ObjectPoolManager.Instance.SpawnFromObjectPool("Enemy Projectile", EnemyFirePosition.position, EnemyFirePosition.rotation);
             StartCoroutine(ResetEnemyAttack());
         }
-        else if (enemyCanAttack && meleeEnemy)
+        else if (_enemyCanAttack && MeleeEnemy)
         {
-            enemyMeleeAnimator.SetTrigger("Attack");
+            EnemyMeleeAnimator.SetTrigger("Attack");
         }
     }
     public void MeleeDamage()
     {
-        if(playerWithinAttackRange)
+        if(_playerWithinAttackRange)
         {
             // TODO add damage to player
         }
@@ -105,34 +105,34 @@ public class EnemyAI : MonoBehaviour
     private void SearchForDestination()
     {
         // Create random point for enemy to walk to
-        float randomEnemyPositionZ = Random.Range(-enemyDestinationRange, enemyDestinationRange);
-        float randomEnemyPositionX = Random.Range(-enemyDestinationRange, enemyDestinationRange);
+        float randomEnemyPositionZ = Random.Range(-EnemyDestinationRange, EnemyDestinationRange);
+        float randomEnemyPositionX = Random.Range(-EnemyDestinationRange, EnemyDestinationRange);
 
-        enemyDestinationPoint = new Vector3(
+        EnemyDestinationPoint = new Vector3(
             transform.position.x + randomEnemyPositionX,
             transform.position.y,
             transform.position.z + randomEnemyPositionZ);
 
-        if(Physics.Raycast(enemyDestinationPoint, -transform.up, 2f, whatIsGround))
+        if(Physics.Raycast(EnemyDestinationPoint, -transform.up, 2f, WhatIsGround))
         {
-            destinationSet = true;
+            DestinationSet = true;
         }
     }
     IEnumerator ResetEnemyAttack()
     {
-        yield return new WaitForSeconds(enemyAttackTime);
+        yield return new WaitForSeconds(EnemyAttackTime);
 
-        enemyCanAttack = true;
+        _enemyCanAttack = true;
     }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, enemyInteractionRange);
+        Gizmos.DrawWireSphere(transform.position, EnemyInteractionRange);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, enemyAttackRange);
+        Gizmos.DrawWireSphere(transform.position, EnemyAttackRange);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, enemyDestinationRange);
+        Gizmos.DrawWireSphere(transform.position, EnemyDestinationRange);
     }
 }

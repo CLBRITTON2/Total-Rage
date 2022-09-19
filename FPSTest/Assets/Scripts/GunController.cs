@@ -4,37 +4,37 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    ObjectPoolManager objectPooler;
-    public Transform firePosition;
-    public Transform mainCameraHead;
-    public GameObject muzzleFlash;
-    private UICanvasController theUICanvas;
+    ObjectPoolManager ObjectPooler;
+    public Transform FirePosition;
+    public Transform MainCameraHead;
+    public GameObject MuzzleFlash;
+    private UICanvasController _theUICanvas;
 
-    public bool activateFullAuto;
-    private bool playerIsfiring, playerCanFire = true;
-    public float pauseBetweenShots = 0.2f;
+    public bool ActivateFullAuto;
+    private bool _playerIsfiring, _playerCanFire = true;
+    public float PauseBetweenShots = 0.2f;
 
-    public int roundsInMagazine, totalRounds, magazineCapacity;
-    public float reloadTime;
-    public bool playerIsReloading;
+    public int RoundsInMagazine, TotalRounds, MagazineCapacity;
+    public float ReloadTime;
+    public bool PlayerIsReloading;
 
-    public Transform aimPoint;
-    private float aimDownSightSpeed = 3f;
-    private Vector3 weaponStartPosition;
-    public float zoomMagnification;
+    public Transform AimPoint;
+    private float _aimDownSightSpeed = 3f;
+    private Vector3 _weaponStartPosition;
+    public float ZoomMagnification;
 
-    public int weaponDamageOutput;
+    public int WeaponDamageOutput;
 
     // Start is called before the first frame update
     void Start()
     {
-        objectPooler = ObjectPoolManager.instance;
-        totalRounds -= magazineCapacity;
-        roundsInMagazine = magazineCapacity;
+        ObjectPooler = ObjectPoolManager.Instance;
+        TotalRounds -= MagazineCapacity;
+        RoundsInMagazine = MagazineCapacity;
 
-        weaponStartPosition = transform.localPosition;
+        _weaponStartPosition = transform.localPosition;
 
-        theUICanvas = FindObjectOfType<UICanvasController>();
+        _theUICanvas = FindObjectOfType<UICanvasController>();
     }
 
     // Update is called once per frame
@@ -46,23 +46,23 @@ public class GunController : MonoBehaviour
     }
     private void WeaponManager()
     {
-        if(Input.GetKeyDown(KeyCode.R) && roundsInMagazine < magazineCapacity && !playerIsReloading)
+        if(Input.GetKeyDown(KeyCode.R) && RoundsInMagazine < MagazineCapacity && !PlayerIsReloading)
         {
             ReloadWeapon();
         }
 
         if(Input.GetMouseButton(1))
         {
-            transform.position = Vector3.MoveTowards(transform.position, aimPoint.position, aimDownSightSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, AimPoint.position, _aimDownSightSpeed * Time.deltaTime);
         }
         else
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, weaponStartPosition, aimDownSightSpeed * Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _weaponStartPosition, _aimDownSightSpeed * Time.deltaTime);
         }
 
         if(Input.GetMouseButtonDown(1))
         {
-            FindObjectOfType<CameraMove>().ZoomIn(zoomMagnification);
+            FindObjectOfType<CameraMove>().ZoomIn(ZoomMagnification);
         }
         if(Input.GetMouseButtonUp(1))
         {
@@ -76,54 +76,54 @@ public class GunController : MonoBehaviour
     #region Method: Fire Weapon
     private void FireWeapon()
     {
-        if(activateFullAuto)
+        if(ActivateFullAuto)
         {
-            playerIsfiring = Input.GetMouseButton(0);
+            _playerIsfiring = Input.GetMouseButton(0);
         }
         else
         {
-            playerIsfiring = Input.GetMouseButtonDown(0);
+            _playerIsfiring = Input.GetMouseButtonDown(0);
         }
 
-        if (playerIsfiring && playerCanFire && roundsInMagazine > 0 && !playerIsReloading)
+        if (_playerIsfiring && _playerCanFire && RoundsInMagazine > 0 && !PlayerIsReloading)
         {
-            playerCanFire = false;
+            _playerCanFire = false;
 
-            objectPooler.SpawnFromObjectPool("Bullet", firePosition.position, firePosition.rotation).transform.parent = firePosition;
+            ObjectPooler.SpawnFromObjectPool("Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
             RaycastHit hit;
 
-            if (Physics.Raycast(mainCameraHead.position, mainCameraHead.forward, out hit, 100f))
+            if (Physics.Raycast(MainCameraHead.position, MainCameraHead.forward, out hit, 100f))
             {
                 // Managing bullet accuracy based off distance and point of aim
-                float distance = Vector3.Distance(mainCameraHead.position, hit.point);
+                float distance = Vector3.Distance(MainCameraHead.position, hit.point);
                 if (distance > 2f)
                 {
-                    firePosition.LookAt(hit.point);
+                    FirePosition.LookAt(hit.point);
 
                     if (hit.collider.tag == "Shootable Object")
                     {
-                        objectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+                        ObjectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }
                     else if (hit.collider.tag == "Floor")
                     {
-                        objectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+                        ObjectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
                     }
                     else if (hit.collider.tag == "Enemy")
                     {
-                        objectPooler.SpawnFromObjectPool("Bullet Impact Flesh", hit.point, Quaternion.LookRotation(hit.normal));
+                        ObjectPooler.SpawnFromObjectPool("Bullet Impact Flesh", hit.point, Quaternion.LookRotation(hit.normal));
                     }
                 }
             }
             else
             {
                 // If the bullet hits nothing it still has a direction to fire
-                firePosition.LookAt(mainCameraHead.position + (mainCameraHead.forward * 50f));
+                FirePosition.LookAt(MainCameraHead.position + (MainCameraHead.forward * 50f));
             }
-            roundsInMagazine--;
+            RoundsInMagazine--;
 
-            Instantiate(muzzleFlash, firePosition.position, firePosition.rotation, firePosition);
+            Instantiate(MuzzleFlash, FirePosition.position, FirePosition.rotation, FirePosition);
 
             StartCoroutine(ResetShot());
         }
@@ -131,35 +131,35 @@ public class GunController : MonoBehaviour
     #endregion
     private void ReloadWeapon()
     {
-        int roundsToAddToMagazine = magazineCapacity - roundsInMagazine;
+        int roundsToAddToMagazine = MagazineCapacity - RoundsInMagazine;
 
-        if(totalRounds > roundsToAddToMagazine)
+        if(TotalRounds > roundsToAddToMagazine)
         {
-            totalRounds -= roundsToAddToMagazine;
-            roundsInMagazine = magazineCapacity;
+            TotalRounds -= roundsToAddToMagazine;
+            RoundsInMagazine = MagazineCapacity;
         }
         else
         {
-            roundsInMagazine += totalRounds;
-            totalRounds = 0;
+            RoundsInMagazine += TotalRounds;
+            TotalRounds = 0;
         }
 
-        playerIsReloading = true;
+        PlayerIsReloading = true;
         StartCoroutine(ReloadCoroutine());
     }
     IEnumerator ResetShot()
     {
-        yield return new WaitForSeconds(pauseBetweenShots);
-        playerCanFire = true;
+        yield return new WaitForSeconds(PauseBetweenShots);
+        _playerCanFire = true;
     }
     IEnumerator ReloadCoroutine()
     {
-        yield return new WaitForSeconds(reloadTime);
-        playerIsReloading = false;
+        yield return new WaitForSeconds(ReloadTime);
+        PlayerIsReloading = false;
     }
     private void UpdateAmmoInfoText()
     {
-        theUICanvas.ammoInfoText.SetText(roundsInMagazine + " / " + magazineCapacity);
-        theUICanvas.playersTotalAmmoText.SetText(totalRounds.ToString());
+        _theUICanvas.AmmoInfoText.SetText(RoundsInMagazine + " / " + MagazineCapacity);
+        _theUICanvas.PlayersTotalAmmoText.SetText(TotalRounds.ToString());
     }
 }

@@ -194,9 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226f5185234d26f4aa6ae7250a4ffdcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyProjectileRigidbody: {fileID: 1026742855778563430}
-  upForce: 2
-  forwardForce: 20
+  EnemyProjectileRigidbody: {fileID: 1026742855778563430}
+  UpForce: 5
+  ForwardForce: 6
 --- !u!1 &4781219692551172626
 GameObject:
   m_ObjectHideFlags: 0

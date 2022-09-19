@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyProjectileController : MonoBehaviour
 {
-    public Rigidbody enemyProjectileRigidbody;
-    public float upForce, forwardForce;
+    public Rigidbody EnemyProjectileRigidbody;
+    public float UpForce, ForwardForce;
 
     private void OnEnable()
     {
@@ -20,8 +20,8 @@ public class EnemyProjectileController : MonoBehaviour
     }
     private void ThrowGrenade()
     {
-        enemyProjectileRigidbody.AddForce(transform.forward * forwardForce, ForceMode.Impulse);
-        enemyProjectileRigidbody.AddForce(transform.up * upForce, ForceMode.Impulse);
+        EnemyProjectileRigidbody.AddForce(transform.forward * ForwardForce, ForceMode.Impulse);
+        EnemyProjectileRigidbody.AddForce(transform.up * UpForce, ForceMode.Impulse);
     }
     // Update is called once per frame
     void Update()
@@ -30,8 +30,8 @@ public class EnemyProjectileController : MonoBehaviour
     }
     void Disable()
     {
-        enemyProjectileRigidbody.velocity = Vector3.zero;
-        enemyProjectileRigidbody.angularVelocity = Vector3.zero;
+        EnemyProjectileRigidbody.velocity = Vector3.zero;
+        EnemyProjectileRigidbody.angularVelocity = Vector3.zero;
         this.gameObject.SetActive(false);
     }
     private void OnDisable()

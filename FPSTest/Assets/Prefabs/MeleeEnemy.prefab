@@ -63,20 +63,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab128da102005846996c1045836c50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsGround:
+  WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  whatIsPlayer:
+  WhatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  player: {fileID: 0}
-  enemyDestinationPoint: {x: 0, y: 0, z: 0}
-  enemyDestinationRange: 50
-  enemyInteractionRange: 8.86
-  enemyAttackRange: 4.94
-  enemyAttackTime: 0
-  enemyFirePosition: {fileID: 0}
-  meleeEnemy: 1
+  Player: {fileID: 0}
+  EnemyDestinationPoint: {x: 0, y: 0, z: 0}
+  EnemyDestinationRange: 50
+  EnemyInteractionRange: 7.67
+  EnemyAttackRange: 5.35
+  EnemyAttackTime: 1
+  EnemyFirePosition: {fileID: 0}
+  MeleeEnemy: 1
 --- !u!195 &734956313386687815
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648e1f0857f0714db836c7d41cd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnemyHealth: 5
+  CurrentEnemyHealth: 5
 --- !u!1001 &734956315483275961
 PrefabInstance:
   m_ObjectHideFlags: 0

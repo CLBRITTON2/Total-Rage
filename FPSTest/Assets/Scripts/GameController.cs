@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public float xPos;
-    public float yPos;
-    public float zPos;
-    public static GameController instance;
+    public float XPos;
+    public float YPos;
+    public float ZPos;
+    public static GameController Instance;
     // Start is called before the first frame update
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
     void Start()
     {
@@ -19,13 +19,13 @@ public class GameController : MonoBehaviour
     }
     IEnumerator SpawnEnemies()
     {
-        xPos = Random.Range(-22f, 22f);
-        yPos = Random.Range(0f, 10f);
-        zPos = Random.Range(22f, -22f);
-        Vector3 spawnPosition = new Vector3(xPos, yPos, zPos);
+        XPos = Random.Range(-22f, 22f);
+        YPos = Random.Range(0f, 10f);
+        ZPos = Random.Range(22f, -22f);
+        Vector3 spawnPosition = new Vector3(XPos, YPos, ZPos);
         Quaternion spawnRotation = Quaternion.identity;
-        ObjectPoolManager.instance.SpawnFromObjectPool("Melee Enemy", spawnPosition, spawnRotation);
-        ObjectPoolManager.instance.SpawnFromObjectPool("Robot Enemy", spawnPosition, spawnRotation);
+        ObjectPoolManager.Instance.SpawnFromObjectPool("Melee Enemy", spawnPosition, spawnRotation);
+        ObjectPoolManager.Instance.SpawnFromObjectPool("Robot Enemy", spawnPosition, spawnRotation);
         yield return new WaitForSeconds(0.1f);
     }
 }

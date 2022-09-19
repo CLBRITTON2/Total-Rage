@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public float speed = 120f;
-    public Rigidbody bulletRigidBody;
+    public float Speed = 120f;
+    public Rigidbody BulletRigidBody;
 
     private void OnEnable()
     {
@@ -37,7 +37,7 @@ public class BulletController : MonoBehaviour
     }
     private void BulletFlightPath()
     {
-        bulletRigidBody.velocity = transform.forward * speed;
+        BulletRigidBody.velocity = transform.forward * Speed;
     }
     private void OnTriggerEnter(Collider other)
     {

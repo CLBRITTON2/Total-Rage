@@ -607,31 +607,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092ef238cb47b76459fc7e1e16f73199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - tag: Bullet
-    prefab: {fileID: 1697392496918415031, guid: 3c496cd0b2e14924795b72d286207126,
+  Pools:
+  - Tag: Bullet
+    Prefab: {fileID: 1697392496918415031, guid: 3c496cd0b2e14924795b72d286207126,
       type: 3}
-    poolSize: 15
-  - tag: Bullet Hole
-    prefab: {fileID: 1000010355441670, guid: ef7174a371872f04e9509ae929c91729, type: 3}
-    poolSize: 15
-  - tag: Bullet Impact Ground
-    prefab: {fileID: 1000010844420130, guid: 808466741f0cbce4ab90dc16487f9887, type: 3}
-    poolSize: 15
-  - tag: Enemy Projectile
-    prefab: {fileID: 4589933007541145970, guid: e98dd4a512f97de42a3713fd894650c2,
+    PoolSize: 10
+  - Tag: Bullet Hole
+    Prefab: {fileID: 1000010355441670, guid: ef7174a371872f04e9509ae929c91729, type: 3}
+    PoolSize: 10
+  - Tag: Bullet Impact Ground
+    Prefab: {fileID: 1000010844420130, guid: 808466741f0cbce4ab90dc16487f9887, type: 3}
+    PoolSize: 10
+  - Tag: Bullet Impact Flesh
+    Prefab: {fileID: 1000010191825552, guid: ff8cdfaf1ab21e948ae65f3f48b3c805, type: 3}
+    PoolSize: 10
+  - Tag: Enemy Projectile
+    Prefab: {fileID: 4589933007541145970, guid: e98dd4a512f97de42a3713fd894650c2,
       type: 3}
-    poolSize: 5
-  - tag: Robot Enemy
-    prefab: {fileID: 5229507221757886503, guid: 9b776ee0ef6b20a4e856d6bf9d688864,
+    PoolSize: 5
+  - Tag: Melee Enemy
+    Prefab: {fileID: 734956313386687809, guid: bfd104c1040806d4b94d09e37541b31b, type: 3}
+    PoolSize: 1
+  - Tag: Robot Enemy
+    Prefab: {fileID: 5229507221757886503, guid: 9b776ee0ef6b20a4e856d6bf9d688864,
       type: 3}
-    poolSize: 2
-  - tag: Melee Enemy
-    prefab: {fileID: 734956313386687809, guid: bfd104c1040806d4b94d09e37541b31b, type: 3}
-    poolSize: 1
-  - tag: Bullet Impact Flesh
-    prefab: {fileID: 1000010191825552, guid: ff8cdfaf1ab21e948ae65f3f48b3c805, type: 3}
-    poolSize: 5
+    PoolSize: 1
 --- !u!114 &476493500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,9 +644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19368b1411e7ec4c9996038aaf2959b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPos: 0
-  yPos: 0
-  zPos: 0
+  XPos: 0
+  YPos: 0
+  ZPos: 0
 --- !u!1 &500706627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,8 +1147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ce41e5fb2966654c8783bf563b45122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoInfoText: {fileID: 1493206008}
-  playersTotalAmmoText: {fileID: 15070250}
+  AmmoInfoText: {fileID: 1493206008}
+  PlayersTotalAmmoText: {fileID: 15070250}
 --- !u!1 &723389875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,20 +1195,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fdce0a54274eb44a770d9bcc4a4fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePosition: {fileID: 1728171618}
-  mainCameraHead: {fileID: 1528549407}
-  muzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
+  FirePosition: {fileID: 1728171618}
+  MainCameraHead: {fileID: 1528549407}
+  MuzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
-  activateFullAuto: 0
-  pauseBetweenShots: 0.1
-  roundsInMagazine: 10
-  totalRounds: 20
-  magazineCapacity: 10
-  reloadTime: 2
-  playerIsReloading: 0
-  aimPoint: {fileID: 1899381784}
-  zoomMagnification: 45
-  weaponDamageOutput: 2
+  ActivateFullAuto: 0
+  PauseBetweenShots: 0.2
+  RoundsInMagazine: 10
+  TotalRounds: 30
+  MagazineCapacity: 10
+  ReloadTime: 1
+  PlayerIsReloading: 0
+  AimPoint: {fileID: 1899381784}
+  ZoomMagnification: 45
+  WeaponDamageOutput: 2
 --- !u!1 &745407152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1492,8 +1492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0a77c28c96bbe4fa801f8c256bc55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayerHead: {fileID: 1528549407}
-  fieldOfViewZoomSpeed: 13
+  ThePlayerHead: {fileID: 1528549407}
+  FieldOfViewZoomSpeed: 10
 --- !u!1 &988331561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648e1f0857f0714db836c7d41cd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnemyHealth: 5
+  CurrentEnemyHealth: 5
 --- !u!64 &1353231972
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2236,7 +2236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648e1f0857f0714db836c7d41cd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentEnemyHealth: 5
+  CurrentEnemyHealth: 5
 --- !u!114 &1686118775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,9 +2495,10 @@ GameObject:
   - component: {fileID: 1776793549}
   - component: {fileID: 1776793548}
   - component: {fileID: 1776793551}
+  - component: {fileID: 1776793552}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2514,19 +2515,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ee0101ce4683d44a68cf8872b78f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1776793549}
-  mainCameraHead: {fileID: 1528549407}
-  ground: {fileID: 359501719}
-  groundLayer:
+  PlayerController: {fileID: 1776793549}
+  MainCameraHead: {fileID: 1528549407}
+  Ground: {fileID: 359501719}
+  GroundLayer:
     serializedVersion: 2
     m_Bits: 64
-  playerAnimator: {fileID: 1776793551}
-  mouseSensitivity: 700
-  velocity: {x: 0, y: 0, z: 0}
-  gravityModifier: 15
-  jumpHeight: 50
-  groundDistance: 0.5
-  playerBody: {fileID: 1309793839}
+  PlayerAnimator: {fileID: 1776793551}
+  MouseSensitivity: 700
+  Velocity: {x: 0, y: 0, z: 0}
+  GravityModifier: 6
+  JumpHeight: 10
+  GroundDistance: 0.5
+  PlayerBody: {fileID: 1309793839}
 --- !u!143 &1776793549
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2583,6 +2584,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1776793552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776793547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a51b5b257d855646ab0e3fd09c279ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMaxHealth: 0
 --- !u!1 &1899381783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,20 +2661,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab128da102005846996c1045836c50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsGround:
+  WhatIsGround:
     serializedVersion: 2
-    m_Bits: 64
-  whatIsPlayer:
+    m_Bits: 0
+  WhatIsPlayer:
     serializedVersion: 2
-    m_Bits: 128
-  player: {fileID: 1776793550}
-  enemyDestinationPoint: {x: 0, y: 0, z: 0}
-  enemyDestinationRange: 50
-  enemyInteractionRange: 7.6
-  enemyAttackRange: 5.31
-  enemyAttackTime: 1
-  enemyFirePosition: {fileID: 0}
-  meleeEnemy: 0
+    m_Bits: 0
+  Player: {fileID: 0}
+  EnemyDestinationPoint: {x: 0, y: 0, z: 0}
+  EnemyDestinationRange: 0
+  EnemyInteractionRange: 0
+  EnemyAttackRange: 0
+  EnemyAttackTime: 0
+  EnemyFirePosition: {fileID: 0}
+  MeleeEnemy: 0
 --- !u!195 &2000195991
 NavMeshAgent:
   m_ObjectHideFlags: 0
