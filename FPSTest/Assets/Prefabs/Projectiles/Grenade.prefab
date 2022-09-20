@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyProjectileRigidbody: {fileID: 1026742855778563430}
   UpForce: 5
-  ForwardForce: 6
+  ForwardForce: 10
   DamageAmount: 2
 --- !u!1 &4781219692551172626
 GameObject:

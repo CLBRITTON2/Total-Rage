@@ -13550,11 +13550,12 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyDestinationPoint: {x: 0, y: 0, z: 0}
   EnemyDestinationRange: 50
-  EnemyInteractionRange: 13.14
-  EnemyAttackRange: 8.71
+  EnemyInteractionRange: 12.06
+  EnemyAttackRange: 7.99
   EnemyAttackTime: 1
   EnemyFirePosition: {fileID: 5229507221810116567}
   MeleeEnemy: 0
+  MeleeDamageValue: 2
 --- !u!95 &5229507221757886502
 Animator:
   serializedVersion: 4
