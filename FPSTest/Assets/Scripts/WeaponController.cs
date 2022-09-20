@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunController : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
     ObjectPoolManager ObjectPooler;
     public Transform FirePosition;
@@ -89,7 +89,22 @@ public class GunController : MonoBehaviour
         {
             _playerCanFire = false;
 
-            ObjectPooler.SpawnFromObjectPool("Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+            // Switch statement for different guns to pull different rounds from the object pool
+            switch (gameObject.tag)
+            {
+                case "Pistol":
+                    ObjectPooler.SpawnFromObjectPool("Pistol Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                    break;
+
+                case "Assault Rifle":
+                    ObjectPooler.SpawnFromObjectPool("Assault Rifle Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                    break;
+
+                case "Sniper Rifle":
+                    ObjectPooler.SpawnFromObjectPool("Sniper Rifle Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                    break;
+            }
+
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
             RaycastHit hit;

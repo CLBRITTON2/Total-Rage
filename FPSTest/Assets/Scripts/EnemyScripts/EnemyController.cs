@@ -12,11 +12,9 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        _damageAmount = FindObjectOfType<GunController>().WeaponDamageOutput;
         EnemyHealthBar = GetComponentInChildren<EnemyUICanvasController>();
 
         _currentEnemyHealth = EnemyMaxHealth;
-
         EnemyHealthBar.SetEnemyMaxHealth(EnemyMaxHealth);
     }
 
@@ -27,15 +25,37 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Enemy recieves damage if it is hit by bullet
-        if (other.gameObject.tag == "Bullet")
-        {
-            EnemyTakeDamage(_damageAmount);
+        _damageAmount = FindObjectOfType<WeaponController>().WeaponDamageOutput;
+        // Refactor this later
 
-            if(_currentEnemyHealth <= 0)
-            {
-                Disable();
-            }
+        switch (other.gameObject.tag)
+        {
+            case "Pistol Bullet":
+                EnemyTakeDamage(_damageAmount);
+
+                if (_currentEnemyHealth <= 0)
+                {
+                    Disable();
+                }
+                break;
+
+            case "Assault Rifle Bullet":
+                EnemyTakeDamage(_damageAmount);
+
+                if (_currentEnemyHealth <= 0)
+                {
+                    Disable();
+                }
+                break;
+
+            case "Sniper Rifle Bullet":
+                EnemyTakeDamage(_damageAmount);
+
+                if (_currentEnemyHealth <= 0)
+                {
+                    Disable();
+                }
+                break;
         }
     }
 
