@@ -30,6 +30,7 @@ public class PlayerHealthSystem : MonoBehaviour
         if (_playerCurrentHealth <= 0)
         {
             gameObject.SetActive(false);
+            FindObjectOfType<GameManager>().PlayerRespawn();
         }
     }
 }
