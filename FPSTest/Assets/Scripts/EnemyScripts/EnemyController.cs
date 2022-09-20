@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public int CurrentEnemyHealth = 5;
+    public int EnemyMaxHealth;
+    private int _currentEnemyHealth;
     private int _damageAmount;
+
+    EnemyUICanvasController EnemyHealthBar;
 
     void Start()
     {
         _damageAmount = FindObjectOfType<GunController>().WeaponDamageOutput;
+        EnemyHealthBar = GetComponentInChildren<EnemyUICanvasController>();
+
+        _currentEnemyHealth = EnemyMaxHealth;
+
+        EnemyHealthBar.SetEnemyMaxHealth(EnemyMaxHealth);
     }
 
     // Update is called once per frame
@@ -24,7 +32,7 @@ public class EnemyController : MonoBehaviour
         {
             EnemyTakeDamage(_damageAmount);
 
-            if(CurrentEnemyHealth <= 0)
+            if(_currentEnemyHealth <= 0)
             {
                 Disable();
             }
@@ -33,7 +41,8 @@ public class EnemyController : MonoBehaviour
 
     void EnemyTakeDamage(int damageAmount)
     {
-        CurrentEnemyHealth -= damageAmount;
+        _currentEnemyHealth -= damageAmount;
+        EnemyHealthBar.SetEnemyHealthBar(_currentEnemyHealth);
     }
     void Disable()
     {

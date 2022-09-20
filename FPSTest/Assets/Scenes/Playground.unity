@@ -2036,7 +2036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648e1f0857f0714db836c7d41cd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentEnemyHealth: 5
+  EnemyMaxHealth: 0
 --- !u!64 &1353231972
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2557,7 +2557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c648e1f0857f0714db836c7d41cd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentEnemyHealth: 5
+  EnemyMaxHealth: 0
 --- !u!114 &1686118775
 MonoBehaviour:
   m_ObjectHideFlags: 0
