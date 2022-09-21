@@ -10,7 +10,7 @@ public class CycleWeaponSystem : MonoBehaviour
     public int CurrentWeaponIndex;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         // Deactivate all weapons on start then only activatre current weapon index
         foreach (WeaponController weapon in AllWeapons)

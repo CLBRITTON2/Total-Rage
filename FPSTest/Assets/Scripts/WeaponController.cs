@@ -36,7 +36,12 @@ public class WeaponController : MonoBehaviour
 
         _theUICanvas = FindObjectOfType<UICanvasController>();
     }
-
+    private void OnEnable()
+    {
+        // Stops bug where guns won't fire if swapped while reloading
+        PlayerIsReloading = false;
+        _playerCanFire = true;
+    }
     // Update is called once per frame
     void Update()
     {
