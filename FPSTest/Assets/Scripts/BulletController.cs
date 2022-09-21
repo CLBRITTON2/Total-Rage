@@ -6,6 +6,7 @@ public class BulletController : MonoBehaviour
 {
     public float Speed = 120f;
     public Rigidbody BulletRigidBody;
+    public int ProjectileDamageOutput;
 
     private void OnEnable()
     {

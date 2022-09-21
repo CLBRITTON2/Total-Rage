@@ -23,8 +23,6 @@ public class WeaponController : MonoBehaviour
     private Vector3 _weaponStartPosition;
     public float ZoomMagnification;
 
-    public int WeaponDamageOutput;
-
     // Start is called before the first frame update
     void Start()
     {

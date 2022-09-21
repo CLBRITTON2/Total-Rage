@@ -747,7 +747,7 @@ MonoBehaviour:
     PoolSize: 5
   - Tag: Melee Enemy
     Prefab: {fileID: 734956313386687809, guid: bfd104c1040806d4b94d09e37541b31b, type: 3}
-    PoolSize: 1
+    PoolSize: 3
   - Tag: Robot Enemy
     Prefab: {fileID: 5229507221757886503, guid: 9b776ee0ef6b20a4e856d6bf9d688864,
       type: 3}
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
   ActivateFullAuto: 1
-  PauseBetweenShots: 0.1
+  PauseBetweenShots: 0.2
   RoundsInMagazine: 30
   TotalRounds: 100
   MagazineCapacity: 30

@@ -25,7 +25,8 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        _damageAmount = FindObjectOfType<WeaponController>().WeaponDamageOutput;
+        _damageAmount = other.gameObject.GetComponent<BulletController>().ProjectileDamageOutput;
+
         // Refactor this later
 
         switch (other.gameObject.tag)

@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 250
   BulletRigidBody: {fileID: -5591487130772342960}
+  ProjectileDamageOutput: 3
 --- !u!135 &-7574376975171466071
 SphereCollider:
   m_ObjectHideFlags: 0
