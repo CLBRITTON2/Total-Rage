@@ -1505,7 +1505,6 @@ MonoBehaviour:
   PlayerIsReloading: 0
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
-  WeaponDamageOutput: 2
 --- !u!1 &745407152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,7 +2023,7 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
   ActivateFullAuto: 1
-  PauseBetweenShots: 0.2
+  PauseBetweenShots: 0.1
   RoundsInMagazine: 30
   TotalRounds: 100
   MagazineCapacity: 30
@@ -2032,7 +2031,6 @@ MonoBehaviour:
   PlayerIsReloading: 0
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
-  WeaponDamageOutput: 3
 --- !u!1 &1309793838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,7 +2174,6 @@ MonoBehaviour:
   PlayerIsReloading: 0
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 35
-  WeaponDamageOutput: 6
 --- !u!1 &1353231966
 GameObject:
   m_ObjectHideFlags: 0
