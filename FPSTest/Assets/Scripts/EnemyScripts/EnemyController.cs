@@ -57,6 +57,15 @@ public class EnemyController : MonoBehaviour
                     Disable();
                 }
                 break;
+
+            case "Rocket Launcher Bullet":
+                EnemyTakeDamage(_damageAmount);
+
+                if (_currentEnemyHealth <= 0)
+                {
+                    Disable();
+                }
+                break;
         }
     }
 

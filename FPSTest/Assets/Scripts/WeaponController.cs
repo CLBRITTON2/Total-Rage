@@ -23,6 +23,8 @@ public class WeaponController : MonoBehaviour
     private Vector3 _weaponStartPosition;
     public float ZoomMagnification;
 
+    public string WeaponName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,18 +95,22 @@ public class WeaponController : MonoBehaviour
             _playerCanFire = false;
 
             // Switch statement for different guns to pull different rounds from the object pool
-            switch (gameObject.tag)
+            switch (WeaponName)
             {
                 case "Pistol":
                     ObjectPooler.SpawnFromObjectPool("Pistol Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
                     break;
 
-                case "Assault Rifle":
+                case "AssaultRifle":
                     ObjectPooler.SpawnFromObjectPool("Assault Rifle Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
                     break;
 
-                case "Sniper Rifle":
+                case "SniperRifle":
                     ObjectPooler.SpawnFromObjectPool("Sniper Rifle Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                    break;
+
+                case "RocketLauncher":
+                    ObjectPooler.SpawnFromObjectPool("Rocket Launcher Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
                     break;
             }
 

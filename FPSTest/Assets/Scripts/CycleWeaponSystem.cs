@@ -9,6 +9,8 @@ public class CycleWeaponSystem : MonoBehaviour
     public List<WeaponController> AllWeapons = new List<WeaponController>();
     public int CurrentWeaponIndex;
 
+    public List<WeaponController> GroundWeapons = new List<WeaponController>();
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -41,5 +43,34 @@ public class CycleWeaponSystem : MonoBehaviour
 
         _activeWeapon = AllWeapons[CurrentWeaponIndex];
         _activeWeapon.gameObject.SetActive(true);
+    }
+    public void AddWeapon(string weaponName)
+    {
+        bool unlocked = false;
+
+        if (GroundWeapons.Count > 0)
+        { 
+            for(int i = 0; i < GroundWeapons.Count; i++)
+            {
+                if (GroundWeapons[i].WeaponName == weaponName)
+                {
+                    // Add ground weapon to all weapons list, remove it from ground weapons
+                    // Set weapon to unlocked so player automatically equips ground weapons
+                    AllWeapons.Add(GroundWeapons[i]);
+                    GroundWeapons.RemoveAt(i);
+                    i = GroundWeapons.Count;
+                    unlocked = true;
+                    Debug.Log($"Picked up: {weaponName}");
+                }
+            }
+        }
+
+        if(unlocked)
+        {
+            // Sets weapon index to always be the last weapon in the list
+            // Player will always equip picked up ground weapons
+            CurrentWeaponIndex = AllWeapons.Count - 2;
+            SwitchWeapon();
+        }
     }
 }

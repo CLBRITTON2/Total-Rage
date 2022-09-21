@@ -12,12 +12,10 @@ TagManager:
   - Enemy
   - Floor
   - Enemy Projectile
-  - Pistol
-  - Assault Rifle
-  - Sniper Rifle
   - Pistol Bullet
   - Assault Rifle Bullet
   - Sniper Rifle Bullet
+  - Rocket Launcher Bullet
   layers:
   - Default
   - TransparentFX
