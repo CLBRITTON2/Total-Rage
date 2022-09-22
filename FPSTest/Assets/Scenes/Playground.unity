@@ -737,8 +737,8 @@ MonoBehaviour:
   - Tag: Bullet Impact Flesh
     Prefab: {fileID: 1000010191825552, guid: ff8cdfaf1ab21e948ae65f3f48b3c805, type: 3}
     PoolSize: 10
-  - Tag: Enemy Projectile
-    Prefab: {fileID: 4589933007541145970, guid: e98dd4a512f97de42a3713fd894650c2,
+  - Tag: Explosion Effect
+    Prefab: {fileID: 1590471898947043253, guid: fe7fffae0a9da134b958aaec719147e2,
       type: 3}
     PoolSize: 5
   - Tag: Melee Enemy
@@ -748,6 +748,10 @@ MonoBehaviour:
     Prefab: {fileID: 5229507221757886503, guid: 9b776ee0ef6b20a4e856d6bf9d688864,
       type: 3}
     PoolSize: 1
+  - Tag: Enemy Projectile
+    Prefab: {fileID: 4589933007541145970, guid: e98dd4a512f97de42a3713fd894650c2,
+      type: 3}
+    PoolSize: 5
   - Tag: Pistol Bullet
     Prefab: {fileID: 1697392496918415031, guid: 3c496cd0b2e14924795b72d286207126,
       type: 3}
@@ -767,14 +771,10 @@ MonoBehaviour:
   - Tag: Rocket Trail Effect
     Prefab: {fileID: 1360330109679530373, guid: 913f2414087abf741933ad1ce0c70e69,
       type: 3}
-    PoolSize: 2
+    PoolSize: 7
   - Tag: Muzzle Flash
     Prefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
     PoolSize: 10
-  - Tag: Explosion Effect
-    Prefab: {fileID: 1590471898947043253, guid: fe7fffae0a9da134b958aaec719147e2,
-      type: 3}
-    PoolSize: 5
 --- !u!114 &476493500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,12 +1414,13 @@ MonoBehaviour:
   MainCameraHead: {fileID: 1528549407}
   MuzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
+  PlayerAnimator: {fileID: 1776793551}
   ActivateFullAuto: 0
   PauseBetweenShots: 0.2
   RoundsInMagazine: 10
   TotalRounds: 30
   MagazineCapacity: 10
-  ReloadTime: 1
+  ReloadTime: 2
   PlayerIsReloading: 0
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
@@ -1975,6 +1976,7 @@ MonoBehaviour:
   MainCameraHead: {fileID: 1528549407}
   MuzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
+  PlayerAnimator: {fileID: 0}
   ActivateFullAuto: 1
   PauseBetweenShots: 0.1
   RoundsInMagazine: 30
@@ -2120,6 +2122,7 @@ MonoBehaviour:
   MainCameraHead: {fileID: 1528549407}
   MuzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
+  PlayerAnimator: {fileID: 0}
   ActivateFullAuto: 0
   PauseBetweenShots: 1
   RoundsInMagazine: 5
@@ -3267,6 +3270,7 @@ MonoBehaviour:
   MainCameraHead: {fileID: 1528549407}
   MuzzleFlash: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc,
     type: 3}
+  PlayerAnimator: {fileID: 0}
   ActivateFullAuto: 0
   PauseBetweenShots: 3
   RoundsInMagazine: 1
@@ -5445,7 +5449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6585002125969275201}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000024415178, y: 0.08049925, z: -0.044826243}
+  m_LocalPosition: {x: -0.00002441518, y: 0.08049925, z: -0.04482624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5497,7 +5501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6584457630380629715}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000073537226, y: 0.08749961, z: -0.035344377}
+  m_LocalPosition: {x: 0.0000073537226, y: 0.08749961, z: -0.03534438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

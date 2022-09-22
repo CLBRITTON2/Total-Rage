@@ -9,6 +9,7 @@ public class WeaponController : MonoBehaviour
     public Transform MainCameraHead;
     public GameObject MuzzleFlash;
     private UICanvasController _theUICanvas;
+    public Animator PlayerAnimator;
 
     public bool ActivateFullAuto;
     private bool _playerIsfiring, _playerCanFire = true;
@@ -30,6 +31,7 @@ public class WeaponController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Using object pool singleton
         ObjectPooler = ObjectPoolManager.Instance;
         TotalRounds -= MagazineCapacity;
         RoundsInMagazine = MagazineCapacity;
@@ -112,7 +114,7 @@ public class WeaponController : MonoBehaviour
                     break;
 
                 case "RocketLauncher":
-                    ObjectPooler.SpawnFromObjectPool("Rocket Launcher Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                    ObjectPooler.SpawnFromObjectPool("Rocket Launcher Bullet", FirePosition.position, FirePosition.rotation);
                     ObjectPooler.SpawnFromObjectPool("Rocket Trail Effect", FirePosition.position, FirePosition.rotation);
                     break;
             }
@@ -168,20 +170,10 @@ public class WeaponController : MonoBehaviour
     #endregion
     private void ReloadWeapon()
     {
-        int roundsToAddToMagazine = MagazineCapacity - RoundsInMagazine;
-
-        if(TotalRounds > roundsToAddToMagazine)
-        {
-            TotalRounds -= roundsToAddToMagazine;
-            RoundsInMagazine = MagazineCapacity;
-        }
-        else
-        {
-            RoundsInMagazine += TotalRounds;
-            TotalRounds = 0;
-        }
+        PlayerAnimator.SetTrigger("PistolReload");
 
         PlayerIsReloading = true;
+
         StartCoroutine(ReloadCoroutine());
     }
     IEnumerator ResetShot()
@@ -192,6 +184,20 @@ public class WeaponController : MonoBehaviour
     IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(ReloadTime);
+
+        int roundsToAddToMagazine = MagazineCapacity - RoundsInMagazine;
+
+        if (TotalRounds > roundsToAddToMagazine)
+        {
+            TotalRounds -= roundsToAddToMagazine;
+            RoundsInMagazine = MagazineCapacity;
+        }
+        else
+        {
+            RoundsInMagazine += TotalRounds;
+            TotalRounds = 0;
+        }
+
         PlayerIsReloading = false;
     }
     private void UpdateAmmoInfoText()
