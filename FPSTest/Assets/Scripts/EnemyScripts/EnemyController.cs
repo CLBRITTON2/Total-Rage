@@ -25,7 +25,14 @@ public class EnemyController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        _damageAmount = other.gameObject.GetComponent<BulletController>().ProjectileDamageOutput;
+        if (other.gameObject.tag == "Explosion Effect")
+        {
+            _damageAmount = other.gameObject.GetComponent<ExplosiveDamage>().ExplosionDamage;
+        }
+        else
+        {
+            _damageAmount = other.gameObject.GetComponent<BulletController>().ProjectileDamageOutput;
+        }
 
         // Refactor this later
 
@@ -58,9 +65,8 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
 
-            case "Rocket Launcher Bullet":
+            case "Explosion Effect":
                 EnemyTakeDamage(_damageAmount);
-
                 if (_currentEnemyHealth <= 0)
                 {
                     Disable();
@@ -69,7 +75,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void EnemyTakeDamage(int damageAmount)
+    public void EnemyTakeDamage(int damageAmount)
     {
         _currentEnemyHealth -= damageAmount;
         EnemyHealthBar.SetEnemyHealthBar(_currentEnemyHealth);

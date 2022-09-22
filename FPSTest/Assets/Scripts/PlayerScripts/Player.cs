@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private bool _initializeJump;
     public float GroundDistance = 0.5f;
 
-    private Vector3 _playerCrouchingScale = new Vector3(1f, 0.5f, 1f);
+    private Vector3 _playerCrouchingScale = new Vector3(1f, 0.6f, 1f);
     private Vector3 _playerBodyScale;
     public Transform PlayerBody;
     private float _initialControllerHeight;
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     {
         PlayerFirstPersonView();
         InitializeJumpCheck();
+        PlayerCrouching();
     }
     #endregion
 
@@ -58,7 +59,6 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         AddVelocityToPlayer();
-        PlayerCrouching();
         SlideCounter();
         if (_initializeJump)
         {

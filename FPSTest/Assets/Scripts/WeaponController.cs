@@ -25,6 +25,8 @@ public class WeaponController : MonoBehaviour
 
     public string WeaponName;
 
+    public bool RocketLauncher;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -111,6 +113,7 @@ public class WeaponController : MonoBehaviour
 
                 case "RocketLauncher":
                     ObjectPooler.SpawnFromObjectPool("Rocket Launcher Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                    ObjectPooler.SpawnFromObjectPool("Rocket Trail Effect", FirePosition.position, FirePosition.rotation);
                     break;
             }
 
@@ -126,18 +129,23 @@ public class WeaponController : MonoBehaviour
                 {
                     FirePosition.LookAt(hit.point);
 
-                    if (hit.collider.tag == "Shootable Object")
+                    if (!RocketLauncher)
                     {
-                        ObjectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+
+                        if (hit.collider.tag == "Shootable Object")
+                        {
+                            ObjectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+                        }
+                        else if (hit.collider.tag == "Floor")
+                        {
+                            ObjectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+                        }
                     }
-                    else if (hit.collider.tag == "Floor")
-                    {
-                        ObjectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
-                    }
-                    else if (hit.collider.tag == "Enemy")
-                    {
-                        ObjectPooler.SpawnFromObjectPool("Bullet Impact Flesh", hit.point, Quaternion.LookRotation(hit.normal));
-                    }
+                }
+
+                if (hit.collider.tag == "Enemy" && !RocketLauncher)
+                {
+                    ObjectPooler.SpawnFromObjectPool("Bullet Impact Flesh", hit.point, Quaternion.LookRotation(hit.normal));
                 }
             }
             else
@@ -145,9 +153,14 @@ public class WeaponController : MonoBehaviour
                 // If the bullet hits nothing it still has a direction to fire
                 FirePosition.LookAt(MainCameraHead.position + (MainCameraHead.forward * 50f));
             }
+
             RoundsInMagazine--;
 
-            Instantiate(MuzzleFlash, FirePosition.position, FirePosition.rotation, FirePosition);
+            if (!RocketLauncher)
+            {
+                //Instantiate(MuzzleFlash, FirePosition.position, FirePosition.rotation, FirePosition);
+                ObjectPooler.SpawnFromObjectPool("Muzzle Flash", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+            }
 
             StartCoroutine(ResetShot());
         }

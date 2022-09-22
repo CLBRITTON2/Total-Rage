@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
     public Rigidbody BulletRigidBody;
     public int ProjectileDamageOutput;
 
+    public bool Rocket;
+
     private void OnEnable()
     {
         // Bullet auto disable after 2 seconds
@@ -42,7 +44,11 @@ public class BulletController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Bullet gets disabled if it hits an object
+        if (Rocket)
+        {
+            ObjectPoolManager.Instance.SpawnFromObjectPool("Explosion Effect", transform.position, Quaternion.identity);
+        }
+        // projectile gets disabled if it hits an object
         Disable();
     }
 }

@@ -675,7 +675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359501718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.602, z: 0}
+  m_LocalPosition: {x: 0, y: -1.608, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -762,6 +762,17 @@ MonoBehaviour:
     PoolSize: 5
   - Tag: Sniper Rifle Bullet
     Prefab: {fileID: 1350140147542319260, guid: 9c757de8bb8fbc14daa671b9dc07eb3e,
+      type: 3}
+    PoolSize: 5
+  - Tag: Rocket Trail Effect
+    Prefab: {fileID: 1360330109679530373, guid: 913f2414087abf741933ad1ce0c70e69,
+      type: 3}
+    PoolSize: 2
+  - Tag: Muzzle Flash
+    Prefab: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+    PoolSize: 10
+  - Tag: Explosion Effect
+    Prefab: {fileID: 1590471898947043253, guid: fe7fffae0a9da134b958aaec719147e2,
       type: 3}
     PoolSize: 5
 --- !u!114 &476493500
@@ -1413,6 +1424,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
   WeaponName: Pistol
+  RocketLauncher: 0
 --- !u!1 &745407152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,6 +1985,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
   WeaponName: AssaultRifle
+  RocketLauncher: 0
 --- !u!1 &1309793838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,6 +2130,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 35
   WeaponName: SniperRifle
+  RocketLauncher: 0
 --- !u!1 &1353231966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,7 +3128,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.19
+  m_Height: 3.23
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -3129,7 +3143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776793547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.618, z: 2.41}
+  m_LocalPosition: {x: 0, y: 1.657, z: 2.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3219,7 +3233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1934120893
 Transform:
   m_ObjectHideFlags: 0
@@ -3263,6 +3277,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 60
   WeaponName: RocketLauncher
+  RocketLauncher: 1
 --- !u!1 &2000195989
 GameObject:
   m_ObjectHideFlags: 0

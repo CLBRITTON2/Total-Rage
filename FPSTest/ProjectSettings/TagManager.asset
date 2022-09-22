@@ -16,6 +16,10 @@ TagManager:
   - Assault Rifle Bullet
   - Sniper Rifle Bullet
   - Rocket Launcher Bullet
+  - Bullet Impact Flesh
+  - Rocket Trail Effect
+  - Muzzle Flash
+  - Explosion Effect
   layers:
   - Default
   - TransparentFX
