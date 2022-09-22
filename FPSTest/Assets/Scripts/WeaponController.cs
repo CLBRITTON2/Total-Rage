@@ -25,6 +25,7 @@ public class WeaponController : MonoBehaviour
     public float ZoomMagnification;
 
     public string WeaponName;
+    string WeaponAnimationName;
 
     public bool RocketLauncher;
 
@@ -52,6 +53,22 @@ public class WeaponController : MonoBehaviour
         FireWeapon();
         WeaponManager();
         UpdateAmmoInfoText();
+        WeaponAnimationManager();
+    }
+
+    private void WeaponAnimationManager()
+    {
+        switch (WeaponName)
+        {
+            case "Pistol":
+                WeaponAnimationName = "PistolReload";
+                break;
+
+            case "AssaultRifle":
+                WeaponAnimationName = "AssaultRifleReload";
+                break;
+        }
+
     }
     private void WeaponManager()
     {
@@ -77,10 +94,6 @@ public class WeaponController : MonoBehaviour
         {
             FindObjectOfType<CameraMove>().ZoomOut();
         }
-    }
-    private void FixedUpdate()
-    {
-
     }
     #region Method: Fire Weapon
     private void FireWeapon()
@@ -170,7 +183,7 @@ public class WeaponController : MonoBehaviour
     #endregion
     private void ReloadWeapon()
     {
-        PlayerAnimator.SetTrigger("PistolReload");
+        PlayerAnimator.SetTrigger(WeaponAnimationName);
 
         PlayerIsReloading = true;
 
