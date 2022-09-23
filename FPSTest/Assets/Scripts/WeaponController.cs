@@ -72,6 +72,10 @@ public class WeaponController : MonoBehaviour
             case "SniperRifle":
                 WeaponAnimationName = "ReloadSniperRifle";
                 break;
+
+            case "RocketLauncher":
+                WeaponAnimationName = "ReloadRocketLauncher";
+                break;
         }
 
     }
@@ -123,9 +127,15 @@ public class WeaponController : MonoBehaviour
             _playerCanFire = false;
 
             // Object pool will spawn different projectiles based on the tag associated with each weapon in the inspector
-
-            ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
-
+            if (RocketLauncher)
+            {
+                ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation);
+                ObjectPooler.SpawnFromObjectPool("Rocket Trail Effect", FirePosition.position, FirePosition.rotation);
+            }
+            else
+            {
+                ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+            }
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
             RaycastHit hit;

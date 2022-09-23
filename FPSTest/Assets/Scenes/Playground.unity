@@ -1420,7 +1420,7 @@ MonoBehaviour:
   RoundsInMagazine: 10
   TotalRounds: 30
   MagazineCapacity: 10
-  ReloadTime: 2
+  ReloadTime: 1.75
   PlayerIsReloading: 0
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
@@ -1943,7 +1943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1188408279
 Transform:
   m_ObjectHideFlags: 0
@@ -1983,7 +1983,7 @@ MonoBehaviour:
   RoundsInMagazine: 30
   TotalRounds: 100
   MagazineCapacity: 30
-  ReloadTime: 1
+  ReloadTime: 2
   PlayerIsReloading: 0
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
@@ -3279,7 +3279,7 @@ MonoBehaviour:
   RoundsInMagazine: 1
   TotalRounds: 5
   MagazineCapacity: 1
-  ReloadTime: 5
+  ReloadTime: 4.25
   PlayerIsReloading: 0
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 60
@@ -3855,7 +3855,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2471315728684420869}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0014364718, y: 0.017115736, z: 0.1282197}
+  m_LocalPosition: {x: -0.0014364718, y: 0.01711574, z: 0.1282197}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4030,7 +4030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2471068732805400859}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0014501809, y: -0.029030995, z: -0.034376632}
+  m_LocalPosition: {x: -0.0014501809, y: -0.029031, z: -0.03437663}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4060,7 +4060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2471241248305816923}
   m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0014311074, y: 0.08087574, z: -0.12847762}
+  m_LocalPosition: {x: -0.0014311074, y: 0.08087574, z: -0.1284776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
