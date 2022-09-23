@@ -30,6 +30,8 @@ public class WeaponController : MonoBehaviour
 
     public bool RocketLauncher;
 
+    public int GroundAmmoPickupAmount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -184,6 +186,11 @@ public class WeaponController : MonoBehaviour
         }
     }
     #endregion
+    public void AddAmmo()
+    {
+        // Set amount of ammo for each gun to pickup in inspector (on the weapon itself)
+        TotalRounds += GroundAmmoPickupAmount;
+    }
     private void ReloadWeapon()
     {
         PlayerAnimator.SetTrigger(WeaponAnimationName);

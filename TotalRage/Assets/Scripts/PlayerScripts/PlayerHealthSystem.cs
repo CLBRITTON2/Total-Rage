@@ -16,12 +16,6 @@ public class PlayerHealthSystem : MonoBehaviour
         PlayerHealthBar = FindObjectOfType<UICanvasController>();
         PlayerHealthBar.SetPlayerMaxHealth(PlayerMaxHealth);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void PlayerTakeDamage(int damageAmount)
     {
         _playerCurrentHealth -= damageAmount;
@@ -32,5 +26,16 @@ public class PlayerHealthSystem : MonoBehaviour
             gameObject.SetActive(false);
             FindObjectOfType<GameManager>().PlayerRespawn();
         }
+    }
+    public void HealPlayer(int amountToHeal)
+    {
+        _playerCurrentHealth += amountToHeal;
+
+        if (_playerCurrentHealth > PlayerMaxHealth)
+        {
+            _playerCurrentHealth = PlayerMaxHealth;           
+        }
+
+        PlayerHealthBar.SetPlayerHealthBar(_playerCurrentHealth);
     }
 }
