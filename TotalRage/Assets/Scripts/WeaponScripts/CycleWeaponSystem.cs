@@ -29,6 +29,7 @@ public class CycleWeaponSystem : MonoBehaviour
        if (Input.GetKeyDown(KeyCode.Tab))
         {
             SwitchWeapon();
+            AudioManager.Instance.PlaySound("EquipWeapon");
         }
     }
     private void SwitchWeapon()

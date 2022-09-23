@@ -18,6 +18,7 @@ public class PlayerHealthSystem : MonoBehaviour
     }
     public void PlayerTakeDamage(int damageAmount)
     {
+        AudioManager.Instance.PlaySound("PlayerTakeDamage");
         _playerCurrentHealth -= damageAmount;
         PlayerHealthBar.SetPlayerHealthBar(_playerCurrentHealth);
 

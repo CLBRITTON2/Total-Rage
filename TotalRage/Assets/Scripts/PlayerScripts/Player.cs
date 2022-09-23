@@ -156,6 +156,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && _playerCanJump)
         {
+            AudioManager.Instance.PlaySound("PlayerJump");
             _initializeJump = true;
         }
     }

@@ -639,37 +639,55 @@ MonoBehaviour:
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
-    randomPitchRange: 0.259
+    randomPitchRange: 0
   - Name: ReloadCocking
     AudioClip: {fileID: 8300000, guid: f9c159555d46f024e8f6012967ae6eb0, type: 3}
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
-    randomPitchRange: 0.259
+    randomPitchRange: 0
   - Name: ReloadMagOut
     AudioClip: {fileID: 8300000, guid: 50f63c276e7b4e246b35b6edf930fd6c, type: 3}
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
-    randomPitchRange: 0.259
+    randomPitchRange: 0.103
   - Name: ReloadMagIn
     AudioClip: {fileID: 8300000, guid: 57b8419c447032b4b851148d20de8c6c, type: 3}
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
-    randomPitchRange: 0.259
+    randomPitchRange: 0.127
   - Name: RocketLauncherMagOut
     AudioClip: {fileID: 8300000, guid: 02674c714f5a7964cad38e2d2dd5f12f, type: 3}
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
-    randomPitchRange: 0.259
+    randomPitchRange: 0.067
   - Name: RocketLauncherMagIn
     AudioClip: {fileID: 8300000, guid: b57fca57383c1104d97033d8ae4b383b, type: 3}
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
-    randomPitchRange: 0.259
+    randomPitchRange: 0.1
+  - Name: EquipWeapon
+    AudioClip: {fileID: 8300000, guid: 065aded9a1b2cef4e8adb916b919ac8d, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: PlayerTakeDamage
+    AudioClip: {fileID: 8300000, guid: 9cb787a85aa708442977eb42430a27e6, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.106
+  - Name: PlayerJump
+    AudioClip: {fileID: 8300000, guid: 1a7da4b612472a847be282e5c1c83692, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
 --- !u!1 &314611117
 GameObject:
   m_ObjectHideFlags: 0
