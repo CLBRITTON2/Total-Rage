@@ -62,19 +62,29 @@ public class WeaponController : MonoBehaviour
         switch (WeaponName)
         {
             case "Pistol":
-                WeaponAnimationName = "PistolReload";
+                WeaponAnimationName = "ReloadPistol";
                 break;
 
             case "AssaultRifle":
-                WeaponAnimationName = "AssaultRifleReload";
+                WeaponAnimationName = "ReloadAssaultRifle";
+                break;
+
+            case "SniperRifle":
+                WeaponAnimationName = "ReloadSniperRifle";
                 break;
         }
 
     }
     private void WeaponManager()
     {
+        // Player can press R and reload at any time 
         if(Input.GetKeyDown(KeyCode.R) && RoundsInMagazine < MagazineCapacity && !PlayerIsReloading)
         {
+            ReloadWeapon();
+        }
+        else if (RoundsInMagazine == 0 && !PlayerIsReloading && TotalRounds != 0)
+        {
+            // Player will automatically reload when magazine is empty
             ReloadWeapon();
         }
 
@@ -130,7 +140,6 @@ public class WeaponController : MonoBehaviour
 
                     if (!RocketLauncher)
                     {
-
                         if (hit.collider.tag == "Shootable Object")
                         {
                             ObjectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
