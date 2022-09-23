@@ -290,6 +290,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd34f63faa055f2489da187305994006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &122243419
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122243413}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63bea2e305f239f45a72f4396a91a62a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &173292991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2056,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5.17
   m_Center: {x: 0, y: 1.2310425, z: 0.20749219}
+--- !u!95 &1111075063
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111075057}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4446ac4698a44a942bf30b64d2a10308, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1188408278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2301,7 @@ PrefabInstance:
     - target: {fileID: 5787098976114755534, guid: 1f561b9c6db09724e8df88f38cbe035e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.471466
+      value: -19.47147
       objectReference: {fileID: 0}
     - target: {fileID: 5787098976114755534, guid: 1f561b9c6db09724e8df88f38cbe035e,
         type: 3}
@@ -3105,12 +3145,12 @@ PrefabInstance:
     - target: {fileID: 6157515007809189668, guid: f0bc4bc8eb62b6f4881b6cb3a75f4ed9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.024
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 6157515007809189668, guid: f0bc4bc8eb62b6f4881b6cb3a75f4ed9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.3622627
+      value: 6.362263
       objectReference: {fileID: 0}
     - target: {fileID: 6157515007809189668, guid: f0bc4bc8eb62b6f4881b6cb3a75f4ed9,
         type: 3}

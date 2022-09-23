@@ -190,6 +190,7 @@ public class WeaponController : MonoBehaviour
     {
         // Set amount of ammo for each gun to pickup in inspector (on the weapon itself)
         TotalRounds += GroundAmmoPickupAmount;
+        Debug.Log($"You recieve {GroundAmmoPickupAmount} rounds for the {WeaponName}");
     }
     private void ReloadWeapon()
     {
