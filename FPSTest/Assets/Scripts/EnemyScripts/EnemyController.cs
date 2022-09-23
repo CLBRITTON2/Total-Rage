@@ -72,6 +72,7 @@ public class EnemyController : MonoBehaviour
                     Disable();
                 }
                 break;
+
         }
     }
 

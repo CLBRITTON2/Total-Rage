@@ -25,6 +25,7 @@ public class WeaponController : MonoBehaviour
     public float ZoomMagnification;
 
     public string WeaponName;
+    public string ProjectileTag;
     string WeaponAnimationName;
 
     public bool RocketLauncher;
@@ -111,26 +112,9 @@ public class WeaponController : MonoBehaviour
         {
             _playerCanFire = false;
 
-            // Switch statement for different guns to pull different rounds from the object pool
-            switch (WeaponName)
-            {
-                case "Pistol":
-                    ObjectPooler.SpawnFromObjectPool("Pistol Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
-                    break;
+            // Object pool will spawn different projectiles based on the tag associated with each weapon in the inspector
 
-                case "AssaultRifle":
-                    ObjectPooler.SpawnFromObjectPool("Assault Rifle Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
-                    break;
-
-                case "SniperRifle":
-                    ObjectPooler.SpawnFromObjectPool("Sniper Rifle Bullet", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
-                    break;
-
-                case "RocketLauncher":
-                    ObjectPooler.SpawnFromObjectPool("Rocket Launcher Bullet", FirePosition.position, FirePosition.rotation);
-                    ObjectPooler.SpawnFromObjectPool("Rocket Trail Effect", FirePosition.position, FirePosition.rotation);
-                    break;
-            }
+            ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
 
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking

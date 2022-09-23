@@ -1425,6 +1425,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
   WeaponName: Pistol
+  ProjectileTag: Pistol Bullet
   RocketLauncher: 0
 --- !u!1 &745407152
 GameObject:
@@ -1987,6 +1988,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 45
   WeaponName: AssaultRifle
+  ProjectileTag: Assault Rifle Bullet
   RocketLauncher: 0
 --- !u!1 &1309793838
 GameObject:
@@ -2133,6 +2135,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 35
   WeaponName: SniperRifle
+  ProjectileTag: Sniper Rifle Bullet
   RocketLauncher: 0
 --- !u!1 &1353231966
 GameObject:
@@ -3281,6 +3284,7 @@ MonoBehaviour:
   AimPoint: {fileID: 1899381784}
   ZoomMagnification: 60
   WeaponName: RocketLauncher
+  ProjectileTag: Rocket Launcher Bullet
   RocketLauncher: 1
 --- !u!1 &2000195989
 GameObject:
