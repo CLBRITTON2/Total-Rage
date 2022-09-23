@@ -8,6 +8,7 @@ public class AmmoConsumable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySound("PickUpAmmoConsumable");
             other.GetComponentInChildren<WeaponController>().AddAmmo();
             Destroy(gameObject);
         }

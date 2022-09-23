@@ -10,6 +10,7 @@ public class HealthConsumable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlaySound("PickUpHealthConsumable");
             other.GetComponent<PlayerHealthSystem>().HealPlayer(AmountToHeal);
             Debug.Log($"You've healed {AmountToHeal} hitpoints");
             Destroy(gameObject);

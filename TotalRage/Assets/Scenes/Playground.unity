@@ -678,12 +678,24 @@ MonoBehaviour:
     randomPitchRange: 0
   - Name: PlayerTakeDamage
     AudioClip: {fileID: 8300000, guid: 9cb787a85aa708442977eb42430a27e6, type: 3}
-    volume: 0.098
+    volume: 0.146
     pitch: 1
     randomVolumeRange: 0
     randomPitchRange: 0.106
   - Name: PlayerJump
     AudioClip: {fileID: 8300000, guid: 1a7da4b612472a847be282e5c1c83692, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
+  - Name: PickUpAmmoConsumable
+    AudioClip: {fileID: 8300000, guid: 8c8f429086be9dd40a246ea950443b6a, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
+  - Name: PickUpHealthConsumable
+    AudioClip: {fileID: 8300000, guid: 2bcce13c9e1b35c4faf7a5e00ceec089, type: 3}
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
