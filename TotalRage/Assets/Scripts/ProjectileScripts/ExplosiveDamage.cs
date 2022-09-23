@@ -8,6 +8,8 @@ public class ExplosiveDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        AudioManager.Instance.PlaySound("Explosion");
+
         // Enemy damage is handled in enemy controller
         if (other.CompareTag("Player"))
         {

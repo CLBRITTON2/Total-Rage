@@ -3,8 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class Sound
 {
-    public string name;
-    public AudioClip audioClip;
+    public string Name;
+    public AudioClip AudioClip;
     private AudioSource _audioSource;
 
     [Range(0, 1f)]
@@ -19,7 +19,7 @@ public class Sound
     public void SetAudioSource(AudioSource source)
     {
         _audioSource = source;
-        _audioSource.clip = audioClip;
+        _audioSource.clip = AudioClip;
     }
     public void PlayAudio()
     {
@@ -38,12 +38,12 @@ public class Sound
 }
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
-    [SerializeField] Sound[] sounds;
+    public static AudioManager Instance;
+    [SerializeField] Sound[] Sounds;
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Debug.Log("More than one audio manager in scene.");
             Destroy(gameObject);
@@ -51,17 +51,17 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
 
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < sounds.Length; i++)
+        for (int i = 0; i < Sounds.Length; i++)
         {
-            GameObject gameObject = new GameObject($"Sound_{i}_{sounds[i].name}");
+            GameObject gameObject = new GameObject($"Sound_{i}_{Sounds[i].Name}");
             gameObject.transform.SetParent(this.transform);
             // Avoid garbage collector
-            sounds[i].SetAudioSource(gameObject.AddComponent<AudioSource>());
+            Sounds[i].SetAudioSource(gameObject.AddComponent<AudioSource>());
         }
     }
     private void Start()
@@ -70,11 +70,11 @@ public class AudioManager : MonoBehaviour
     }
     public void PlaySound(string name)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        for (int i = 0; i < Sounds.Length; i++)
         {
-            if (sounds[i].name == name)
+            if (Sounds[i].Name == name)
             {
-                sounds[i].PlayAudio();
+                Sounds[i].PlayAudio();
                 return;
             }
         }
@@ -83,11 +83,11 @@ public class AudioManager : MonoBehaviour
     }
     public void StopSound(string name)
     {
-        for (int i = 0; i < sounds.Length; i++)
+        for (int i = 0; i < Sounds.Length; i++)
         {
-            if (sounds[i].name == name)
+            if (Sounds[i].Name == name)
             {
-                sounds[i].StopAudio();
+                Sounds[i].StopAudio();
                 return;
             }
         }

@@ -89,6 +89,7 @@ public class EnemyAI : MonoBehaviour
             EnemyFirePosition.LookAt(Player);
             EnemyRangeAnimator.SetTrigger("Attack");
             ObjectPoolManager.Instance.SpawnFromObjectPool("Enemy Projectile", EnemyFirePosition.position, EnemyFirePosition.rotation);
+            AudioManager.Instance.PlaySound("RobotShot");
             StartCoroutine(ResetEnemyAttack());
         }
         else if (_enemyCanAttack && MeleeEnemy)

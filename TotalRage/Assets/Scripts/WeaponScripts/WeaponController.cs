@@ -31,6 +31,7 @@ public class WeaponController : MonoBehaviour
     public bool RocketLauncher;
 
     public int GroundAmmoPickupAmount;
+    public string WeaponSoundEffectName;
 
     // Start is called before the first frame update
     void Start()
@@ -133,10 +134,12 @@ public class WeaponController : MonoBehaviour
             {
                 ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation);
                 ObjectPooler.SpawnFromObjectPool("Rocket Trail Effect", FirePosition.position, FirePosition.rotation);
+                AudioManager.Instance.PlaySound($"{WeaponSoundEffectName}");
             }
             else
             {
                 ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                AudioManager.Instance.PlaySound($"{WeaponSoundEffectName}");
             }
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
@@ -155,6 +158,7 @@ public class WeaponController : MonoBehaviour
                         if (hit.collider.tag == "Shootable Object")
                         {
                             ObjectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+                            AudioManager.Instance.PlaySound("ShotImpactMetal");
                         }
                         else if (hit.collider.tag == "Floor")
                         {
@@ -166,6 +170,7 @@ public class WeaponController : MonoBehaviour
                 if (hit.collider.tag == "Enemy" && !RocketLauncher)
                 {
                     ObjectPooler.SpawnFromObjectPool("Bullet Impact Flesh", hit.point, Quaternion.LookRotation(hit.normal));
+                    AudioManager.Instance.PlaySound("ShotImpactFlesh");
                 }
             }
             else

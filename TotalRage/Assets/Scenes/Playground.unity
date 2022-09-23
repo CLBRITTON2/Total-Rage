@@ -553,13 +553,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279115516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1536822394}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &279115518
 MonoBehaviour:
@@ -573,7 +573,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878387488d08b4342bc78674142a9d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  Sounds:
+  - Name: PistolShot
+    AudioClip: {fileID: 8300000, guid: 820ce636c6a7ceb49813baa7630fec26, type: 3}
+    volume: 0.068
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: AssaultRifleShot
+    AudioClip: {fileID: 8300000, guid: b8f4e5b6744755f478e2bf514d825c07, type: 3}
+    volume: 0.163
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: SniperRifleShot
+    AudioClip: {fileID: 8300000, guid: e8520b86d725bfc468f26b6fcb2d5db3, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: RocketLauncherShot
+    AudioClip: {fileID: 8300000, guid: 1a62e23b10ec84141a3d2a9a1f150975, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: ShotImpactFlesh
+    AudioClip: {fileID: 8300000, guid: 00977e2d233229f4ca6d7d3f0b74a5ec, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: ShotImpactMetal
+    AudioClip: {fileID: 8300000, guid: bc29cb38fe383064db230955821250c1, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: RobotShot
+    AudioClip: {fileID: 8300000, guid: 0b7b07dcdcbab2c4f8bcefd2b14ef3f2, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: Explosion
+    AudioClip: {fileID: 8300000, guid: 56b2ccd6ec06dd244af2be0169662f5b, type: 3}
+    volume: 0.21
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0
+  - Name: PlayerFirstStep
+    AudioClip: {fileID: 8300000, guid: 1dbbba916f98a2c4da1956998aa55f7e, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
+  - Name: PlayerSecondStep
+    AudioClip: {fileID: 8300000, guid: 66c904f9567008f4ea2e44c7f72e0515, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
 --- !u!1 &314611117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,7 +1536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &723389876
 Transform:
   m_ObjectHideFlags: 0
@@ -1524,6 +1584,7 @@ MonoBehaviour:
   ProjectileTag: Pistol Bullet
   RocketLauncher: 0
   GroundAmmoPickupAmount: 10
+  WeaponSoundEffectName: PistolShot
 --- !u!1 &745407152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,6 +2201,7 @@ MonoBehaviour:
   ProjectileTag: Assault Rifle Bullet
   RocketLauncher: 0
   GroundAmmoPickupAmount: 30
+  WeaponSoundEffectName: AssaultRifleShot
 --- !u!1 &1198521882
 GameObject:
   m_ObjectHideFlags: 0
@@ -2165,13 +2227,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198521882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1536822394}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1198521884
 AudioSource:
@@ -2504,6 +2566,7 @@ MonoBehaviour:
   ProjectileTag: Sniper Rifle Bullet
   RocketLauncher: 0
   GroundAmmoPickupAmount: 5
+  WeaponSoundEffectName: SniperRifleShot
 --- !u!1 &1353231966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2880,39 +2943,6 @@ Transform:
   - {fileID: 1075068683}
   m_Father: {fileID: 1776793550}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1536822393
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1536822394}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1536822394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536822393}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 279115517}
-  - {fileID: 1198521883}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556958693
 GameObject:
@@ -3756,6 +3786,7 @@ MonoBehaviour:
   ProjectileTag: Rocket Launcher Bullet
   RocketLauncher: 1
   GroundAmmoPickupAmount: 2
+  WeaponSoundEffectName: RocketLauncherShot
 --- !u!1 &2000195989
 GameObject:
   m_ObjectHideFlags: 0

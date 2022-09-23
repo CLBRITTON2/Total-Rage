@@ -194,4 +194,12 @@ public class Player : MonoBehaviour
             _currentSlideTimer += Time.deltaTime;
         }
     }
+    private void PlayFirstStep()
+    {
+        AudioManager.Instance.PlaySound("PlayerFirstStep");
+    }
+    private void PlaySecondStep()
+    {
+        AudioManager.Instance.PlaySound("PlayerSecondStep");
+    }
 }
