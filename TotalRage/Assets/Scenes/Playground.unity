@@ -544,7 +544,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &279115517
 Transform:
@@ -630,6 +630,42 @@ MonoBehaviour:
     randomPitchRange: 0.259
   - Name: PlayerSecondStep
     AudioClip: {fileID: 8300000, guid: 66c904f9567008f4ea2e44c7f72e0515, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
+  - Name: ReloadDecompress
+    AudioClip: {fileID: 8300000, guid: 2da31579b63ec6646be099acb8fff062, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
+  - Name: ReloadCocking
+    AudioClip: {fileID: 8300000, guid: f9c159555d46f024e8f6012967ae6eb0, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
+  - Name: ReloadMagOut
+    AudioClip: {fileID: 8300000, guid: 50f63c276e7b4e246b35b6edf930fd6c, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
+  - Name: ReloadMagIn
+    AudioClip: {fileID: 8300000, guid: 57b8419c447032b4b851148d20de8c6c, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
+  - Name: RocketLauncherMagOut
+    AudioClip: {fileID: 8300000, guid: 02674c714f5a7964cad38e2d2dd5f12f, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.259
+  - Name: RocketLauncherMagIn
+    AudioClip: {fileID: 8300000, guid: b57fca57383c1104d97033d8ae4b383b, type: 3}
     volume: 0.098
     pitch: 1
     randomVolumeRange: 0
@@ -1536,7 +1572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &723389876
 Transform:
   m_ObjectHideFlags: 0
@@ -2518,7 +2554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1349324232
 Transform:
   m_ObjectHideFlags: 0
@@ -3590,6 +3626,7 @@ GameObject:
   - component: {fileID: 1776793548}
   - component: {fileID: 1776793551}
   - component: {fileID: 1776793552}
+  - component: {fileID: 1776793553}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -3691,6 +3728,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerMaxHealth: 10
+--- !u!114 &1776793553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776793547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4987312694ba18c4d9fddd28883997a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1899381783
 GameObject:
   m_ObjectHideFlags: 0
