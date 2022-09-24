@@ -24,6 +24,7 @@ public class PlayerHealthSystem : MonoBehaviour
 
         if (_playerCurrentHealth <= 0)
         {
+            AudioManager.Instance.PlaySound("PlayerDead");
             gameObject.SetActive(false);
             FindObjectOfType<GameManager>().PlayerRespawn();
         }
