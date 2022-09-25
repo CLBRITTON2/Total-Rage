@@ -139,4 +139,18 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, EnemyDestinationRange);
     }
+    private void PlayRobotBigStep()
+    {
+        if (_playerWithinInteractionRange)
+        {
+            AudioManager.Instance.PlaySound("RobotBigStep");
+        }
+    }
+    private void PlayRobotSmallStep()
+    {
+        if (_playerWithinInteractionRange)
+        {
+            AudioManager.Instance.PlaySound("RobotSmallStep");
+        }
+    }
 }
