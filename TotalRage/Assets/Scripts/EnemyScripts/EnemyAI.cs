@@ -68,9 +68,11 @@ public class EnemyAI : MonoBehaviour
             EnemyNavMeshAgent.SetDestination(EnemyDestinationPoint);
         }
 
+        // Use line cast to determine if enemy path to destination is clear (helps with enemies getting stuck)
         Vector3 distanceToDestination = transform.position - EnemyDestinationPoint;
-        if(distanceToDestination.magnitude < 1f)
+        if (distanceToDestination.magnitude < 1f || Physics.Linecast(transform.position, EnemyDestinationPoint))
         {
+            
             DestinationSet = false;
         }
     }
