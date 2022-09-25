@@ -329,9 +329,9 @@ MonoBehaviour:
             m_StringArgument: MenuSelectSound
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: SwitchScenes, Assembly-CSharp
-          m_MethodName: PlayButtonSelected
+        - m_Target: {fileID: 720152357}
+          m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+          m_MethodName: LoadMainMenu
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3923,6 +3923,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd35bc79b6e6c94993a44483e29400a, type: 3}
+--- !u!82 &839742095 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4606173755561184011, guid: 127252277402722498c97dcce5b49fcf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4606173754565621015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &845471096
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,9 +4434,9 @@ MonoBehaviour:
             m_StringArgument: MenuSelectSound
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: SwitchScenes, Assembly-CSharp
-          m_MethodName: PlayButtonSelected
+        - m_Target: {fileID: 720152357}
+          m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+          m_MethodName: QuitGame
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7721,6 +7727,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4606173755561184010, guid: 127252277402722498c97dcce5b49fcf,
+        type: 3}
+      propertyPath: AudioSource
+      value: 
+      objectReference: {fileID: 839742095}
     - target: {fileID: 4606173755561184012, guid: 127252277402722498c97dcce5b49fcf,
         type: 3}
       propertyPath: m_RootOrder

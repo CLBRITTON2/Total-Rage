@@ -3,15 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class BackgroundMusicManager : MonoBehaviour
 {
-    static BackgroundMusicManager instance;
+    static BackgroundMusicManager Instance;
     public AudioClip[] backgroundMusicClips;
 
-    public AudioSource audioSource;
-    public AudioSource replacementSource;
+    public AudioSource AudioSource;
+    public AudioSource ReplacementSource;
 
     void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Debug.Log("More than one background music manager in scene.");
             Destroy(gameObject);
@@ -19,12 +19,12 @@ public class BackgroundMusicManager : MonoBehaviour
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
 
         DontDestroyOnLoad(gameObject);
 
-        replacementSource = gameObject.AddComponent<AudioSource>();
+        ReplacementSource = gameObject.AddComponent<AudioSource>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -34,19 +34,24 @@ public class BackgroundMusicManager : MonoBehaviour
         switch (scene.name)
         {
             case "PlayGround":
-                replacementSource.clip = backgroundMusicClips[0];
+                ReplacementSource.clip = backgroundMusicClips[0];
+                break;
+
+            case "MainMenuScene":
+                ReplacementSource.enabled = false;
+                AudioSource.enabled = false;
                 break;
 
             default:
-                replacementSource.clip = backgroundMusicClips[0];
+                ReplacementSource.clip = backgroundMusicClips[0];
                 break;
         }
 
-        if (replacementSource.clip != audioSource.clip)
+        if (ReplacementSource.clip != AudioSource.clip)
         {
-            audioSource.enabled = false;
-            audioSource.clip = replacementSource.clip;
-            audioSource.enabled = true;
+            AudioSource.enabled = false;
+            AudioSource.clip = ReplacementSource.clip;
+            AudioSource.enabled = true;
         }
     }
 }
