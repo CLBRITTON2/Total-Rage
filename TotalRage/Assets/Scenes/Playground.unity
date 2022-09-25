@@ -1471,10 +1471,8 @@ MonoBehaviour:
   RoundsInMagazine: 10
   TotalRounds: 30
   MagazineCapacity: 10
-  ReloadTime: 1.75
+  ReloadTime: 1.2
   PlayerIsReloading: 0
-  AimPoint: {fileID: 1899381784}
-  ZoomMagnification: 45
   WeaponName: Pistol
   ProjectileTag: Pistol Bullet
   RocketLauncher: 0
@@ -2088,10 +2086,8 @@ MonoBehaviour:
   RoundsInMagazine: 30
   TotalRounds: 100
   MagazineCapacity: 30
-  ReloadTime: 2
+  ReloadTime: 1.8
   PlayerIsReloading: 0
-  AimPoint: {fileID: 1899381784}
-  ZoomMagnification: 45
   WeaponName: AssaultRifle
   ProjectileTag: Assault Rifle Bullet
   RocketLauncher: 0
@@ -2307,10 +2303,8 @@ MonoBehaviour:
   RoundsInMagazine: 5
   TotalRounds: 20
   MagazineCapacity: 5
-  ReloadTime: 3
+  ReloadTime: 2.8
   PlayerIsReloading: 0
-  AimPoint: {fileID: 1899381784}
-  ZoomMagnification: 35
   WeaponName: SniperRifle
   ProjectileTag: Sniper Rifle Bullet
   RocketLauncher: 0
@@ -3540,10 +3534,8 @@ MonoBehaviour:
   RoundsInMagazine: 1
   TotalRounds: 5
   MagazineCapacity: 1
-  ReloadTime: 4.25
+  ReloadTime: 4
   PlayerIsReloading: 0
-  AimPoint: {fileID: 1899381784}
-  ZoomMagnification: 60
   WeaponName: RocketLauncher
   ProjectileTag: Rocket Launcher Bullet
   RocketLauncher: 1

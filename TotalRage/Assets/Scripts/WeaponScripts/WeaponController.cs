@@ -19,11 +19,6 @@ public class WeaponController : MonoBehaviour
     public float ReloadTime;
     public bool PlayerIsReloading;
 
-    public Transform AimPoint;
-    private float _aimDownSightSpeed = 3f;
-    private Vector3 _weaponStartPosition;
-    public float ZoomMagnification;
-
     public string WeaponName;
     public string ProjectileTag;
     string WeaponAnimationName;
@@ -41,14 +36,14 @@ public class WeaponController : MonoBehaviour
         TotalRounds -= MagazineCapacity;
         RoundsInMagazine = MagazineCapacity;
 
-        _weaponStartPosition = transform.localPosition;
-
         _theUICanvas = FindObjectOfType<UICanvasController>();
+        
     }
     private void OnEnable()
     {
         // Stops bug where guns won't fire if swapped while reloading
         PlayerIsReloading = false;
+        PlayerAnimator.SetBool("PlayerIsReloading", false);
         _playerCanFire = true;
     }
     // Update is called once per frame
@@ -89,28 +84,11 @@ public class WeaponController : MonoBehaviour
         {
             ReloadWeapon();
         }
-        else if (RoundsInMagazine == 0 && !PlayerIsReloading && TotalRounds != 0)
+
+        if (RoundsInMagazine == 0 && !PlayerIsReloading && TotalRounds != 0)
         {
             // Player will automatically reload when magazine is empty
             ReloadWeapon();
-        }
-
-        if(Input.GetMouseButton(1))
-        {
-            transform.position = Vector3.MoveTowards(transform.position, AimPoint.position, _aimDownSightSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _weaponStartPosition, _aimDownSightSpeed * Time.deltaTime);
-        }
-
-        if(Input.GetMouseButtonDown(1))
-        {
-            FindObjectOfType<CameraMove>().ZoomIn(ZoomMagnification);
-        }
-        if(Input.GetMouseButtonUp(1))
-        {
-            FindObjectOfType<CameraMove>().ZoomOut();
         }
     }
     #region Method: Fire Weapon
@@ -203,6 +181,8 @@ public class WeaponController : MonoBehaviour
 
         PlayerIsReloading = true;
 
+        PlayerAnimator.SetBool("PlayerIsReloading", true);
+
         StartCoroutine(ReloadCoroutine());
     }
     IEnumerator ResetShot()
@@ -226,7 +206,7 @@ public class WeaponController : MonoBehaviour
             RoundsInMagazine += TotalRounds;
             TotalRounds = 0;
         }
-
+        PlayerAnimator.SetBool("PlayerIsReloading", false);
         PlayerIsReloading = false;
     }
     private void UpdateAmmoInfoText()

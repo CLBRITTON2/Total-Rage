@@ -11,7 +11,6 @@ public class CycleWeaponSystem : MonoBehaviour
 
     public List<WeaponController> GroundWeapons = new List<WeaponController>();
 
-    // Start is called before the first frame update
     void OnEnable()
     {
         // Deactivate all weapons on start then only activatre current weapon index
@@ -41,7 +40,6 @@ public class CycleWeaponSystem : MonoBehaviour
         {
             CurrentWeaponIndex = 0;
         }
-
         _activeWeapon = AllWeapons[CurrentWeaponIndex];
         _activeWeapon.gameObject.SetActive(true);
     }
