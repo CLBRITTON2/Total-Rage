@@ -157,4 +157,11 @@ public class EnemyAI : MonoBehaviour
     {
         AudioManager.Instance.PlaySound("MeleeEnemyGrowl");
     }
+    private void PlayMonsterFootstep()
+    {
+        if (_playerWithinInteractionRange)
+        {
+            AudioManager.Instance.PlaySound("MonsterFootstep");
+        }
+    }
 }
