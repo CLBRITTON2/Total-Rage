@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5052426196833350931}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -187,5 +187,29 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: 1d7296b7b6ff2e64c93d439427e46295, type: 3}
     volume: 0.098
     pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
+  - Name: RobotBigStep
+    AudioClip: {fileID: 8300000, guid: 010733aefa5bc6f4bb0bd58c666813a0, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
+  - Name: RobotSmallStep
+    AudioClip: {fileID: 8300000, guid: 7122cd49312ba574f92ed5a2c581ce21, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
+  - Name: MeleeEnemyGrowl
+    AudioClip: {fileID: 8300000, guid: 2a537bd25ff83f440a5302b814e98b50, type: 3}
+    volume: 0.098
+    pitch: 1
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
+  - Name: MonsterFootstep
+    AudioClip: {fileID: 8300000, guid: a53286ad0e249544d88fc5330ec581b8, type: 3}
+    volume: 0.098
+    pitch: 0.8
     randomVolumeRange: 0
     randomPitchRange: 0.039
