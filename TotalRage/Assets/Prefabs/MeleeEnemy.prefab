@@ -59,7 +59,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyDestinationPoint: {x: 0, y: 0, z: 0}
   EnemyDestinationRange: 350
-  EnemyInteractionRange: 14
+  EnemyInteractionRange: 17
   EnemyAttackRange: 6.31
   EnemyAttackTime: 2
   EnemyFirePosition: {fileID: 0}

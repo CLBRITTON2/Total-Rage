@@ -153,4 +153,8 @@ public class EnemyAI : MonoBehaviour
             AudioManager.Instance.PlaySound("RobotSmallStep");
         }
     }
+    private void PlayMeleeEnemyGrowl()
+    {
+        AudioManager.Instance.PlaySound("MeleeEnemyGrowl");
+    }
 }
