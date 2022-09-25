@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &734956313386687812
 Transform:
   m_ObjectHideFlags: 0
@@ -58,9 +58,9 @@ MonoBehaviour:
     m_Bits: 128
   Player: {fileID: 0}
   EnemyDestinationPoint: {x: 0, y: 0, z: 0}
-  EnemyDestinationRange: 50
-  EnemyInteractionRange: 7.67
-  EnemyAttackRange: 5.35
+  EnemyDestinationRange: 350
+  EnemyInteractionRange: 14
+  EnemyAttackRange: 6.31
   EnemyAttackTime: 2
   EnemyFirePosition: {fileID: 0}
   MeleeEnemy: 1
@@ -337,17 +337,17 @@ PrefabInstance:
     - target: {fileID: 9026992683325776561, guid: 9844ace17e481f240a1c13e15e407a3c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9026992683325776561, guid: 9844ace17e481f240a1c13e15e407a3c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9026992683325776561, guid: 9844ace17e481f240a1c13e15e407a3c,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9844ace17e481f240a1c13e15e407a3c, type: 3}
