@@ -37,7 +37,7 @@ public class WeaponController : MonoBehaviour
         RoundsInMagazine = MagazineCapacity;
 
         _theUICanvas = FindObjectOfType<UICanvasController>();
-        
+
     }
     private void OnEnable()
     {
@@ -49,6 +49,10 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.GameIsPaused)
+        {
+            return;
+        }
         FireWeapon();
         WeaponManager();
         UpdateAmmoInfoText();
@@ -80,7 +84,7 @@ public class WeaponController : MonoBehaviour
     private void WeaponManager()
     {
         // Player can press R and reload at any time 
-        if(Input.GetKeyDown(KeyCode.R) && RoundsInMagazine < MagazineCapacity && !PlayerIsReloading)
+        if (Input.GetKeyDown(KeyCode.R) && RoundsInMagazine < MagazineCapacity && !PlayerIsReloading)
         {
             ReloadWeapon();
         }
@@ -94,7 +98,7 @@ public class WeaponController : MonoBehaviour
     #region Method: Fire Weapon
     private void FireWeapon()
     {
-        if(ActivateFullAuto)
+        if (ActivateFullAuto)
         {
             _playerIsfiring = Input.GetMouseButton(0);
         }
