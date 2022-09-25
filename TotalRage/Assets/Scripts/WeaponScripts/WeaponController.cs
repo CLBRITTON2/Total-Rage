@@ -116,7 +116,7 @@ public class WeaponController : MonoBehaviour
             }
             else
             {
-                ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+                ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation);
                 AudioManager.Instance.PlaySound($"{WeaponSoundEffectName}");
             }
             // Raycast is determining what the bullet just hit, the origin and direction
