@@ -6,11 +6,14 @@ public class Sound
     public string Name;
     public AudioClip AudioClip;
     private AudioSource _audioSource;
+    public AudioRolloffMode AudioRollOff;
 
     [Range(0, 1f)]
     public float volume = 0.7f;
     [Range(0.5f, 1.5f)]
     public float pitch = 1f;
+    [Range(0f, 1f)]
+    public float SpatialBlend;
 
     [Range(0f, 0.5f)]
     public float randomVolumeRange = 0.1f;
@@ -28,7 +31,8 @@ public class Sound
             return;
         }
         _audioSource.volume = volume * (1 + Random.Range(-randomVolumeRange / 2f, randomVolumeRange / 2f));
-        _audioSource.pitch = pitch * (1 + Random.Range(-randomPitchRange / 2f, randomPitchRange / 2f)); ;
+        _audioSource.pitch = pitch * (1 + Random.Range(-randomPitchRange / 2f, randomPitchRange / 2f));
+        _audioSource.spatialBlend = SpatialBlend;;
         _audioSource.Play();
     }
     public void StopAudio()
