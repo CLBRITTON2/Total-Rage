@@ -10,7 +10,6 @@ public class EnemyAI : MonoBehaviour
     public Transform Player;
 
     public Vector3 EnemyDestinationPoint;
-    bool DestinationSet;
     public float EnemyDestinationRange;
 
     public float EnemyInteractionRange;
@@ -25,7 +24,6 @@ public class EnemyAI : MonoBehaviour
     Animator EnemyRangeAnimator;
     public int MeleeDamageValue = 2;
 
-    // Start is called before the first frame update
     void Start()
     {
         EnemyRangeAnimator = GetComponent<Animator>();
@@ -34,46 +32,15 @@ public class EnemyAI : MonoBehaviour
         EnemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void FixedUpdate()
     {
+        ChasingPlayer();
+
         _playerWithinInteractionRange = Physics.CheckSphere(transform.position, EnemyInteractionRange, WhatIsPlayer);
         _playerWithinAttackRange = Physics.CheckSphere(transform.position, EnemyAttackRange, WhatIsPlayer);
-
-        if (!_playerWithinInteractionRange && !_playerWithinAttackRange)
-        {
-            Guarding();
-        }
-        if (_playerWithinInteractionRange && !_playerWithinAttackRange)
-        {
-            ChasingPlayer();
-        }
         if (_playerWithinInteractionRange && _playerWithinAttackRange)
         {
             AttackingPlayer();
-        }
-    }
-    private void Guarding()
-    {
-        if(!DestinationSet)
-        {
-            SearchForDestination();
-        }
-        else
-        {
-            EnemyNavMeshAgent.SetDestination(EnemyDestinationPoint);
-        }
-
-        // Use line cast to determine if enemy path to destination is clear (helps with enemies getting stuck)
-        Vector3 distanceToDestination = transform.position - EnemyDestinationPoint;
-        if (distanceToDestination.magnitude < 1f || Physics.Linecast(transform.position, EnemyDestinationPoint))
-        {
-            
-            DestinationSet = false;
         }
     }
     private void ChasingPlayer()
@@ -104,22 +71,6 @@ public class EnemyAI : MonoBehaviour
         if(_playerWithinAttackRange)
         {
             Player.GetComponent<PlayerHealthSystem>().PlayerTakeDamage(MeleeDamageValue);
-        }
-    }
-    private void SearchForDestination()
-    {
-        // Create random point for enemy to walk to
-        float randomEnemyPositionZ = Random.Range(-EnemyDestinationRange, EnemyDestinationRange);
-        float randomEnemyPositionX = Random.Range(-EnemyDestinationRange, EnemyDestinationRange);
-
-        EnemyDestinationPoint = new Vector3(
-            transform.position.x + randomEnemyPositionX,
-            transform.position.y,
-            transform.position.z + randomEnemyPositionZ);
-
-        if(Physics.Raycast(EnemyDestinationPoint, -transform.up, 2f, WhatIsGround))
-        {
-            DestinationSet = true;
         }
     }
     IEnumerator ResetEnemyAttack()
