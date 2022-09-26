@@ -219,10 +219,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 734956313386687812}
     m_Modifications:
+    - target: {fileID: 3991740531418045106, guid: 9844ace17e481f240a1c13e15e407a3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5114991017026278168, guid: 9844ace17e481f240a1c13e15e407a3c,
         type: 3}
       propertyPath: m_Name
       value: EnemyCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5114991017026278168, guid: 9844ace17e481f240a1c13e15e407a3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5337904830248979897, guid: 9844ace17e481f240a1c13e15e407a3c,
         type: 3}
@@ -333,6 +343,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6270792745225275685, guid: 9844ace17e481f240a1c13e15e407a3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045940516693384188, guid: 9844ace17e481f240a1c13e15e407a3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9026992683325776561, guid: 9844ace17e481f240a1c13e15e407a3c,
         type: 3}
