@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UICanvasController : MonoBehaviour
 {
-    public TextMeshProUGUI AmmoInfoText, PlayersTotalAmmoText, WaveText;
+    public TextMeshProUGUI AmmoInfoText, PlayersTotalAmmoText, WaveText, PointsText;
     public Slider HealthSlider;
     
     public void SetPlayerMaxHealth(int healthValue)

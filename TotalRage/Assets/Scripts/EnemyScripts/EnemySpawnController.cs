@@ -25,7 +25,6 @@ public class EnemySpawnController : MonoBehaviour
     {
         _playerDataUIController = FindObjectOfType<UICanvasController>();
         UpdateWaveInfoText();
-        //StartCoroutine(SpawnEnemies());
         EnemySpawnPoints = GameObject.FindGameObjectsWithTag("EnemySpawnPoint");
         Invoke("StartWave", TimeBetweenWaves);
     }
@@ -77,6 +76,6 @@ public class EnemySpawnController : MonoBehaviour
     }
     private void UpdateWaveInfoText()
     {
-        _playerDataUIController.WaveText.SetText($"WAVE: {Wave}");
+        _playerDataUIController.WaveText.SetText($"WAVE {Wave}");
     }
 }

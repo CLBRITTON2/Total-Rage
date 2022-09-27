@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public int EnemyMaxHealth;
     private int _currentEnemyHealth;
     private int _damageAmount;
+    private int _enemyPointValue = 5;
 
     EnemyUICanvasController EnemyHealthBar;
 
@@ -37,6 +38,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
+                    GameManager.Instance.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
@@ -48,6 +50,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
+                    GameManager.Instance.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
@@ -59,6 +62,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
+                    GameManager.Instance.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
@@ -69,6 +73,7 @@ public class EnemyController : MonoBehaviour
                 EnemyTakeDamage(_damageAmount);
                 if (_currentEnemyHealth <= 0)
                 {
+                    GameManager.Instance.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
