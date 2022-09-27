@@ -1487,7 +1487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79797b0f7cc5ac24092e015bb526d1b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPoints: 0
 --- !u!4 &257596671
 Transform:
   m_ObjectHideFlags: 0
@@ -3238,6 +3237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundWeaponName: RocketLauncher
+  PointRequirement: 500
+  PlayerHasPointRequirement: 0
 --- !u!135 &503711422
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3311,6 +3312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundWeaponName: SniperRifle
+  PointRequirement: 200
+  PlayerHasPointRequirement: 0
 --- !u!4 &509647963
 Transform:
   m_ObjectHideFlags: 0
@@ -8028,6 +8031,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundWeaponName: AssaultRifle
+  PointRequirement: 20
+  PlayerHasPointRequirement: 0
 --- !u!4 &1675254072
 Transform:
   m_ObjectHideFlags: 0
