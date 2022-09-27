@@ -2638,9 +2638,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19368b1411e7ec4c9996038aaf2959b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XPos: 0
-  YPos: 0
-  ZPos: 0
+  EnemyTypes: []
+  SpawnArea: 1.5
+  TimeBetweenWaves: 10
+  TimeBetweenEnemySpawn: 0.5
+  Wave: 1
+  StartEnemyCount: 3
+  EnemiesToAddPerWave: 2
 --- !u!1 &481368597
 GameObject:
   m_ObjectHideFlags: 0
@@ -5996,7 +6000,7 @@ GameObject:
   - component: {fileID: 1225235838}
   - component: {fileID: 1225235839}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: SpotLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

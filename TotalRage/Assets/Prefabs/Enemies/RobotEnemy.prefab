@@ -13480,7 +13480,6 @@ GameObject:
   - component: {fileID: 5229507221757886501}
   - component: {fileID: 5229507221757886502}
   - component: {fileID: 5229507221757886498}
-  - component: {fileID: 7547871222177739020}
   - component: {fileID: 8185474763408962086}
   m_Layer: 0
   m_Name: RobotEnemy
@@ -13590,21 +13589,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4.62
   m_Center: {x: 0, y: 3.51, z: 0}
---- !u!114 &7547871222177739020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229507221757886503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b19368b1411e7ec4c9996038aaf2959b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  XPos: 0
-  YPos: 0
-  ZPos: 0
 --- !u!114 &8185474763408962086
 MonoBehaviour:
   m_ObjectHideFlags: 0

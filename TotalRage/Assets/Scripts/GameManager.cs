@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private float _playerRespawnTime = 3f;
+
     public void PlayerRespawn()
     {
         StartCoroutine(PlayerRespawnTimer());

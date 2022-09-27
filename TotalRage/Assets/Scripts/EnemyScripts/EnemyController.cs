@@ -17,12 +17,6 @@ public class EnemyController : MonoBehaviour
         _currentEnemyHealth = EnemyMaxHealth;
         EnemyHealthBar.SetEnemyMaxHealth(EnemyMaxHealth);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Explosion Effect")
@@ -43,7 +37,9 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    Disable();
+                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
+                    Destroy(gameObject);
+                    //Disable();
                 }
                 break;
 
@@ -52,7 +48,9 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    Disable();
+                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
+                    Destroy(gameObject);
+                    //Disable();
                 }
                 break;
 
@@ -61,7 +59,9 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    Disable();
+                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
+                    Destroy(gameObject);
+                    //Disable();
                 }
                 break;
 
@@ -69,7 +69,9 @@ public class EnemyController : MonoBehaviour
                 EnemyTakeDamage(_damageAmount);
                 if (_currentEnemyHealth <= 0)
                 {
-                    Disable();
+                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
+                    Destroy(gameObject);
+                    //Disable();
                 }
                 break;
 
@@ -81,13 +83,13 @@ public class EnemyController : MonoBehaviour
         _currentEnemyHealth -= damageAmount;
         EnemyHealthBar.SetEnemyHealthBar(_currentEnemyHealth);
     }
-    void Disable()
-    {
-        this.gameObject.SetActive(false);
-    }
-    private void OnDisable()
-    {
-        CancelInvoke();
-    }
+    //void Disable()
+    //{
+    //    this.gameObject.SetActive(false);
+    //}
+    //private void OnDisable()
+    //{
+    //    CancelInvoke();
+    //}
 
 }
