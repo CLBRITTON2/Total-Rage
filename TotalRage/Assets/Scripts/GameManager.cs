@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private UICanvasController _playerDataUIController;
     private float _playerRespawnTime = 3f;
-    public int PlayerPoints = 0;
+    public static int PlayerPoints = 0;
 
     private void Awake()
     {

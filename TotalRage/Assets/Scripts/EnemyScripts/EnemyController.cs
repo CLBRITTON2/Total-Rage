@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.Instance.PlayerPoints += _enemyPointValue;
+                    GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
@@ -50,7 +50,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.Instance.PlayerPoints += _enemyPointValue;
+                    GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.Instance.PlayerPoints += _enemyPointValue;
+                    GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
@@ -73,7 +73,7 @@ public class EnemyController : MonoBehaviour
                 EnemyTakeDamage(_damageAmount);
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.Instance.PlayerPoints += _enemyPointValue;
+                    GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
                     //Disable();
@@ -88,13 +88,4 @@ public class EnemyController : MonoBehaviour
         _currentEnemyHealth -= damageAmount;
         EnemyHealthBar.SetEnemyHealthBar(_currentEnemyHealth);
     }
-    //void Disable()
-    //{
-    //    this.gameObject.SetActive(false);
-    //}
-    //private void OnDisable()
-    //{
-    //    CancelInvoke();
-    //}
-
 }
