@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemySpawnController : MonoBehaviour
 {
     public static EnemySpawnController Instance;
+    private UICanvasController _playerDataUIController;
     public GameObject[] EnemyTypes;
     public GameObject[] EnemySpawnPoints;
     public float SpawnArea = 1.5f;
@@ -22,6 +23,8 @@ public class EnemySpawnController : MonoBehaviour
     }
     void Start()
     {
+        _playerDataUIController = FindObjectOfType<UICanvasController>();
+        UpdateWaveInfoText();
         //StartCoroutine(SpawnEnemies());
         EnemySpawnPoints = GameObject.FindGameObjectsWithTag("EnemySpawnPoint");
         Invoke("StartWave", TimeBetweenWaves);
@@ -33,6 +36,7 @@ public class EnemySpawnController : MonoBehaviour
     private void EndWave()
     {
         Wave++;
+        UpdateWaveInfoText();
         ActiveEnemyCount = 0;
         _enemiesSpawned = 0;
         Invoke("StartWave", TimeBetweenWaves);
@@ -70,5 +74,9 @@ public class EnemySpawnController : MonoBehaviour
         {
             CancelInvoke("SpawnEnemy");
         }
+    }
+    private void UpdateWaveInfoText()
+    {
+        _playerDataUIController.WaveText.SetText($"WAVE: {Wave}");
     }
 }
