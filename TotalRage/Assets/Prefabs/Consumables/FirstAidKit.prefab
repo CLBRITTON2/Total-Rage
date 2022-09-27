@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 5787098976114755534}
   - component: {fileID: 3248469052625518072}
   - component: {fileID: 9090630262107930881}
-  - component: {fileID: 1111075059}
   - component: {fileID: 1111075063}
-  - component: {fileID: 1111075058}
   m_Layer: 0
   m_Name: FirstAidKit
   m_TagString: First Aid Kit
@@ -86,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1111075059
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7355713013926475229}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 5.17
-  m_Center: {x: 0, y: 1.2310425, z: 0.20749219}
 --- !u!95 &1111075063
 Animator:
   serializedVersion: 4
@@ -119,16 +104,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1111075058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7355713013926475229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d88de171c692a684fb5d36601bc139d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AmountToHeal: 5
