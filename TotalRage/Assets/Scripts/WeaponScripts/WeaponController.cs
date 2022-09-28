@@ -84,7 +84,7 @@ public class WeaponController : MonoBehaviour
     private void WeaponManager()
     {
         // Player can press R and reload at any time 
-        if (Input.GetKeyDown(KeyCode.R) && RoundsInMagazine < MagazineCapacity && !PlayerIsReloading)
+        if (Input.GetKeyDown(KeyCode.R) && RoundsInMagazine < MagazineCapacity && !PlayerIsReloading && TotalRounds != 0)
         {
             ReloadWeapon();
         }
