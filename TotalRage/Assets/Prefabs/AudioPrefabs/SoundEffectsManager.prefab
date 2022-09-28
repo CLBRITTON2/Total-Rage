@@ -47,169 +47,233 @@ MonoBehaviour:
   Sounds:
   - Name: PistolShot
     AudioClip: {fileID: 8300000, guid: 820ce636c6a7ceb49813baa7630fec26, type: 3}
+    AudioRollOff: 0
     volume: 0.068
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: AssaultRifleShot
     AudioClip: {fileID: 8300000, guid: b8f4e5b6744755f478e2bf514d825c07, type: 3}
+    AudioRollOff: 0
     volume: 0.163
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: SniperRifleShot
     AudioClip: {fileID: 8300000, guid: e8520b86d725bfc468f26b6fcb2d5db3, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: RocketLauncherShot
     AudioClip: {fileID: 8300000, guid: 1a62e23b10ec84141a3d2a9a1f150975, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: ShotImpactFlesh
     AudioClip: {fileID: 8300000, guid: 00977e2d233229f4ca6d7d3f0b74a5ec, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: ShotImpactMetal
     AudioClip: {fileID: 8300000, guid: bc29cb38fe383064db230955821250c1, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: RobotShot
     AudioClip: {fileID: 8300000, guid: 0b7b07dcdcbab2c4f8bcefd2b14ef3f2, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: Explosion
     AudioClip: {fileID: 8300000, guid: 56b2ccd6ec06dd244af2be0169662f5b, type: 3}
+    AudioRollOff: 0
     volume: 0.21
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: PlayerFirstStep
     AudioClip: {fileID: 8300000, guid: 1dbbba916f98a2c4da1956998aa55f7e, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.259
   - Name: PlayerSecondStep
     AudioClip: {fileID: 8300000, guid: 66c904f9567008f4ea2e44c7f72e0515, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.259
   - Name: ReloadDecompress
     AudioClip: {fileID: 8300000, guid: 2da31579b63ec6646be099acb8fff062, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: ReloadCocking
     AudioClip: {fileID: 8300000, guid: f9c159555d46f024e8f6012967ae6eb0, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: ReloadMagOut
     AudioClip: {fileID: 8300000, guid: 50f63c276e7b4e246b35b6edf930fd6c, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.103
   - Name: ReloadMagIn
     AudioClip: {fileID: 8300000, guid: 57b8419c447032b4b851148d20de8c6c, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.127
   - Name: RocketLauncherMagOut
     AudioClip: {fileID: 8300000, guid: 02674c714f5a7964cad38e2d2dd5f12f, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.067
   - Name: RocketLauncherMagIn
     AudioClip: {fileID: 8300000, guid: b57fca57383c1104d97033d8ae4b383b, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.1
   - Name: EquipWeapon
     AudioClip: {fileID: 8300000, guid: 065aded9a1b2cef4e8adb916b919ac8d, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: PlayerTakeDamage
     AudioClip: {fileID: 8300000, guid: 9cb787a85aa708442977eb42430a27e6, type: 3}
+    AudioRollOff: 0
     volume: 0.146
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.106
   - Name: PlayerJump
     AudioClip: {fileID: 8300000, guid: 1a7da4b612472a847be282e5c1c83692, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: PickUpAmmoConsumable
     AudioClip: {fileID: 8300000, guid: 8c8f429086be9dd40a246ea950443b6a, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: PickUpHealthConsumable
     AudioClip: {fileID: 8300000, guid: 2bcce13c9e1b35c4faf7a5e00ceec089, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: PlayerDead
     AudioClip: {fileID: 8300000, guid: 6744cf3b75853f946a33cf63dacbf964, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: MenuSelectSound
     AudioClip: {fileID: 8300000, guid: f262b23db446bcb49bb3c81fa5b6ab9c, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: MenuHoverSound
     AudioClip: {fileID: 8300000, guid: 1d7296b7b6ff2e64c93d439427e46295, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: RobotBigStep
     AudioClip: {fileID: 8300000, guid: 010733aefa5bc6f4bb0bd58c666813a0, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: RobotSmallStep
     AudioClip: {fileID: 8300000, guid: 7122cd49312ba574f92ed5a2c581ce21, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: MeleeEnemyGrowl
     AudioClip: {fileID: 8300000, guid: 2a537bd25ff83f440a5302b814e98b50, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 1
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: MonsterFootstep
     AudioClip: {fileID: 8300000, guid: a53286ad0e249544d88fc5330ec581b8, type: 3}
+    AudioRollOff: 0
     volume: 0.098
     pitch: 0.8
+    SpatialBlend: 0
+    randomVolumeRange: 0
+    randomPitchRange: 0.039
+  - Name: Laughter
+    AudioClip: {fileID: 8300000, guid: a1d7f580ca1e1c0459c99dd15495e61a, type: 3}
+    AudioRollOff: 0
+    volume: 0.098
+    pitch: 0.8
+    SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039

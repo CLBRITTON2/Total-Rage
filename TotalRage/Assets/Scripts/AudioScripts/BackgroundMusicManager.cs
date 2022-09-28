@@ -33,17 +33,12 @@ public class BackgroundMusicManager : MonoBehaviour
     {
         switch (scene.name)
         {
-            case "PlayGround":
-                ReplacementSource.clip = backgroundMusicClips[0];
-                break;
-
             case "MainMenuScene":
-                ReplacementSource.enabled = false;
-                AudioSource.enabled = false;
+                ReplacementSource.clip = backgroundMusicClips[1];
                 break;
 
             default:
-                ReplacementSource.clip = backgroundMusicClips[0];
+                ReplacementSource.clip = backgroundMusicClips[2];
                 break;
         }
 

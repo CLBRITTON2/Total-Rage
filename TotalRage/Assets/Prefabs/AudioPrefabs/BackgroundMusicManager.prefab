@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundMusicClips:
   - {fileID: 8300000, guid: a7c16f80097da144b96c240254c47c09, type: 3}
+  - {fileID: 8300000, guid: 25119e85633420747a84023cd9c079e5, type: 3}
+  - {fileID: 8300000, guid: 9ba329ef31600ff46957ace8889b92d7, type: 3}
   AudioSource: {fileID: 4606173755561184011}
   ReplacementSource: {fileID: 0}
 --- !u!82 &4606173755561184011
