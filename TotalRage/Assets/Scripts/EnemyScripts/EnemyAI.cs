@@ -22,16 +22,17 @@ public class EnemyAI : MonoBehaviour
     public bool MeleeEnemy;
     Animator EnemyMeleeAnimator;
     Animator EnemyRangeAnimator;
+    Animator EnemyMeleeZombieAnimator;
     public int MeleeDamageValue = 2;
 
     void Start()
     {
+        EnemyMeleeZombieAnimator = GetComponent<Animator>();
         EnemyRangeAnimator = GetComponent<Animator>();
         EnemyMeleeAnimator = GetComponent<Animator>();
         Player = FindObjectOfType<Player>().transform;
         EnemyNavMeshAgent = GetComponent<NavMeshAgent>();
     }
-
     private void FixedUpdate()
     {
         ChasingPlayer();
@@ -61,13 +62,18 @@ public class EnemyAI : MonoBehaviour
             AudioManager.Instance.PlaySound("RobotShot");
             StartCoroutine(ResetEnemyAttack());
         }
+
         else if (_enemyCanAttack && MeleeEnemy)
         {
+            _enemyCanAttack = false;
             EnemyMeleeAnimator.SetTrigger("Attack");
+            EnemyMeleeZombieAnimator.SetTrigger("Attack");
+            StartCoroutine(ResetEnemyAttack());
         }
     }
     public void MeleeDamage()
     {
+        // If player is within enemy attack range when enemy animation hits a certain point, player will take damage
         if(_playerWithinAttackRange)
         {
             Player.GetComponent<PlayerHealthSystem>().PlayerTakeDamage(MeleeDamageValue);

@@ -61,7 +61,7 @@ MonoBehaviour:
   EnemyDestinationRange: 350
   EnemyInteractionRange: 17
   EnemyAttackRange: 6.31
-  EnemyAttackTime: 3
+  EnemyAttackTime: 2
   EnemyFirePosition: {fileID: 0}
   MeleeEnemy: 1
   MeleeDamageValue: 3

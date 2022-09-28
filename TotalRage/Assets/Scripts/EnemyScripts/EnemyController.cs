@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -9,14 +7,9 @@ public class EnemyController : MonoBehaviour
     private int _damageAmount;
     private int _enemyPointValue = 5;
 
-    EnemyUICanvasController EnemyHealthBar;
-
     void Start()
     {
-        EnemyHealthBar = GetComponentInChildren<EnemyUICanvasController>();
-
         _currentEnemyHealth = EnemyMaxHealth;
-        EnemyHealthBar.SetEnemyMaxHealth(EnemyMaxHealth);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +34,6 @@ public class EnemyController : MonoBehaviour
                     GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
-                    //Disable();
                 }
                 break;
 
@@ -53,7 +45,6 @@ public class EnemyController : MonoBehaviour
                     GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
-                    //Disable();
                 }
                 break;
 
@@ -65,7 +56,6 @@ public class EnemyController : MonoBehaviour
                     GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
-                    //Disable();
                 }
                 break;
 
@@ -76,7 +66,6 @@ public class EnemyController : MonoBehaviour
                     GameManager.PlayerPoints += _enemyPointValue;
                     EnemySpawnController.Instance.DecreaseActiveEnemyCount();
                     Destroy(gameObject);
-                    //Disable();
                 }
                 break;
 
@@ -86,6 +75,5 @@ public class EnemyController : MonoBehaviour
     public void EnemyTakeDamage(int damageAmount)
     {
         _currentEnemyHealth -= damageAmount;
-        EnemyHealthBar.SetEnemyHealthBar(_currentEnemyHealth);
     }
 }

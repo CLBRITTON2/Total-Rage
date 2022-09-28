@@ -13552,7 +13552,7 @@ MonoBehaviour:
   EnemyDestinationRange: 350
   EnemyInteractionRange: 29.58
   EnemyAttackRange: 17.3
-  EnemyAttackTime: 1
+  EnemyAttackTime: 2
   EnemyFirePosition: {fileID: 5229507221810116567}
   MeleeEnemy: 0
   MeleeDamageValue: 2
