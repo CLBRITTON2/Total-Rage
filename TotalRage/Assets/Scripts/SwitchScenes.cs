@@ -3,8 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScenes : MonoBehaviour
 {
-    public void PlayButtonSelected()
+    public void EasyModeButtonSelected()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("LevelOne");
+    }
+    public void HardModeButtonSelected()
+    {
+        SceneManager.LoadScene("LevelTwo");
     }
 }
