@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -170,6 +169,11 @@ public class WeaponController : MonoBehaviour
             }
 
             StartCoroutine(ResetShot());
+        }
+
+        if (_playerIsfiring && RoundsInMagazine == 0 && !PlayerIsReloading)
+        {
+            AudioManager.Instance.PlaySound("WeaponDryFire");
         }
     }
     #endregion

@@ -282,6 +282,14 @@ MonoBehaviour:
     AudioRollOff: 0
     volume: 0.169
     pitch: 1
-    SpatialBlend: 0.9
+    SpatialBlend: 0.755
     randomVolumeRange: 0
     randomPitchRange: 0.108
+  - Name: WeaponDryFire
+    AudioClip: {fileID: 8300000, guid: 25d7026c419e66f459a51c9e1c0cf1e3, type: 3}
+    AudioRollOff: 0
+    volume: 0.169
+    pitch: 1
+    SpatialBlend: 0
+    randomVolumeRange: 0
+    randomPitchRange: 0
