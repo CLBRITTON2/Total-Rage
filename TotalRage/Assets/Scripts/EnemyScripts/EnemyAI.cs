@@ -121,4 +121,11 @@ public class EnemyAI : MonoBehaviour
             AudioManager.Instance.PlaySound("MonsterFootstep");
         }
     }
+    private void PlayZombieFootstep()
+    {
+        if (_playerWithinInteractionRange)
+        {
+            AudioManager.Instance.PlaySound("EnemyZombieStep");
+        }
+    }
 }

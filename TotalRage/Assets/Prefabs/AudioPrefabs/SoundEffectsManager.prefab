@@ -240,17 +240,17 @@ MonoBehaviour:
   - Name: RobotBigStep
     AudioClip: {fileID: 8300000, guid: 010733aefa5bc6f4bb0bd58c666813a0, type: 3}
     AudioRollOff: 0
-    volume: 0.098
+    volume: 0.15
     pitch: 1
-    SpatialBlend: 0
+    SpatialBlend: 0.9
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: RobotSmallStep
     AudioClip: {fileID: 8300000, guid: 7122cd49312ba574f92ed5a2c581ce21, type: 3}
     AudioRollOff: 0
-    volume: 0.098
+    volume: 0.15
     pitch: 1
-    SpatialBlend: 0
+    SpatialBlend: 0.9
     randomVolumeRange: 0
     randomPitchRange: 0.039
   - Name: MeleeEnemyGrowl
@@ -264,7 +264,7 @@ MonoBehaviour:
   - Name: MonsterFootstep
     AudioClip: {fileID: 8300000, guid: a53286ad0e249544d88fc5330ec581b8, type: 3}
     AudioRollOff: 0
-    volume: 0.098
+    volume: 0.08
     pitch: 0.8
     SpatialBlend: 0
     randomVolumeRange: 0
@@ -277,3 +277,11 @@ MonoBehaviour:
     SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0.039
+  - Name: EnemyZombieStep
+    AudioClip: {fileID: 8300000, guid: fe278e23b781bd948ad7adad938147d8, type: 3}
+    AudioRollOff: 0
+    volume: 0.169
+    pitch: 1
+    SpatialBlend: 0.9
+    randomVolumeRange: 0
+    randomPitchRange: 0.108
