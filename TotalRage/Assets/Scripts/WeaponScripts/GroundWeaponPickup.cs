@@ -11,6 +11,7 @@ public class GroundWeaponPickup : MonoBehaviour
         if (other.CompareTag("Player") && PlayerHasPointRequirement)
         {
             other.gameObject.GetComponentInChildren<CycleWeaponSystem>().AddWeapon(GroundWeaponName);
+            GameManager.PlayerPoints -= PointRequirement;
             Destroy(gameObject);
         }
     }
