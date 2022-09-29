@@ -1,0 +1,9 @@
+Set of five unique loading bars. Not much documentation for this. Couple of things to point out.
+
+Resizing should be fine if you want them biger or smaller.
+Elements are custom shapes and the rest (Ornaments) are handpainted smart objects. 
+You can scale them, but within the reasonable parameters. Ctrl+T on the selected Group Folder will do nicely.
+
+Support:
+PM me at warcl0ck@yahoo.com
+or Skype: vengeance.mark.1
