@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,11 +35,17 @@ public class BackgroundMusicManager : MonoBehaviour
         switch (scene.name)
         {
             case "MainMenuScene":
+                AudioSource.volume = 0;
+                ReplacementSource.volume = 0;
                 ReplacementSource.clip = backgroundMusicClips[1];
+                StartCoroutine(FadeIn());
                 break;
 
             default:
+                AudioSource.volume = 0;
+                ReplacementSource.volume = 0;
                 ReplacementSource.clip = backgroundMusicClips[2];
+                StartCoroutine(FadeIn());
                 break;
         }
 
@@ -47,6 +54,16 @@ public class BackgroundMusicManager : MonoBehaviour
             AudioSource.enabled = false;
             AudioSource.clip = ReplacementSource.clip;
             AudioSource.enabled = true;
+        }
+    }
+    private IEnumerator FadeIn()
+    {
+        float speed = 0.02f;
+        while (ReplacementSource.volume < 1 || AudioSource.volume < 1)
+        {
+            ReplacementSource.volume += speed;
+            AudioSource.volume += speed;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
