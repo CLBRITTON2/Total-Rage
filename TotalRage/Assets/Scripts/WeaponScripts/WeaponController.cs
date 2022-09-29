@@ -171,7 +171,7 @@ public class WeaponController : MonoBehaviour
             StartCoroutine(ResetShot());
         }
 
-        if (_playerIsfiring && RoundsInMagazine == 0 && !PlayerIsReloading)
+        if (_playerCanFire && _playerIsfiring && RoundsInMagazine == 0 && !PlayerIsReloading)
         {
             AudioManager.Instance.PlaySound("WeaponDryFire");
         }
