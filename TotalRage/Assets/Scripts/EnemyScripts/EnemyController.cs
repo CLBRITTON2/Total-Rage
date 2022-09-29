@@ -88,7 +88,7 @@ public class EnemyController : MonoBehaviour
     {
         // Create new position for dropped consumables so they animate at the correct height
         float xPos = transform.position.x;
-        float yPos = transform.position.y + 1.68f;
+        float yPos = transform.position.y + 1.0f;
         float zPos = transform.position.z;
         Vector3 consumableSpawnPoint = new Vector3(xPos, yPos, zPos);
 
