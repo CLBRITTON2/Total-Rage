@@ -1893,7 +1893,6 @@ MonoBehaviour:
   - {fileID: 734956313386687809, guid: bfd104c1040806d4b94d09e37541b31b, type: 3}
   - {fileID: 5229507221757886503, guid: 9b776ee0ef6b20a4e856d6bf9d688864, type: 3}
   - {fileID: 6832273501519530006, guid: c4c55d98455655648a96dadcb2e02cab, type: 3}
-  - {fileID: 2415180831026690977, guid: bdbf7ea3156adf24983486c7fb99e917, type: 3}
   EnemySpawnPoints:
   - {fileID: 112421589}
   - {fileID: 1509219802}
@@ -4870,14 +4869,14 @@ MonoBehaviour:
   ActivateFullAuto: 0
   PauseBetweenShots: 0.2
   RoundsInMagazine: 10
-  TotalRounds: 30
+  TotalRounds: 50
   MagazineCapacity: 10
+  MaxAmmo: 50
   ReloadTime: 1.2
   PlayerIsReloading: 0
   WeaponName: Pistol
   ProjectileTag: Pistol Bullet
   RocketLauncher: 0
-  GroundAmmoPickupAmount: 10
   WeaponSoundEffectName: PistolShot
 --- !u!1 &752947821
 GameObject:
@@ -5991,14 +5990,14 @@ MonoBehaviour:
   ActivateFullAuto: 1
   PauseBetweenShots: 0.1
   RoundsInMagazine: 30
-  TotalRounds: 100
+  TotalRounds: 150
   MagazineCapacity: 30
+  MaxAmmo: 150
   ReloadTime: 1.8
   PlayerIsReloading: 0
   WeaponName: AssaultRifle
   ProjectileTag: Assault Rifle Bullet
   RocketLauncher: 0
-  GroundAmmoPickupAmount: 30
   WeaponSoundEffectName: AssaultRifleShot
 --- !u!1 &1231474183
 GameObject:
@@ -6927,12 +6926,12 @@ MonoBehaviour:
   RoundsInMagazine: 5
   TotalRounds: 20
   MagazineCapacity: 5
+  MaxAmmo: 20
   ReloadTime: 2.8
   PlayerIsReloading: 0
   WeaponName: SniperRifle
   ProjectileTag: Sniper Rifle Bullet
   RocketLauncher: 0
-  GroundAmmoPickupAmount: 5
   WeaponSoundEffectName: SniperRifleShot
 --- !u!1 &1356771614
 GameObject:
@@ -9119,14 +9118,14 @@ MonoBehaviour:
   ActivateFullAuto: 0
   PauseBetweenShots: 3
   RoundsInMagazine: 1
-  TotalRounds: 5
+  TotalRounds: 10
   MagazineCapacity: 1
+  MaxAmmo: 10
   ReloadTime: 4
   PlayerIsReloading: 0
   WeaponName: RocketLauncher
   ProjectileTag: Rocket Launcher Bullet
   RocketLauncher: 1
-  GroundAmmoPickupAmount: 2
   WeaponSoundEffectName: RocketLauncherShot
 --- !u!1 &1940956383
 GameObject:

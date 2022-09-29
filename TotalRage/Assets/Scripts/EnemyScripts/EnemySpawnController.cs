@@ -7,7 +7,7 @@ public class EnemySpawnController : MonoBehaviour
 {
     public static EnemySpawnController Instance;
     private UICanvasController _playerDataUIController;
-    public GameObject[] EnemyTypes;
+    public List<GameObject> EnemyTypes = new List<GameObject>();
     public GameObject[] EnemySpawnPoints;
     public float SpawnArea = 1.5f;
     public float TimeBetweenWaves = 10.0f;
@@ -61,7 +61,7 @@ public class EnemySpawnController : MonoBehaviour
         float spawnYPos = spawnPoint.transform.position.y + Random.Range(-SpawnArea, SpawnArea);
         float spawnZPos = spawnPoint.transform.position.z + Random.Range(-SpawnArea, SpawnArea);
 
-        int randomEnemyNumber = Random.Range(0, EnemyTypes.Length);
+        int randomEnemyNumber = Random.Range(0, EnemyTypes.Count);
         Vector3 spawnPosition = new Vector3(spawnXPos, spawnYPos, spawnZPos);
         Quaternion spawnRotation = Quaternion.identity;
 

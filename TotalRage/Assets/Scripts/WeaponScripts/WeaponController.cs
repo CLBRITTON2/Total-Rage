@@ -14,7 +14,7 @@ public class WeaponController : MonoBehaviour
     private bool _playerIsfiring, _playerCanFire = true;
     public float PauseBetweenShots = 0.2f;
 
-    public int RoundsInMagazine, TotalRounds, MagazineCapacity;
+    public int RoundsInMagazine, TotalRounds, MagazineCapacity, MaxAmmo;
     public float ReloadTime;
     public bool PlayerIsReloading;
 
@@ -24,7 +24,7 @@ public class WeaponController : MonoBehaviour
 
     public bool RocketLauncher;
 
-    public int GroundAmmoPickupAmount;
+    private int _groundAmmoPickupAmount;
     public string WeaponSoundEffectName;
 
     // Start is called before the first frame update
@@ -179,9 +179,17 @@ public class WeaponController : MonoBehaviour
     #endregion
     public void AddAmmo()
     {
+        _groundAmmoPickupAmount = MaxAmmo;
+
         // Set amount of ammo for each gun to pickup in inspector (on the weapon itself)
-        TotalRounds += GroundAmmoPickupAmount;
-        Debug.Log($"You recieve {GroundAmmoPickupAmount} rounds for the {WeaponName}");
+        TotalRounds += _groundAmmoPickupAmount;
+
+        if (TotalRounds > MaxAmmo)
+        {
+            TotalRounds = MaxAmmo;
+        }
+
+        Debug.Log($"You recieve {_groundAmmoPickupAmount} rounds for the {WeaponName}");
     }
     private void ReloadWeapon()
     {
