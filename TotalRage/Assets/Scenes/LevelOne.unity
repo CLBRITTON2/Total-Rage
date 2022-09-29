@@ -1893,6 +1893,7 @@ MonoBehaviour:
   - {fileID: 734956313386687809, guid: bfd104c1040806d4b94d09e37541b31b, type: 3}
   - {fileID: 5229507221757886503, guid: 9b776ee0ef6b20a4e856d6bf9d688864, type: 3}
   - {fileID: 6832273501519530006, guid: c4c55d98455655648a96dadcb2e02cab, type: 3}
+  - {fileID: 2415180831026690977, guid: bdbf7ea3156adf24983486c7fb99e917, type: 3}
   EnemySpawnPoints:
   - {fileID: 112421589}
   - {fileID: 1509219802}

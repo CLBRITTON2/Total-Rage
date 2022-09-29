@@ -1,11 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    [System.Serializable]
+    public class EnemyLootTable
+    {
+        public string Name;
+        public GameObject GroundConsumable;
+        public int DropFrequency;
+    }
+
     public int EnemyMaxHealth;
     private int _currentEnemyHealth;
     private int _damageAmount;
     private int _enemyPointValue = 5;
+    public List<EnemyLootTable> GroundConsumables = new List<EnemyLootTable>();
 
     void Start()
     {
@@ -23,7 +33,6 @@ public class EnemyController : MonoBehaviour
         }
 
         // Refactor this later
-
         switch (other.gameObject.tag)
         {
             case "Pistol Bullet":
@@ -31,9 +40,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.PlayerPoints += _enemyPointValue;
-                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
-                    Destroy(gameObject);
+                    KillEnemy();
                 }
                 break;
 
@@ -42,9 +49,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.PlayerPoints += _enemyPointValue;
-                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
-                    Destroy(gameObject);
+                    KillEnemy();
                 }
                 break;
 
@@ -53,9 +58,7 @@ public class EnemyController : MonoBehaviour
 
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.PlayerPoints += _enemyPointValue;
-                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
-                    Destroy(gameObject);
+                    KillEnemy();
                 }
                 break;
 
@@ -63,17 +66,49 @@ public class EnemyController : MonoBehaviour
                 EnemyTakeDamage(_damageAmount);
                 if (_currentEnemyHealth <= 0)
                 {
-                    GameManager.PlayerPoints += _enemyPointValue;
-                    EnemySpawnController.Instance.DecreaseActiveEnemyCount();
-                    Destroy(gameObject);
+                    KillEnemy();
                 }
                 break;
 
         }
     }
+    private void KillEnemy()
+    {
+        GameManager.PlayerPoints += _enemyPointValue;
+        EnemySpawnController.Instance.DecreaseActiveEnemyCount();
+        CalculateConsumableDrop();
+        Destroy(gameObject);
+    }
 
     public void EnemyTakeDamage(int damageAmount)
     {
         _currentEnemyHealth -= damageAmount;
+    }
+    public void CalculateConsumableDrop()
+    {
+        // Create new position for dropped consumables so they animate at the correct height
+        float xPos = transform.position.x;
+        float yPos = transform.position.y + 1.68f;
+        float zPos = transform.position.z;
+        Vector3 consumableSpawnPoint = new Vector3(xPos, yPos, zPos);
+
+        for (int i = 0; i < GroundConsumables.Count; i++)
+        {
+            int randomDropChance = Random.Range(0, 101);
+            int randomItemDrop = Random.Range(0, GroundConsumables.Count);
+
+            // Do not spawn a consumable
+            if (randomDropChance > GroundConsumables[randomItemDrop].DropFrequency)
+            {
+                return;
+            }
+            // Spawn a consumable
+            if (randomDropChance <= GroundConsumables[randomItemDrop].DropFrequency)
+            {
+                Debug.Log($"Dropped item {GroundConsumables[randomItemDrop].Name}");
+                Instantiate(GroundConsumables[randomItemDrop].GroundConsumable, consumableSpawnPoint, Quaternion.identity, null);
+                return;
+            }
+        }
     }
 }

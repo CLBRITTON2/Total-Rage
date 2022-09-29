@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2415180831026690976
 Transform:
   m_ObjectHideFlags: 0
@@ -99,6 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyMaxHealth: 6
+  GroundConsumables:
+  - Name: First Aid Kit
+    GroundConsumable: {fileID: 822823534111505891, guid: d006e3b8fd7640147ac5666d8ab4ab2a,
+      type: 3}
+    DropFrequency: 5
+  - Name: Ammocan
+    GroundConsumable: {fileID: 76012834265181125, guid: cce061e32a0d2514c875c1db6348c4f6,
+      type: 3}
+    DropFrequency: 15
 --- !u!95 &2415180831026690983
 Animator:
   serializedVersion: 4

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3355501410010349980}
   m_Layer: 0
   m_Name: AmmoCanContainer
-  m_TagString: Untagged
+  m_TagString: Ammocan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,6 +235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ammocan
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145165998672086327, guid: f0bc4bc8eb62b6f4881b6cb3a75f4ed9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7145165998672086327, guid: f0bc4bc8eb62b6f4881b6cb3a75f4ed9,
         type: 3}
