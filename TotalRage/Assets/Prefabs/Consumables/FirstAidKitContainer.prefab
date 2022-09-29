@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 822823534111505888}
   - component: {fileID: 6347204239986208290}
   - component: {fileID: 5480433378101703835}
+  - component: {fileID: -7875264998986745222}
   m_Layer: 0
   m_Name: FirstAidKitContainer
   m_TagString: First Aid Kit
@@ -61,6 +62,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmountToHeal: 5
+--- !u!114 &-7875264998986745222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822823534111505891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3cedb949dfc6b44aa88e1e82ba6471d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &822823534844073583
 GameObject:
   m_ObjectHideFlags: 0

@@ -128,7 +128,7 @@ MonoBehaviour:
   - Name: Ammocan
     GroundConsumable: {fileID: 76012834265181125, guid: cce061e32a0d2514c875c1db6348c4f6,
       type: 3}
-    DropFrequency: 15
+    DropFrequency: 5
 --- !u!64 &4894133676928223351
 MeshCollider:
   m_ObjectHideFlags: 0

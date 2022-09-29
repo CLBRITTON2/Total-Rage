@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4698395674210219195}
   - component: {fileID: 6694703806251510951}
   - component: {fileID: 3355501410010349980}
+  - component: {fileID: 5536617954217380981}
   m_Layer: 0
   m_Name: AmmoCanContainer
   m_TagString: Ammocan
@@ -60,6 +61,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.44
   m_Center: {x: 0, y: 0.113000005, z: -0.007910401}
+--- !u!114 &5536617954217380981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76012834265181125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3cedb949dfc6b44aa88e1e82ba6471d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &440626170428754223
 GameObject:
   m_ObjectHideFlags: 0

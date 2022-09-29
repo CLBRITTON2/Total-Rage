@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DecalDestroyer : MonoBehaviour 
 {
@@ -34,6 +31,14 @@ public class DecalDestroyer : MonoBehaviour
                 Invoke("Disable", 3f);
                 break;
 
+            case "Ammocan":
+                Invoke("Destroy", 15f);
+                break;
+
+            case "First Aid Kit":
+                Invoke("Destroy", 15f);
+                break;
+
             default:
                 Invoke("Disable", 2f);
                 break;
@@ -47,4 +52,8 @@ public class DecalDestroyer : MonoBehaviour
 	{
 		CancelInvoke();
 	}
+    void Destroy()
+    {
+        Destroy(this.gameObject);
+    }
 }

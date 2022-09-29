@@ -2640,13 +2640,13 @@ MonoBehaviour:
   Pools:
   - Tag: Bullet Hole
     Prefab: {fileID: 1000010355441670, guid: ef7174a371872f04e9509ae929c91729, type: 3}
-    PoolSize: 10
+    PoolSize: 20
   - Tag: Bullet Impact Ground
     Prefab: {fileID: 1000010844420130, guid: 808466741f0cbce4ab90dc16487f9887, type: 3}
-    PoolSize: 10
+    PoolSize: 20
   - Tag: Bullet Impact Flesh
     Prefab: {fileID: 1000010191825552, guid: ff8cdfaf1ab21e948ae65f3f48b3c805, type: 3}
-    PoolSize: 10
+    PoolSize: 15
   - Tag: Explosion Effect
     Prefab: {fileID: 1590471898947043253, guid: fe7fffae0a9da134b958aaec719147e2,
       type: 3}
@@ -2658,11 +2658,11 @@ MonoBehaviour:
   - Tag: Pistol Bullet
     Prefab: {fileID: 1697392496918415031, guid: 3c496cd0b2e14924795b72d286207126,
       type: 3}
-    PoolSize: 5
+    PoolSize: 20
   - Tag: Assault Rifle Bullet
     Prefab: {fileID: 2080475657944858325, guid: 78b709241b86f09409f9fd80885fb665,
       type: 3}
-    PoolSize: 5
+    PoolSize: 20
   - Tag: Rocket Launcher Bullet
     Prefab: {fileID: 8100559627466770742, guid: 922ec92c34bb2ad4bbd5b71ab50e3f41,
       type: 3}

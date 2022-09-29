@@ -139,11 +139,12 @@ public class WeaponController : MonoBehaviour
                         if (hit.collider.tag == "Shootable Object")
                         {
                             ObjectPooler.SpawnFromObjectPool("Bullet Hole", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
-                            AudioManager.Instance.PlaySound("ShotImpactMetal");
+                            //AudioManager.Instance.PlaySound("ShotImpactMetal");
                         }
                         else if (hit.collider.tag == "Floor")
                         {
                             ObjectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
+                            AudioManager.Instance.PlaySound("ShotImpactGround");
                         }
                     }
                 }
