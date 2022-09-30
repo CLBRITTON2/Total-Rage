@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(_playerRespawnTime);
 
-        SceneManager.LoadScene("PlayGround");
+        SceneManager.LoadScene("MainMenuScene");
     }
     private void UpdatePointsText()
     {
