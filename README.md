@@ -33,10 +33,10 @@ Working :
 TODO :
 </h3>
 
-- Controllers to disable bullets at certain ranges for more realistic ballistics 
-- Ammo and health consumables spawn every 5 waves / drop on random enemy death
 - Store type system for purchasing ammo and potentially armor
 - On screen display for ground weapon pickup requirements 
+- Weapon upgrades
+- Map expansion
 
 ---
 
