@@ -45,14 +45,19 @@ Examples :
 </h3>
 
 <h5>
-Ammo Consumables
+Ammo consumables
 </h5>
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageAmmoConsumables.gif"/>
 
 <h5>
-Health Consumables
+Health consumables
 </h5>
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageHealthConsumables.gif"/>
+
+<h5>
+Random consumables drop
+</h5>
+<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageRandomConsumablesDrop.gif"/>
 
 <h5>
 Enemy attack animation and damage event
@@ -73,3 +78,8 @@ Ground weapon animations and point system
 Pause menu
 </h5>
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRagePauseMenuFunctionality.gif"/>
+
+<h5>
+Async loading screen
+</h5>
+<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageAsyncLoadScreen.gif"/>
