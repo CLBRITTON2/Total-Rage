@@ -17,12 +17,14 @@ Working :
 </h3>
 
 - Main menu / pause menu
-- Object pooler for all projectiles and particles
+- Loading screen
+- Object pool for all projectiles and particles
 - Sound effects and background music
 - Proximity sound effects for enemy movement
 - Enemy wave spawning and point system
 - 1 Hard (dark) and 1 easy (light) level
 - Ammo and health consumables
+- Random drop rate for each enemy to drop ammo and health consumables
 - Different reload animations and sound effects for each weapon
 
 ---
