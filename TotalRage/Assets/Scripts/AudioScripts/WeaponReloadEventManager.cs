@@ -4,26 +4,26 @@ public class WeaponReloadEventManager : MonoBehaviour
 {
     private void PlayReloadCocking()
     {
-        AudioManager.Instance.PlaySound("ReloadCocking");
+        AudioManager.Instance.PlaySoundOneShot("ReloadCocking");
     }
     private void PlayReloadMagIn()
     {
-        AudioManager.Instance.PlaySound("ReloadMagIn");
+        AudioManager.Instance.PlaySoundOneShot("ReloadMagIn");
     }
     private void PlayReloadMagOut()
     {
-        AudioManager.Instance.PlaySound("ReloadMagOut");
+        AudioManager.Instance.PlaySoundOneShot("ReloadMagOut");
     }
     private void PlayReloadDecompress()
     {
-        AudioManager.Instance.PlaySound("ReloadDecompress");
+        AudioManager.Instance.PlaySoundOneShot("ReloadDecompress");
     }
     private void PlayRocketLauncherMagIn()
     {
-        AudioManager.Instance.PlaySound("RocketLauncherMagIn");
+        AudioManager.Instance.PlaySoundOneShot("RocketLauncherMagIn");
     }
     private void PlayRocketLauncherMagOut()
     {
-        AudioManager.Instance.PlaySound("RocketLauncherMagOut");
+        AudioManager.Instance.PlaySoundOneShot("RocketLauncherMagOut");
     }
 }

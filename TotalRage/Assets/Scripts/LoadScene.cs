@@ -56,7 +56,8 @@ public class LoadScene : MonoBehaviour
         }
         _operation = null;
         LoadingScreenCanvas.SetActive(false);
-        yield return StartCoroutine(FadeLoadingScreen(0, 3));
+        AudioManager.Instance.PlaySound("Laughter");
+        yield return StartCoroutine(FadeLoadingScreen(0, 5));
     }
     private IEnumerator FadeLoadingScreen(float targetValue, float duration)
     {

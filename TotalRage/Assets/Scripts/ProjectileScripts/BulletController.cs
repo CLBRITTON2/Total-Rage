@@ -46,7 +46,7 @@ public class BulletController : MonoBehaviour
     {
         if (Rocket)
         {
-            AudioManager.Instance.PlaySound("Explosion");
+            AudioManager.Instance.PlaySoundOneShot("Explosion");
             ObjectPoolManager.Instance.SpawnFromObjectPool("Explosion Effect", transform.position, Quaternion.identity);
         }
         // projectile gets disabled if it hits an object

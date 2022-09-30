@@ -24,7 +24,7 @@ public class Sound
         _audioSource = source;
         _audioSource.clip = AudioClip;
     }
-    public void PlayAudio()
+    public void PlayAudioOneShot()
     {
         if (_audioSource == null)
         {
@@ -34,6 +34,17 @@ public class Sound
         _audioSource.pitch = pitch * (1 + Random.Range(-randomPitchRange / 2f, randomPitchRange / 2f));
         _audioSource.spatialBlend = SpatialBlend;;
         _audioSource.PlayOneShot(_audioSource.clip);
+    }
+    public void PlayAudio()
+    {
+        if (_audioSource == null)
+        {
+            return;
+        }
+        _audioSource.volume = volume * (1 + Random.Range(-randomVolumeRange / 2f, randomVolumeRange / 2f));
+        _audioSource.pitch = pitch * (1 + Random.Range(-randomPitchRange / 2f, randomPitchRange / 2f));
+        _audioSource.spatialBlend = SpatialBlend; ;
+        _audioSource.Play();
     }
     public void StopAudio()
     {
@@ -71,6 +82,19 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
 
+    }
+    public void PlaySoundOneShot(string name)
+    {
+        for (int i = 0; i < Sounds.Length; i++)
+        {
+            if (Sounds[i].Name == name)
+            {
+                Sounds[i].PlayAudio();
+                return;
+            }
+        }
+
+        Debug.Log($"AudioManager: Sound not found in sound array: {name}");
     }
     public void PlaySound(string name)
     {

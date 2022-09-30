@@ -654,7 +654,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: Laughter
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 0
         - m_Target: {fileID: 4096193873039480020}
           m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
           m_MethodName: LoadNextScene
@@ -5768,7 +5768,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: Laughter
             m_BoolArgument: 0
-          m_CallState: 2
+          m_CallState: 0
         - m_Target: {fileID: 4096193873039480020}
           m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
           m_MethodName: LoadNextScene

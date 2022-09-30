@@ -25,6 +25,7 @@ public class EnemyAI : MonoBehaviour
     Animator EnemyMeleeZombieAnimator;
     public int MeleeDamageValue = 2;
 
+    // Give enemies their own audio source for 3D volume rolloff
     public AudioSource EnemyAudioSource;
 
     void Start()
@@ -61,7 +62,7 @@ public class EnemyAI : MonoBehaviour
             EnemyFirePosition.LookAt(Player);
             EnemyRangeAnimator.SetTrigger("Attack");
             ObjectPoolManager.Instance.SpawnFromObjectPool("Enemy Projectile", EnemyFirePosition.position, EnemyFirePosition.rotation);
-            AudioManager.Instance.PlaySound("RobotShot");
+            AudioManager.Instance.PlaySoundOneShot("RobotShot");
             StartCoroutine(ResetEnemyAttack());
         }
 
@@ -104,7 +105,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void PlayMeleeEnemyGrowl()
     {
-        AudioManager.Instance.PlaySound("MeleeEnemyGrowl");
+        AudioManager.Instance.PlaySoundOneShot("MeleeEnemyGrowl");
     }
     private void PlayMonsterFootstep()
     {

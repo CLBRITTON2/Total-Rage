@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && _playerCanJump)
         {
-            AudioManager.Instance.PlaySound("PlayerJump");
+            AudioManager.Instance.PlaySoundOneShot("PlayerJump");
             _initializeJump = true;
         }
     }
@@ -197,10 +197,10 @@ public class Player : MonoBehaviour
     }
     private void PlayFirstStep()
     {
-        AudioManager.Instance.PlaySound("PlayerFirstStep");
+        AudioManager.Instance.PlaySoundOneShot("PlayerFirstStep");
     }
     private void PlaySecondStep()
     {
-        AudioManager.Instance.PlaySound("PlayerSecondStep");
+        AudioManager.Instance.PlaySoundOneShot("PlayerSecondStep");
     }
 }

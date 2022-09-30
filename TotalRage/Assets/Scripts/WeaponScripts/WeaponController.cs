@@ -115,12 +115,12 @@ public class WeaponController : MonoBehaviour
             {
                 ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation);
                 ObjectPooler.SpawnFromObjectPool("Rocket Trail Effect", FirePosition.position, FirePosition.rotation);
-                AudioManager.Instance.PlaySound($"{WeaponSoundEffectName}");
+                AudioManager.Instance.PlaySoundOneShot($"{WeaponSoundEffectName}");
             }
             else
             {
                 ObjectPooler.SpawnFromObjectPool(ProjectileTag, FirePosition.position, FirePosition.rotation);
-                AudioManager.Instance.PlaySound($"{WeaponSoundEffectName}");
+                AudioManager.Instance.PlaySoundOneShot($"{WeaponSoundEffectName}");
             }
             // Raycast is determining what the bullet just hit, the origin and direction
             // are based of where the player is looking
@@ -144,7 +144,7 @@ public class WeaponController : MonoBehaviour
                         else if (hit.collider.tag == "Floor")
                         {
                             ObjectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
-                            AudioManager.Instance.PlaySound("ShotImpactGround");
+                            AudioManager.Instance.PlaySoundOneShot("ShotImpactGround");
                         }
                     }
                 }
@@ -152,7 +152,7 @@ public class WeaponController : MonoBehaviour
                 if (hit.collider.tag == "Enemy" && !RocketLauncher)
                 {
                     ObjectPooler.SpawnFromObjectPool("Bullet Impact Flesh", hit.point, Quaternion.LookRotation(hit.normal));
-                    AudioManager.Instance.PlaySound("ShotImpactFlesh");
+                    AudioManager.Instance.PlaySoundOneShot("ShotImpactFlesh");
                 }
             }
             else
@@ -176,6 +176,8 @@ public class WeaponController : MonoBehaviour
         {
             AudioManager.Instance.PlaySound("WeaponDryFire");
         }
+
+
     }
     #endregion
     public void AddAmmo()

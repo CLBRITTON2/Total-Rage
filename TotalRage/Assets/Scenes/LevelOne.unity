@@ -4692,7 +4692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &723389876
 Transform:
   m_ObjectHideFlags: 0
@@ -5863,7 +5863,7 @@ MonoBehaviour:
   ActivateFullAuto: 1
   PauseBetweenShots: 0.1
   RoundsInMagazine: 30
-  TotalRounds: 150
+  TotalRounds: 120
   MagazineCapacity: 30
   MaxAmmo: 150
   ReloadTime: 1.8

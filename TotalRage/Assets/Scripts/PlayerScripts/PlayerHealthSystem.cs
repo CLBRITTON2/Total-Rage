@@ -18,13 +18,13 @@ public class PlayerHealthSystem : MonoBehaviour
     }
     public void PlayerTakeDamage(int damageAmount)
     {
-        AudioManager.Instance.PlaySound("PlayerTakeDamage");
+        AudioManager.Instance.PlaySoundOneShot("PlayerTakeDamage");
         _playerCurrentHealth -= damageAmount;
         PlayerHealthBar.SetPlayerHealthBar(_playerCurrentHealth);
 
         if (_playerCurrentHealth <= 0)
         {
-            AudioManager.Instance.PlaySound("PlayerDead");
+            AudioManager.Instance.PlaySoundOneShot("PlayerDead");
             gameObject.SetActive(false);
             FindObjectOfType<GameManager>().PlayerRespawn();
         }
