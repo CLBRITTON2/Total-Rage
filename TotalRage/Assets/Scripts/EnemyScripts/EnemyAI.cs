@@ -100,6 +100,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (_playerWithinInteractionRange)
         {
+            
             AudioManager.Instance.PlaySound("RobotBigStep");
         }
     }

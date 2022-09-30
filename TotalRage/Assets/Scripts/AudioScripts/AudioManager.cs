@@ -33,7 +33,7 @@ public class Sound
         _audioSource.volume = volume * (1 + Random.Range(-randomVolumeRange / 2f, randomVolumeRange / 2f));
         _audioSource.pitch = pitch * (1 + Random.Range(-randomPitchRange / 2f, randomPitchRange / 2f));
         _audioSource.spatialBlend = SpatialBlend;;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(_audioSource.clip);
     }
     public void StopAudio()
     {

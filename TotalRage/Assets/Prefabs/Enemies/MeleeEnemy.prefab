@@ -65,6 +65,7 @@ MonoBehaviour:
   EnemyFirePosition: {fileID: 0}
   MeleeEnemy: 1
   MeleeDamageValue: 3
+  EnemyAudioSource: {fileID: 0}
 --- !u!195 &734956313386687815
 NavMeshAgent:
   m_ObjectHideFlags: 0
