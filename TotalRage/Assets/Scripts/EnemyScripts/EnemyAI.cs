@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour
     Animator EnemyMeleeZombieAnimator;
     public int MeleeDamageValue = 2;
 
+    public AudioSource EnemyAudioSource;
+
     void Start()
     {
         EnemyMeleeZombieAnimator = GetComponent<Animator>();
@@ -98,18 +100,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void PlayRobotBigStep()
     {
-        if (_playerWithinInteractionRange)
-        {
-            
-            AudioManager.Instance.PlaySound("RobotBigStep");
-        }
-    }
-    private void PlayRobotSmallStep()
-    {
-        if (_playerWithinInteractionRange)
-        {
-            AudioManager.Instance.PlaySound("RobotSmallStep");
-        }
+        EnemyAudioSource.PlayOneShot(EnemyAudioSource.clip);
     }
     private void PlayMeleeEnemyGrowl()
     {
@@ -117,16 +108,10 @@ public class EnemyAI : MonoBehaviour
     }
     private void PlayMonsterFootstep()
     {
-        if (_playerWithinInteractionRange)
-        {
-            AudioManager.Instance.PlaySound("MonsterFootstep");
-        }
+        EnemyAudioSource.PlayOneShot(EnemyAudioSource.clip);
     }
     private void PlayZombieFootstep()
     {
-        if (_playerWithinInteractionRange)
-        {
-            AudioManager.Instance.PlaySound("EnemyZombieStep");
-        }
+        EnemyAudioSource.PlayOneShot(EnemyAudioSource.clip);
     }
 }
