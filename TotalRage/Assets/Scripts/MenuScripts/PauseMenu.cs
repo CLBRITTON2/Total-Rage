@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,13 +42,18 @@ public class PauseMenu : MonoBehaviour
     }
     public void LoadMainMenu()
     {
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-        SceneManager.LoadScene("MainMenuScene");
+        LoadScene.Instance.LoadNextScene("MainMenuScene");
+        StartCoroutine(WaitForSceneLoad());
     }
     public void QuitGame()
     {
         Debug.Log("Quit game");
         Application.Quit();
+    }
+    IEnumerator WaitForSceneLoad()
+    {
+        yield return new WaitForSeconds(5f);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
 }

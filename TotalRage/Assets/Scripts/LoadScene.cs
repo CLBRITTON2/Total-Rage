@@ -47,7 +47,7 @@ public class LoadScene : MonoBehaviour
 
             _loadingBarFiller.fillAmount = progress;
 
-            if (_loadTime >= 7f)
+            if (_loadTime >= 5f)
             {
                 yield return StartCoroutine(FadeLoadingScreen(1, 3));
                 _operation.allowSceneActivation = true;
@@ -56,8 +56,13 @@ public class LoadScene : MonoBehaviour
         }
         _operation = null;
         LoadingScreenCanvas.SetActive(false);
-        AudioManager.Instance.PlaySound("Laughter");
-        yield return StartCoroutine(FadeLoadingScreen(0, 5));
+
+        if (sceneName != "MainMenuScene")
+        {
+            AudioManager.Instance.PlaySound("Laughter");
+        }
+
+        yield return StartCoroutine(FadeLoadingScreen(0, 3));
     }
     private IEnumerator FadeLoadingScreen(float targetValue, float duration)
     {
