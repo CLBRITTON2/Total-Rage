@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause()
     {
+        AudioManager.Instance.PlaySoundOneShot("MenuSelectSound");
         Time.timeScale = 0f;
         PauseScreenUI.SetActive(true);
         GameIsPaused = true;
@@ -30,6 +31,7 @@ public class PauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
+                AudioManager.Instance.PlaySoundOneShot("MenuSelectSound");
             }
             else
             {
