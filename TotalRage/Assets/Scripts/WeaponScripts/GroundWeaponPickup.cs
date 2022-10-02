@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GroundWeaponPickup : MonoBehaviour
@@ -5,22 +6,38 @@ public class GroundWeaponPickup : MonoBehaviour
     public string GroundWeaponName;
     public int PointRequirement;
     public bool PlayerHasPointRequirement = false;
-    private UICanvasController _purchaseDisplayText;
+    private TextMeshProUGUI _purchaseDisplayText;
+    public GameObject PurchaseTextContainer;
 
     private void Start()
     {
-        _purchaseDisplayText = FindObjectOfType<UICanvasController>();
+        _purchaseDisplayText = FindObjectOfType<UICanvasController>().PurchaseText;
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        _purchaseDisplayText.PurchaseText.enabled = true;
-
         if (other.CompareTag("Player") && PlayerHasPointRequirement)
         {
-            other.gameObject.GetComponentInChildren<CycleWeaponSystem>().AddWeapon(GroundWeaponName);
-            GameManager.PlayerPoints -= PointRequirement;
-            Destroy(gameObject);
+            PurchaseTextContainer.SetActive(true);
+            _purchaseDisplayText.SetText($"Press E to buy a(n) {GroundWeaponName} for {PointRequirement} points");
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                other.gameObject.GetComponentInChildren<CycleWeaponSystem>().AddWeapon(GroundWeaponName);
+                GameManager.PlayerPoints -= PointRequirement;
+                PurchaseTextContainer.SetActive(false);
+                Destroy(gameObject);
+            }
         }
+
+        if (other.CompareTag("Player") && !PlayerHasPointRequirement)
+        {
+            PurchaseTextContainer.SetActive(true);
+            _purchaseDisplayText.SetText($"You need {PointRequirement} points to buy a(n) {GroundWeaponName}");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        PurchaseTextContainer.SetActive(false);
     }
     private void Update()
     {

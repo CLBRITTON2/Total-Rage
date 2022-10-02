@@ -66,15 +66,15 @@ public class WeaponController : MonoBehaviour
                 WeaponAnimationName = "ReloadPistol";
                 break;
 
-            case "AssaultRifle":
+            case "Assault Rifle":
                 WeaponAnimationName = "ReloadAssaultRifle";
                 break;
 
-            case "SniperRifle":
+            case "Sniper Rifle":
                 WeaponAnimationName = "ReloadSniperRifle";
                 break;
 
-            case "RocketLauncher":
+            case "Rocket Launcher":
                 WeaponAnimationName = "ReloadRocketLauncher";
                 break;
         }
