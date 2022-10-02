@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LoadScene : MonoBehaviour
 {
     public static LoadScene Instance;
-    public  GameObject LoadingScreenCanvas;
+    public GameObject LoadingScreenCanvas;
     [SerializeField] private Image _loadingBarFiller;
     private AsyncOperation _operation;
     private float _loadTime = 0f;
@@ -29,12 +29,12 @@ public class LoadScene : MonoBehaviour
     }
     public void LoadNextScene(string sceneName)
     {
-        _loadingBarFiller.fillAmount = 0f;
         StartCoroutine(LoadSceneRoutine(sceneName));
     }
     private IEnumerator LoadSceneRoutine(string sceneName)
     {
         LoadingScreenCanvas.SetActive(true);
+        _loadingBarFiller.fillAmount = 0f;
         yield return StartCoroutine(FadeLoadingScreen(0, 3));
         _operation = SceneManager.LoadSceneAsync(sceneName);
         _operation.allowSceneActivation = false;
@@ -47,11 +47,12 @@ public class LoadScene : MonoBehaviour
 
             _loadingBarFiller.fillAmount = progress;
 
-            if (_loadTime >= 5f)
+            if (_loadTime >= 3f)
             {
-                yield return StartCoroutine(FadeLoadingScreen(1, 3));
+                yield return StartCoroutine(FadeLoadingScreen(1, 2));
                 _operation.allowSceneActivation = true;
             }
+
             yield return null;
         }
         _operation = null;
@@ -62,7 +63,7 @@ public class LoadScene : MonoBehaviour
             AudioManager.Instance.PlaySound("Laughter");
         }
 
-        yield return StartCoroutine(FadeLoadingScreen(0, 3));
+        yield return StartCoroutine(FadeLoadingScreen(0, 1));
     }
     private IEnumerator FadeLoadingScreen(float targetValue, float duration)
     {

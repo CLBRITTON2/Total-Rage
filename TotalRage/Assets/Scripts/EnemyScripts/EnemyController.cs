@@ -32,44 +32,11 @@ public class EnemyController : MonoBehaviour
             _damageAmount = other.gameObject.GetComponent<BulletController>().ProjectileDamageOutput;
         }
 
-        // Refactor this later
-        switch (other.gameObject.tag)
+        EnemyTakeDamage(_damageAmount);
+
+        if (_currentEnemyHealth <= 0)
         {
-            case "Pistol Bullet":
-                EnemyTakeDamage(_damageAmount);
-
-                if (_currentEnemyHealth <= 0)
-                {
-                    KillEnemy();
-                }
-                break;
-
-            case "Assault Rifle Bullet":
-                EnemyTakeDamage(_damageAmount);
-
-                if (_currentEnemyHealth <= 0)
-                {
-                    KillEnemy();
-                }
-                break;
-
-            case "Sniper Rifle Bullet":
-                EnemyTakeDamage(_damageAmount);
-
-                if (_currentEnemyHealth <= 0)
-                {
-                    KillEnemy();
-                }
-                break;
-
-            case "Explosion Effect":
-                EnemyTakeDamage(_damageAmount);
-                if (_currentEnemyHealth <= 0)
-                {
-                    KillEnemy();
-                }
-                break;
-
+            KillEnemy();
         }
     }
     private void KillEnemy()

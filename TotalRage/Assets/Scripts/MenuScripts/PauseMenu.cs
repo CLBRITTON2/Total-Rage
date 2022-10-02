@@ -42,18 +42,13 @@ public class PauseMenu : MonoBehaviour
     }
     public void LoadMainMenu()
     {
-        LoadScene.Instance.LoadNextScene("MainMenuScene");
-        StartCoroutine(WaitForSceneLoad());
+        SceneManager.LoadScene("MainMenuScene");
+        Time.timeScale = 1f;
+        GameIsPaused = false;
     }
     public void QuitGame()
     {
         Debug.Log("Quit game");
         Application.Quit();
-    }
-    IEnumerator WaitForSceneLoad()
-    {
-        yield return new WaitForSeconds(5f);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
     }
 }
