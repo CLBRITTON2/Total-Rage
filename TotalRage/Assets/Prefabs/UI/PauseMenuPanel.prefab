@@ -2553,7 +2553,7 @@ MonoBehaviour:
             m_StringArgument: MenuSelectSound
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 5269060910812071864}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: MenuEventSceneLoader, Assembly-CSharp
           m_MethodName: LoadMainMenu
           m_Mode: 1

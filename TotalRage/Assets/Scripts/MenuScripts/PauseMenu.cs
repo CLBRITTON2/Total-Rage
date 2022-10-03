@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject PauseScreenUI;
+    public GameObject CrossHair;
+    public GameObject DamageUIContainer;
     public static bool GameIsPaused = false;
 
     private void Pause()
     {
+        DamageUIContainer.SetActive(false);
+        CrossHair.SetActive(false);
         AudioManager.Instance.PlaySoundOneShot("MenuSelectSound");
         Time.timeScale = 0f;
         PauseScreenUI.SetActive(true);
@@ -18,6 +22,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume()
     {
+        DamageUIContainer.SetActive(true);
+        CrossHair.SetActive(true);
         Time.timeScale = 1f;
         PauseScreenUI.SetActive(false);
         GameIsPaused = false;
