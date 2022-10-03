@@ -1239,7 +1239,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &345444514
 GameObject:
@@ -1648,7 +1648,7 @@ Transform:
   - {fileID: 871222422}
   - {fileID: 1753031385}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &413091119
 GameObject:
@@ -1863,7 +1863,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &476493499
 MonoBehaviour:
@@ -2154,8 +2154,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 503711423}
-  - component: {fileID: 503711422}
   - component: {fileID: 503711421}
+  - component: {fileID: 503711424}
   m_Layer: 0
   m_Name: GroundRocketLauncher
   m_TagString: Untagged
@@ -2176,22 +2176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundWeaponName: Rocket Launcher
-  PointRequirement: 300
+  PointRequirement: 200
   PlayerHasPointRequirement: 0
   PurchaseTextContainer: {fileID: 377980829}
---- !u!135 &503711422
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503711420}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &503711423
 Transform:
   m_ObjectHideFlags: 0
@@ -2206,8 +2193,21 @@ Transform:
   m_Children:
   - {fileID: 1489837102}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &503711424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503711420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 5, z: 6}
+  m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!1 &509647960
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,7 +2218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509647963}
   - component: {fileID: 509647962}
-  - component: {fileID: 509647961}
+  - component: {fileID: 509647964}
   m_Layer: 0
   m_Name: GroundSniperRifle
   m_TagString: Untagged
@@ -2226,19 +2226,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &509647961
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509647960}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.3
-  m_Center: {x: 0, y: 0, z: 0.57}
 --- !u!114 &509647962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,7 +2239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GroundWeaponName: Sniper Rifle
-  PointRequirement: 200
+  PointRequirement: 150
   PlayerHasPointRequirement: 0
   PurchaseTextContainer: {fileID: 377980829}
 --- !u!4 &509647963
@@ -2263,14 +2250,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509647960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.03, y: 1.2, z: 0.4}
+  m_LocalPosition: {x: 10.19, y: 1.2, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1290736703}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &509647964
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509647960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 5, z: 6}
+  m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!1 &513665928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2635,7 +2635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670500054}
   - component: {fileID: 670500053}
-  - component: {fileID: 670500052}
+  - component: {fileID: 670500055}
   m_Layer: 0
   m_Name: GroundUpgradedAssaultRifle
   m_TagString: Untagged
@@ -2643,19 +2643,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &670500052
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670500051}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0.03}
 --- !u!114 &670500053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2686,8 +2673,21 @@ Transform:
   m_Children:
   - {fileID: 7343400731028017854}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &670500055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670500051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 5, z: 6}
+  m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!1 &696793959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,7 +2886,7 @@ RectTransform:
   - {fileID: 656864276}
   - {fileID: 696793960}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3037,7 +3037,7 @@ MonoBehaviour:
   ActivateFullAuto: 0
   PauseBetweenShots: 0.2
   RoundsInMagazine: 10
-  TotalRounds: 50
+  TotalRounds: 100
   MagazineCapacity: 10
   MaxAmmo: 50
   ReloadTime: 1.2
@@ -5421,7 +5421,7 @@ Transform:
   m_Children:
   - {fileID: 500706631}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1609897450
 GameObject:
@@ -5455,7 +5455,7 @@ Transform:
   - {fileID: 96472147}
   - {fileID: 39098521}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1619743247
 GameObject:
@@ -5670,7 +5670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1675254072}
   - component: {fileID: 1675254071}
-  - component: {fileID: 1675254070}
+  - component: {fileID: 1675254073}
   m_Layer: 0
   m_Name: GroundAssaultRifle
   m_TagString: Untagged
@@ -5678,19 +5678,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &1675254070
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675254069}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0.59}
 --- !u!114 &1675254071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5721,8 +5708,21 @@ Transform:
   m_Children:
   - {fileID: 2004200678}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1675254073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675254069}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 5, z: 6}
+  m_Center: {x: 0, y: 1.6, z: 0.66}
 --- !u!1 &1681425541
 GameObject:
   m_ObjectHideFlags: 0
@@ -6182,7 +6182,7 @@ Transform:
   - {fileID: 1309793839}
   - {fileID: 359501719}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1776793551
 Animator:
@@ -6632,7 +6632,7 @@ PrefabInstance:
     - target: {fileID: 7347677848561467079, guid: 9bc462fc397c5da45938269a85a0c411,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7347677848561467079, guid: 9bc462fc397c5da45938269a85a0c411,
         type: 3}
@@ -8304,7 +8304,7 @@ PrefabInstance:
     - target: {fileID: 1144171153516814118, guid: 141b56123ffb6d244bb12dc2591f88b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1144171153516814118, guid: 141b56123ffb6d244bb12dc2591f88b4,
         type: 3}
@@ -10717,7 +10717,7 @@ PrefabInstance:
     - target: {fileID: 4606173755561184012, guid: 127252277402722498c97dcce5b49fcf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4606173755561184012, guid: 127252277402722498c97dcce5b49fcf,
         type: 3}
@@ -11283,10 +11283,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
+        type: 3}
+      propertyPath: Sounds.Array.size
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
+        type: 3}
+      propertyPath: Sounds.Array.data[29].Name
+      value: PurchaseSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
+        type: 3}
+      propertyPath: Sounds.Array.data[29].pitch
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
+        type: 3}
+      propertyPath: Sounds.Array.data[29].volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
+        type: 3}
+      propertyPath: Sounds.Array.data[29].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7232d1d57ffe9ec4eab1aa58d6b21af0, type: 3}
     - target: {fileID: 5052426196833350930, guid: b90a5309af7b6f740b7b7387d1a6313a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5052426196833350930, guid: b90a5309af7b6f740b7b7387d1a6313a,
         type: 3}
@@ -13632,7 +13657,7 @@ PrefabInstance:
     - target: {fileID: 6807500594553655320, guid: 92bfab42951eb1843b720b19d44b12d4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6807500594553655320, guid: 92bfab42951eb1843b720b19d44b12d4,
         type: 3}
