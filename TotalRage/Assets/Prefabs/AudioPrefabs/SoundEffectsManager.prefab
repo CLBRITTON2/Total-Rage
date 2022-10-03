@@ -264,16 +264,16 @@ MonoBehaviour:
   - Name: ShotImpactGround
     AudioClip: {fileID: 8300000, guid: cf520a2c88f3e99479ad3764a9551f7a, type: 3}
     AudioRollOff: 0
-    volume: 0.169
-    pitch: 1
+    volume: 0.15
+    pitch: 0.65
     SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
   - Name: UpdatedARShot
     AudioClip: {fileID: 8300000, guid: f97d3992c0f9a2c4f95ae2212aafbbe7, type: 3}
     AudioRollOff: 0
-    volume: 0.169
-    pitch: 1
+    volume: 0.3
+    pitch: 0.95
     SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
