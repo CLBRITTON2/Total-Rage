@@ -6,7 +6,6 @@ public class WeaponController : MonoBehaviour
     ObjectPoolManager ObjectPooler;
     public Transform FirePosition;
     public Transform MainCameraHead;
-    public GameObject MuzzleFlash;
     private UICanvasController _theUICanvas;
     public Animator PlayerAnimator;
 
