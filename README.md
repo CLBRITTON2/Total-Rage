@@ -26,6 +26,7 @@ Working :
 - Ammo and health consumables
 - Random drop rate for each enemy to drop ammo and health consumables
 - Different reload animations and sound effects for each weapon
+- Ground weapon purchase system
 
 ---
 
