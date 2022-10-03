@@ -23,6 +23,8 @@ TagManager:
   - Ammocan
   - First Aid Kit
   - EnemySpawnPoint
+  - Upgraded AR Bullet
+  - Upgraded Muzzle Flash
   layers:
   - Default
   - TransparentFX

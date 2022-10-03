@@ -11,6 +11,14 @@ public class DecalDestroyer : MonoBehaviour
                 Invoke("Disable", 0.2f);
 				break;
 
+            case "Muzzle Flash":
+                Invoke("Disable", 0.2f);
+                break;
+
+            case "Upgraded Muzzle Flash":
+                Invoke("Disable", 0.2f);
+                break;
+
             case "Bullet Impact Ground":
                 Invoke("Disable", 0.6f);
                 break;
@@ -20,6 +28,10 @@ public class DecalDestroyer : MonoBehaviour
                 break;
 
             case "Assault Rifle Bullet":
+                Invoke("Disable", 1.5f);
+                break;
+
+            case "Upgraded AR Bullet":
                 Invoke("Disable", 1.5f);
                 break;
 

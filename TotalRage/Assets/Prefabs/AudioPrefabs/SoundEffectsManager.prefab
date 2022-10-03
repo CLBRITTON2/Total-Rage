@@ -269,3 +269,11 @@ MonoBehaviour:
     SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
+  - Name: UpdatedARShot
+    AudioClip: {fileID: 8300000, guid: f97d3992c0f9a2c4f95ae2212aafbbe7, type: 3}
+    AudioRollOff: 0
+    volume: 0.169
+    pitch: 1
+    SpatialBlend: 0
+    randomVolumeRange: 0
+    randomPitchRange: 0

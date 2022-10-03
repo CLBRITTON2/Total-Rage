@@ -26,6 +26,8 @@ public class WeaponController : MonoBehaviour
     private int _groundAmmoPickupAmount;
     public string WeaponSoundEffectName;
 
+    public bool UpgradedWeapon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,10 @@ public class WeaponController : MonoBehaviour
 
             case "Assault Rifle":
                 WeaponAnimationName = "ReloadAssaultRifle";
+                break;
+
+            case "Upgraded Assault Rifle":
+                WeaponAnimationName = "ReloadUpgradedAssaultRifle";
                 break;
 
             case "Sniper Rifle":
@@ -162,10 +168,14 @@ public class WeaponController : MonoBehaviour
 
             RoundsInMagazine--;
 
-            if (!RocketLauncher)
+            if (!RocketLauncher && !UpgradedWeapon)
             {
-                //Instantiate(MuzzleFlash, FirePosition.position, FirePosition.rotation, FirePosition);
                 ObjectPooler.SpawnFromObjectPool("Muzzle Flash", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
+            }
+
+            if (UpgradedWeapon && !RocketLauncher)
+            {
+                ObjectPooler.SpawnFromObjectPool("Upgraded Muzzle Flash", FirePosition.position, FirePosition.rotation).transform.parent = FirePosition;
             }
 
             StartCoroutine(ResetShot());
