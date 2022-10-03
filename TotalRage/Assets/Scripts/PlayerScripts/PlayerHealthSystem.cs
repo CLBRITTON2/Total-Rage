@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,22 +7,27 @@ public class PlayerHealthSystem : MonoBehaviour
 {
     public int PlayerMaxHealth;
     private int _playerCurrentHealth;
+    public Animator PlayerUIAnimator;
 
-    UICanvasController PlayerHealthBar;
+    UICanvasController PlayerUICanvas;
 
-    // Start is called before the first frame update
     void Start()
     {
         _playerCurrentHealth = PlayerMaxHealth;
 
-        PlayerHealthBar = FindObjectOfType<UICanvasController>();
-        PlayerHealthBar.SetPlayerMaxHealth(PlayerMaxHealth);
+        PlayerUICanvas = FindObjectOfType<UICanvasController>();
+        PlayerUICanvas.SetPlayerMaxHealth(PlayerMaxHealth);
     }
     public void PlayerTakeDamage(int damageAmount)
     {
-        AudioManager.Instance.PlaySoundOneShot("PlayerTakeDamage");
-        _playerCurrentHealth -= damageAmount;
-        PlayerHealthBar.SetPlayerHealthBar(_playerCurrentHealth);
+        if (_playerCurrentHealth > 0)
+        {
+            PlayerUIAnimator.SetTrigger("PlayerTakeDamage");
+            AudioManager.Instance.PlaySoundOneShot("PlayerTakeDamage");
+            _playerCurrentHealth -= damageAmount;
+            PlayerUICanvas.SetPlayerHealthBar(_playerCurrentHealth);
+            PlayerUIAnimator.SetBool("PlayerTakingDamage", false);
+        }
 
         if (_playerCurrentHealth <= 0)
         {
@@ -38,6 +45,6 @@ public class PlayerHealthSystem : MonoBehaviour
             _playerCurrentHealth = PlayerMaxHealth;           
         }
 
-        PlayerHealthBar.SetPlayerHealthBar(_playerCurrentHealth);
+        PlayerUICanvas.SetPlayerHealthBar(_playerCurrentHealth);
     }
 }
