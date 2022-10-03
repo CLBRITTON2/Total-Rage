@@ -70,7 +70,6 @@ public class CycleWeaponSystem : MonoBehaviour
             // Player will always equip picked up ground weapons
             CurrentWeaponIndex = AllWeapons.Count - 2;
             SwitchWeapon();
-            AudioManager.Instance.PlaySoundOneShot("EquipWeapon");
         }
     }
 }

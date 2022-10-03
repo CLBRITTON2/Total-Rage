@@ -22,6 +22,7 @@ public class GroundWeaponPickup : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                AudioManager.Instance.PlaySoundOneShot("PurchaseSound");
                 other.gameObject.GetComponentInChildren<CycleWeaponSystem>().AddWeapon(GroundWeaponName);
                 GameManager.PlayerPoints -= PointRequirement;
                 PurchaseTextContainer.SetActive(false);

@@ -149,7 +149,7 @@ public class WeaponController : MonoBehaviour
                         else if (hit.collider.tag == "Floor")
                         {
                             ObjectPooler.SpawnFromObjectPool("Bullet Impact Ground", hit.point + (hit.normal * 0.025f), Quaternion.LookRotation(hit.normal));
-                            AudioManager.Instance.PlaySoundOneShot("ShotImpactGround");
+                            //AudioManager.Instance.PlaySound("ShotImpactGround");
                         }
                     }
                 }
