@@ -60,9 +60,9 @@ Random consumables drop
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageRandomConsumablesDrop.gif"/>
 
 <h5>
-Enemy attack animation and damage event
+Damage to player event
 </h5>
-<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageAnimationsDamage.gif"/>
+<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageDamageEvent20221003.gif"/>
 
 <h5>
 Enemy follow and sprint animation
@@ -70,9 +70,9 @@ Enemy follow and sprint animation
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageEnemySprintAndFollow.gif"/>
 
 <h5>
-Ground weapon animations and point system
+Ground weapon purchase system
 </h5>
-<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageGroundWeaponsAndPoints.gif"/>
+<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRagePurchaseSystem20221003.gif"/>
 
 <h5>
 Pause menu
