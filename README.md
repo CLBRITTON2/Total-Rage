@@ -33,8 +33,7 @@ Working :
 TODO :
 </h3>
 
-- Store type system for purchasing ammo and potentially armor
-- On screen display for ground weapon pickup requirements 
+- Update purchase system to include weapon upgrades 
 - Weapon upgrades
 - Map expansion
 
