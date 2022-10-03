@@ -34,8 +34,7 @@ Working :
 TODO :
 </h3>
 
-- Update purchase system to include weapon upgrades 
-- Weapon upgrades
+- Update purchase system to include more weapon upgrades 
 - Map expansion
 
 ---
