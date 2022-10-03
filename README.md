@@ -45,6 +45,21 @@ Examples :
 </h3>
 
 <h5>
+Ground weapon purchase system
+</h5>
+<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRagePurchaseSystem20221003.gif"/>
+
+<h5>
+Weapon variants
+</h5>
+<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageARUpgrade.gif"/>
+
+<h5>
+Damage to player event
+</h5>
+<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageDamageEvent20221003.gif"/>
+
+<h5>
 Ammo consumables
 </h5>
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageAmmoConsumables.gif"/>
@@ -60,19 +75,9 @@ Random consumables drop
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageRandomConsumablesDrop.gif"/>
 
 <h5>
-Damage to player event
-</h5>
-<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageDamageEvent20221003.gif"/>
-
-<h5>
 Enemy follow and sprint animation
 </h5>
 <img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRageEnemySprintAndFollow.gif"/>
-
-<h5>
-Ground weapon purchase system
-</h5>
-<img src="https://github.com/CLBRITTON2/Total-Rage/blob/main/TotalRage/TotalRageClips/TotalRagePurchaseSystem20221003.gif"/>
 
 <h5>
 Pause menu
