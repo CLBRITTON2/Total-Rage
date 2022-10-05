@@ -14875,31 +14875,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
-        type: 3}
-      propertyPath: Sounds.Array.size
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
-        type: 3}
-      propertyPath: Sounds.Array.data[29].Name
-      value: PurchaseSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
-        type: 3}
-      propertyPath: Sounds.Array.data[29].pitch
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
-        type: 3}
-      propertyPath: Sounds.Array.data[29].volume
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5052426196833350929, guid: b90a5309af7b6f740b7b7387d1a6313a,
-        type: 3}
-      propertyPath: Sounds.Array.data[29].AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7232d1d57ffe9ec4eab1aa58d6b21af0, type: 3}
     - target: {fileID: 5052426196833350930, guid: b90a5309af7b6f740b7b7387d1a6313a,
         type: 3}
       propertyPath: m_RootOrder

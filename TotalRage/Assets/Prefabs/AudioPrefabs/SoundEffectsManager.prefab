@@ -277,3 +277,11 @@ MonoBehaviour:
     SpatialBlend: 0
     randomVolumeRange: 0
     randomPitchRange: 0
+  - Name: PurchaseSound
+    AudioClip: {fileID: 8300000, guid: 7232d1d57ffe9ec4eab1aa58d6b21af0, type: 3}
+    AudioRollOff: 0
+    volume: 0.15
+    pitch: 0.95
+    SpatialBlend: 0
+    randomVolumeRange: 0
+    randomPitchRange: 0
