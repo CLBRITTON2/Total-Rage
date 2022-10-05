@@ -36,6 +36,8 @@ TODO :
 
 - Update purchase system to include more weapon upgrades 
 - Map expansion
+- Increase wave difficulty
+- Weapon recoil
 
 ---
 
